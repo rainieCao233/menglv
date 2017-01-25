@@ -4,14 +4,14 @@ var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 var config = {
   // devtool: "cheap-module-eval-source-map",
-  devServer: {
-    contentBase: "./debug",//本地服务器所加载的页面所在的目录
-    colors: true,//终端中输出结果为彩色
-    historyApiFallback: true,//不跳转
-    inline: true//实时刷新
-  },
+  // devServer: {
+  //   contentBase: "./debug",//本地服务器所加载的页面所在的目录
+  //   colors: true,//终端中输出结果为彩色
+  //   historyApiFallback: true,//不跳转
+  //   inline: true//实时刷新
+  // },
   entry:{
-    app: ['webpack-dev-server/client?http://localhost:8080', './src/index.js']
+    app: ['./src/index.js']
   },
 
   output:{

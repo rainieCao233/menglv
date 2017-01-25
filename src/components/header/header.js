@@ -8,7 +8,7 @@ var Header = React.createClass({
   render:function(){
     return(
       <div className="header">
-        <h2>我是标题</h2>
+        
       </div>
     )
   }
