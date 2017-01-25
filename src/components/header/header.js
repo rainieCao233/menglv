@@ -4,11 +4,50 @@ var ReactDOM = require('react-dom')
 //CSS
 require("./header.css")
 
+//components
+var ALink = require("../alink/alink")
+
 var Header = React.createClass({
   render:function(){
     return(
-      <div className="header">
-        
+      <div id="header">
+        <div className="top_wrap">
+          <div className="login_wrap clearfix">
+            <div className="left">
+              <span className="welcome_txt">您好，欢迎来到萌驴户外旅行，来一场说走就做的旅行吧!</span>
+              <span className="sign">[<ALink href="">登录</ALink>]</span>
+              <span className="line">|</span>
+              <span className="sign">[<ALink href="">注册</ALink>]</span>
+            </div>
+            <div className="right">
+              <em className="qq_icon"></em>官方QQ群
+              <em className="kefu_icon"></em>客服QQ
+            </div>
+          </div>
+        </div>
+        <div className="bottom_wrap">
+          <div className="search_wrap clearfix">
+            <em className="logo_icon"></em>
+            <div className="search_input">
+              <div className="s_tab">
+                <span className="t_title">线 路 <em className="down_icon"></em></span>
+                <ul className="list">
+                  <li>日 期</li>
+                  <li>国 家</li>
+                </ul>
+              </div>
+              <input type="text" className="s_input" placeholder="" />
+              <a href="#" className="s_btn">搜 索</a>
+              <ul className="hot">
+                <li>喀纳斯</li>
+                <li>武功山</li>
+                <li>西藏</li>
+                <li>普吉岛</li>
+              </ul>
+            </div>
+            <em className="tel_icon"></em>
+          </div>
+        </div>
       </div>
     )
   }

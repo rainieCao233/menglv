@@ -18,12 +18,6 @@ var Homepage = React.createClass({
   render:function(){
     return(
       <div className="Homepage">
-        i am Homepage
-        {
-          tripList.items.map(function(value, index, array){
-            return <div key={index} >{value.id}</div>
-          })
-        }
       </div>
     )
   }

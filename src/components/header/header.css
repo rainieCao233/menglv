@@ -1,3 +1,132 @@
-.header{
-  color: red;
+#header{}
+#header .top_wrap{
+  background: #f8f8f8;
+  border-top: 1.5px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+#header .login_wrap{
+  width: 1200px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 30px;
+}
+#header .welcome_txt{
+  color: #bcbcbc;
+  margin-right: 10px;
+}
+#header .line,
+#header .sign{
+  color: #797979;
+}
+#header .line{
+  margin: 0 5px;
+}
+#header em.qq_icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("../../imgs/qq.png");
+  vertical-align:middle;
+  margin: 0 5px;
+}
+#header em.kefu_icon{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("../../imgs/kefu.png");
+  vertical-align:middle;
+  margin: 0 5px 0 20px;
+}
+#header .login_wrap .right{
+  color: #717171;
+}
+#header .search_wrap{
+  width: 1200px;
+  margin: 0 auto;
+  height: 120px;
+  padding: 5px;
+}
+#header em.logo_icon{
+  display: inline-block;
+  width: 239px;
+  height: 112px;
+  background: url("../../imgs/logo.png");
+  vertical-align:middle;
+}
+#header .search_input{
+  display: inline-block;
+  border: 2px solid #ff9c00;
+  margin: 0 132px;
+  position: relative;
+}
+#header .s_tab{
+  display: inline-block;
+  width: 105px;
+  line-height: 35px;
+  font-size: 14px;
+  text-align: center;
+  background: #f8f8f8;
+  color: #9a9a9a;
+  position: relative;
+  border-right: 2px solid #e5e5e5;
+}
+#header em.down_icon{
+  display: inline-block;
+  width: 11px;
+  height: 7px;
+  background: url("../../imgs/down.png");
+  vertical-align:middle;
+  margin-left: 5px;
+}
+#header .s_tab ul.list{
+  display: none;
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  top: 37px;
+  left: 0;
+}
+#header ul.list li{
+  list-style: none;
+  padding-left: 22px;
+}
+#header .s_tab:hover ul.list{
+  display: block;
+}
+#header .s_input{
+  display: inline-block;
+  width: 275px;
+  line-height: 35px;
+  border:0;
+  padding-left: 10px;
+}
+#header .s_input:focus{
+  outline: none;
+  border: 0;
+}
+#header a.s_btn{
+  display: inline-block;
+  width: 120px;
+  background: #ff9c00;
+  line-height: 33px;
+  border: 2px solid #ff9c00;
+  color: #fff;
+  text-align: center;
+}
+#header ul.hot{
+  position: absolute;
+  top: 43px;
+}
+#header ul.hot li{
+  float: left;
+  margin: 5px;
+  font-size: 13px;
+  color: #9b9b9b;
+}
+#header em.tel_icon{
+  display: inline-block;
+  width: 176px;
+  height: 38px;
+  background: url("../../imgs/tel.png");
+  vertical-align:middle;
 }
