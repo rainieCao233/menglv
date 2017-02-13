@@ -1,0 +1,86 @@
+#footer{
+	width: 100%;
+}
+#footer .i-footer-wrap{
+	width: 100%;
+	overflow: hidden;
+	background: #ff9c00;
+}
+#footer .i-footer{
+	background: url(../../imgs/footer.png);
+	width: 1200px;
+	height: 120px;
+	margin-left: 50%;
+	left: -600px;
+	position: relative;
+}
+#footer .detail_wrap{
+	padding-top: 40px;
+	width: 1200px;
+	margin: 0 auto;
+}
+#footer .detail{
+	overflow: hidden;
+}
+#footer .detail .about_wrap,
+#footer .detail .apply_wrap,
+#footer .detail .pay_wrap,
+#footer .detail .kefu_wrap{
+	float: left;
+	width: 170px;
+	display: inline-block;
+}
+#footer .detail .kefu_wrap{
+	width: 220px;
+}
+#footer .detail_wrap .QRCode_wrap{
+	width: 470px;
+	float: right;
+	display: inline-block;
+}
+#footer .detail_wrap .QRCode_wrap p{
+	font-size: 18px;
+	color: #ff9d07;
+	margin-bottom: 20px;
+	text-align: center;
+}
+#footer .wechat,
+#footer .QQ{
+	float: right;
+}
+#footer .wechat .i-wechat,
+#footer .QQ .i-qqgroup{
+	margin: 0 12px;
+}
+#footer .link{
+	/*display: block;*/
+	overflow: hidden;
+}
+#footer .link .url_wrap{
+	padding: 10px 10px;
+}
+#footer .link .url_wrap a{
+	display: inline-block;
+	margin: 0 10px;
+	text-decoration: none;
+	float: left;
+	color: #333;
+}
+#footer .detail .title{
+	font-size: 16px;
+	margin: 0 0 30px 10px;
+	display: inline-block;
+}
+#footer .detail ul.list{
+	font-size: 14px;
+	margin-left: 30px;
+}
+#footer .detail ul.list a{
+	color: #333;
+	line-height: 25px;
+}
+#footer .i-certification{
+	background: url(../../imgs/certification.png);
+	width: 1200px;
+	height: 100px;
+}

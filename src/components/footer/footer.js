@@ -8,52 +8,66 @@ var Footer = React.createClass({
   render:function() {
     return(
       <div id="footer">
-        <em className="icon i-footer"></em>
+        <div className="i-footer-wrap">
+          <em className="icon i-footer"></em> 
+        </div>
         <div className="detail_wrap">
-          <div className="about_wrap">
-            <ul>
-              <li><a href="#">萌馿簡介</a></li>
-              <li><a href="#">企業文化</a></li>
-              <li><a href="#">聯繫我們</a></li>
-            </ul>
-          </div>
-          <div className="apply_wrap">
-            <ul>
-              <li><a href="#">报名参加</a></li>
-              <li><a href="#">活动出票</a></li>
-              <li><a href="#">活动退出</a></li>
-            </ul>
-          </div>
-          <div className="pay_wrap">
-            <ul>
-              <li><a href="#">支付宝/网银</a></li>
-              <li><a href="#">活动出票</a></li>
-              <li><a href="#">活动退出</a></li>
-            </ul>
-          </div>
-          <div className="kefu_wrap">
-            <ul>
-              <li>客服QQ : 165223546</li>
-              <li>客服微信 : shml007</li>
-              <li>客服电话 : 021-37697991</li>
-              <li>客服邮箱 : csr@shmlhw.com</li>
-            </ul>
-          </div>
-          <div className="QRCode_wrap">
-            <div className="wechat">
-              <span>微信服务号</span>
-              <em className="icon i-wechat"></em>
+          <div className="detail">
+            <div className="about_wrap">
+              <em className="icon i-f_1"></em>
+              <span className="title">关于我们</span>
+              <ul className="list">
+                <li><a href="#">萌馿簡介</a></li>
+                <li><a href="#">企業文化</a></li>
+                <li><a href="#">聯繫我們</a></li>
+              </ul>
             </div>
-            <div className="QQ">
-              <span>QQ交流群</span>
-              <em className="icon i-qqgroup"></em>
+            <div className="apply_wrap">
+              <em className="icon i-f_2"></em>
+              <span className="title">报名流程</span>
+              <ul className="list">
+                <li><a href="#">报名参加</a></li>
+                <li><a href="#">活动出票</a></li>
+                <li><a href="#">活动退出</a></li>
+              </ul>
+            </div>
+            <div className="pay_wrap">
+              <em className="icon i-f_3"></em>
+              <span className="title">付款指南</span>
+              <ul className="list">
+                <li><a href="#">支付宝/网银</a></li>
+                <li><a href="#">活动出票</a></li>
+                <li><a href="#">活动退出</a></li>
+              </ul>
+            </div>
+            <div className="kefu_wrap">
+              <em className="icon i-f_4"></em>
+              <span className="title">客服服务</span>
+              <ul className="list">
+                <li>客服QQ : 165223546</li>
+                <li>客服微信 : shml007</li>
+                <li>客服电话 : 021-37697991</li>
+                <li>客服邮箱 : csr@shmlhw.com</li>
+              </ul>
+            </div>
+            <div className="QRCode_wrap">
+              <div className="wechat">
+                <p>微信服务号</p>
+                <em className="icon i-wechat"></em>
+              </div>
+              <div className="QQ">
+                <p>QQ交流群</p>
+                <em className="icon i-qqgroup"></em>
+              </div>
             </div>
           </div>
-          <span>友情链接:</span>
-          <div className="url_wrap">
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
+          <div className="link">
+            <span>友情链接:</span>
+            <div className="url_wrap">
+              <a href="#">test</a>
+              <a href="#">test1</a>
+              <a href="#">test2</a>
+            </div>
           </div>
           <em className="icon i-certification"></em>
         </div>
