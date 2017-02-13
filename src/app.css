@@ -71,3 +71,7 @@ hr {
  display:table;
  clear:both;
 }
+em.icon{
+  display: inline-block;
+  vertical-align: middle;
+}

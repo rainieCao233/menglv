@@ -7,6 +7,7 @@ var Footer = require("./components/footer/footer")
 
 //CSS
 require("./app.css")
+require("./sprite.css")
 
 var App = React.createClass({
 	render: function() {
@@ -14,6 +15,7 @@ var App = React.createClass({
 	  	<div id="app">
 				<Header />
         {this.props.children}
+				12312312321
 				<Footer location={this.props.location} />
 	  	</div>
 	  	);

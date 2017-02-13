@@ -11,6 +11,8 @@
 
   > npm install
 
+- gulp sprite 生成雪碧图
+
 - gulp debug为开发模式
 
 - gulp build为发布模式

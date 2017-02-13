@@ -2,9 +2,10 @@ var path = require('path')
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
-  devtool: 'cheap-source-map',
+  devtool: 'cheap-module-source-map',//生产环境生成sourcemap
   entry: {
     app: ["./src/index.js"]   //入口js
   },
@@ -32,17 +33,12 @@ var config = {
         loader: "json"
       },
       {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        loader: 'jsx-loader?harmony'
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query:{
-          presets:['react']
-        }
+        test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loader: 'babel',
+				query: {
+					presets: ['react', 'es2015']
+				}
       },
       {
         test: /\.css$/,
@@ -50,7 +46,7 @@ var config = {
       },
       {
           test:/.(png)|(jpg)$/,
-          loader: 'url-loader?limit=10000&name=img/[name].[ext]'   //10k以下图片变成base64
+          loader: 'url-loader?limit=1&name=imgs/[name].[ext]'   //不变图片
       }
     ]
   },
@@ -59,7 +55,7 @@ var config = {
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env':{
-        'NODE_ENV':JSON.stringify('production')
+        'NODE_ENV':JSON.stringify('prod')
       }
     }),
     new uglifyJsPlugin({
@@ -70,9 +66,21 @@ var config = {
         warnings: false
       }
     }),
-    new ExtractTextPlugin("css_[contenthash:16].css")
+    new ExtractTextPlugin("css_[contenthash:16].css"),
+    new HtmlWebpackPlugin({
+      title: 'index',
+      filename: 'index.html',
+      template:'./src/template.html',
+      isdev: false
+    }),
+    new HtmlWebpackPlugin({
+      title: '22',
+      filename: '22.html',
+      template:'./src/template.html',
+      isdev: false
+    })
   ]
 }
 
-console.log("----------good luck----------")
+console.log("----------production environment----------")
 module.exports = config;

@@ -20,17 +20,17 @@ var Header = React.createClass({
               <span className="sign">[<ALink href="">注册</ALink>]</span>
             </div>
             <div className="right">
-              <em className="qq_icon"></em>官方QQ群
-              <em className="kefu_icon"></em>客服QQ
+              <em className="icon i-qq"></em>官方QQ群
+              <em className="icon i-kefu"></em>客服QQ
             </div>
           </div>
         </div>
         <div className="bottom_wrap">
           <div className="search_wrap clearfix">
-            <em className="logo_icon"></em>
+            <em className="icon i-logo"></em>
             <div className="search_input">
               <div className="s_tab">
-                <span className="t_title">线 路 <em className="down_icon"></em></span>
+                <span className="t_title">线 路 <em className="icon-down_icon"></em></span>
                 <ul className="list">
                   <li>日 期</li>
                   <li>国 家</li>
@@ -45,7 +45,7 @@ var Header = React.createClass({
                 <li>普吉岛</li>
               </ul>
             </div>
-            <em className="tel_icon"></em>
+            <em className="icon i-tel"></em>
           </div>
         </div>
       </div>
