@@ -40,11 +40,11 @@ var Footer = React.createClass({
             </ul>
           </div>
           <div className="QRCode_wrap">
-            <div class="wechat">
+            <div className="wechat">
               <span>微信服务号</span>
               <em className="wechat_icon"></em>
             </div>
-            <div class="QQ">
+            <div className="QQ">
               <span>QQ交流群</span>
               <em className="qqgroup_icon"></em>
             </div>
@@ -57,7 +57,7 @@ var Footer = React.createClass({
           </div>
           <em className="certification_icon"></em>
         </div>
-        <div class="license_wrap">
+        <div className="license_wrap">
         </div>
       </div>
     )
