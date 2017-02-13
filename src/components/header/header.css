@@ -21,22 +21,6 @@
 #header .line{
   margin: 0 5px;
 }
-#header em.qq_icon{
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background: url("../../imgs/qq.png");
-  vertical-align:middle;
-  margin: 0 5px;
-}
-#header em.kefu_icon{
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background: url("../../imgs/kefu.png");
-  vertical-align:middle;
-  margin: 0 5px 0 20px;
-}
 #header .login_wrap .right{
   color: #717171;
 }
@@ -45,13 +29,6 @@
   margin: 0 auto;
   height: 120px;
   padding: 5px;
-}
-#header em.logo_icon{
-  display: inline-block;
-  width: 239px;
-  height: 112px;
-  background: url("../../imgs/logo.png");
-  vertical-align:middle;
 }
 #header .search_input{
   display: inline-block;
@@ -69,14 +46,6 @@
   color: #9a9a9a;
   position: relative;
   border-right: 2px solid #e5e5e5;
-}
-#header em.down_icon{
-  display: inline-block;
-  width: 11px;
-  height: 7px;
-  background: url("../../imgs/down.png");
-  vertical-align:middle;
-  margin-left: 5px;
 }
 #header .s_tab ul.list{
   display: none;
@@ -122,11 +91,4 @@
   margin: 5px;
   font-size: 13px;
   color: #9b9b9b;
-}
-#header em.tel_icon{
-  display: inline-block;
-  width: 176px;
-  height: 38px;
-  background: url("../../imgs/tel.png");
-  vertical-align:middle;
 }

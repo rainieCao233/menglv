@@ -8,7 +8,7 @@ var Footer = React.createClass({
   render:function() {
     return(
       <div id="footer">
-        <em className="footer_icon"></em>
+        <em className="icon i-footer"></em>
         <div className="detail_wrap">
           <div className="about_wrap">
             <ul>
@@ -40,13 +40,13 @@ var Footer = React.createClass({
             </ul>
           </div>
           <div className="QRCode_wrap">
-            <div class="wechat">
+            <div className="wechat">
               <span>微信服务号</span>
-              <em className="wechat_icon"></em>
+              <em className="icon i-wechat"></em>
             </div>
-            <div class="QQ">
+            <div className="QQ">
               <span>QQ交流群</span>
-              <em className="qqgroup_icon"></em>
+              <em className="icon i-qqgroup"></em>
             </div>
           </div>
           <span>友情链接:</span>
@@ -55,9 +55,9 @@ var Footer = React.createClass({
             <a href="#"></a>
             <a href="#"></a>
           </div>
-          <em className="certification_icon"></em>
+          <em className="icon i-certification"></em>
         </div>
-        <div class="license_wrap">
+        <div className="license_wrap">
         </div>
       </div>
     )

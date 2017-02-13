@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require("webpack")
-var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+// var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
   // devtool: "cheap-module-eval-source-map",
@@ -11,11 +12,11 @@ var config = {
   //   inline: true//实时刷新
   // },
   entry:{
-    app: ['./src/index.js']
+    app: ['webpack/hot/only-dev-server', './src/index.js']
   },
 
   output:{
-    path: path.resolve(__dirname, '/debug'),
+    path: path.resolve(__dirname, ''),
     filename: "bundle.js"
   },
 
@@ -25,31 +26,15 @@ var config = {
   },
 
   module:{
-    perLoaders: [
-      {
-        test: /\.jsx?$/,
-        include: path.resolve(__dirname, '/debug'),
-        loader: 'jshint-loader'
-      }
-    ],
-
     loaders: [
       {
         test: /\.json$/,
         loader: "json"
       },
       {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        loader: 'jsx-loader?harmony'
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query:{
-          presets:['es2015','react']
-        }
+        test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loaders: ['react-hot','babel']
       },
       {
         test:/\.css$/,
@@ -57,19 +42,28 @@ var config = {
       },
       {
         test:/.(png)|(jpg)$/,
-        loader: 'url-loader?limit=10000&name=img/[name].[ext]'   //10k以下图片变成base64
+        loader: 'url-loader?limit=10000&name=imgs/[name].[ext]'   //10k以下图片变成base64
       }
     ]
   },
 
-  jshint: {
-    "esnext": true
-  },
-
   plugins: [
-    new webpack.optimize.DedupePlugin()
-  ]
+      new webpack.optimize.DedupePlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        title: 'index',
+        filename: 'index.html',
+        template:'./src/template.html',
+        isdev: true
+      }),
+      new HtmlWebpackPlugin({
+        title: '22',
+        filename: '22.html',
+        template:'./src/template.html',
+        isdev: true
+      })
+    ]
 }
 
-console.log("----------have fun----------")
+console.log("----------development environment----------")
 module.exports = config;
