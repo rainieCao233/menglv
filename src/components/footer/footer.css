@@ -85,3 +85,11 @@
 	height: 80px;
 	background-size:100% 100%;
 }
+#footer .license_wrap{
+	text-align: center;
+	font-size: 14px;
+	line-height: 21px;
+	padding: 20px 0 70px 0;
+	background: #525252;
+	color:#fff;
+}

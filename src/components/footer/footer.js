@@ -64,14 +64,18 @@ var Footer = React.createClass({
           <div className="link">
             <span>友情链接:</span>
             <div className="url_wrap">
-              <a href="#">test</a>
-              <a href="#">test1</a>
-              <a href="#">test2</a>
+              <a href="#">坝上摄影</a>
+              <a href="#">额济纳摄影</a>
+              <a href="#">新疆摄影</a>
+              <a href="#">东北摄影</a>
             </div>
           </div>
           <em className="icon i-certification"></em>
         </div>
         <div className="license_wrap">
+          <div>萌驴旅行有限公司，旅行社业务经营许可证编号：BJ-CJ00144</div>
+          <div>Copyright © 2006-2016 南京途牛科技有限公司 Mengl.com | 营业执照 | ICP证:浙-20130006 | 浙ICP备12009060号 | 上海旅行网</div>
+          <div>上海市互联网违法和不良信息举报中心电话（021-55056666）旅行违法行为举报电话（12318）服务质量投诉电话（962020）</div>
         </div>
       </div>
     )

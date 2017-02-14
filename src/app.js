@@ -13,10 +13,9 @@ var App = React.createClass({
 	render: function() {
 	  return (
 	  	<div id="app">
-				<Header />
-        {this.props.children}
-				12312312321
-				<Footer location={this.props.location} />
+			<Header />
+        		{this.props.children}
+			<Footer location={this.props.location} />
 	  	</div>
 	  	);
 	}
