@@ -82,5 +82,6 @@
 #footer .i-certification{
 	background: url(../../imgs/certification.png);
 	width: 1200px;
-	height: 100px;
+	height: 80px;
+	background-size:100% 100%;
 }
