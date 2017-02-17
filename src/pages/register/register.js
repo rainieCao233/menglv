@@ -6,6 +6,7 @@ require("./register.css")
 
 //components
 var Helper = require("../../components/helper/helper")
+var validator = require("../../components/helper/validator")
 
 var Register = React.createClass({
   getInitialState:function(){
@@ -13,6 +14,46 @@ var Register = React.createClass({
     }
   },
   componentDidMount:function(){
+  },
+  toRegister:function(){
+    var self = this,
+        data = [{
+                "name":"name",
+                "value":self.refs.name.value == ""?false:true
+              },
+              {
+                "name":"email",
+                "value":validator.isEmail(self.refs.email.value)
+              },
+              {
+                "name":"password",
+                "value":self.refs.password.value == ""?false:true
+              },
+              {
+                "name":"phone",
+                "value":validator.isPhone(self.refs.phone.value)
+              }];
+      for (var i = 0; i < data.length; i++) {
+        if(!data[i].value){
+          alert(data[i].name + " error");
+          self.refs[data[i].name].value = "";
+          self.refs[data[i].name].focus();
+          return false;
+        }
+        if(i == 3){
+          self.postRequest(data,this.refs.vip.checked);
+        }
+      }
+  },
+  postRequest:function(data,checked){
+    var _self = this;
+		Helper.send("",{})
+			.success(function(res){
+				console.log(res);
+			})
+			.error(function(req){
+				console.log(req)
+			});
   },
   render:function(){
     return(
@@ -22,12 +63,22 @@ var Register = React.createClass({
       			用户注册
       			<span>已有帐号去登陆</span>
       		</div>
-      		*用户姓名：<input type="text" />
-      		*常用邮箱：<input type="text" />
-      		*用户密码：<input type="text" />
-      		*手机号码：<input type="text" />
-      		<input type="checkbox" />我要成为萌旅会员
-      		<a href="#" className="register_btn">注册</a>
+          <div className="input_wrap">
+            *用户姓名：<input type="text" ref="name"/>
+          </div>
+          <div className="input_wrap">
+            *常用邮箱：<input type="text" ref="email"/>
+          </div>
+          <div className="input_wrap">
+            *用户密码：<input type="password" ref="password"/>
+          </div>
+          <div className="input_wrap">
+            *手机号码：<input type="text" ref="phone"/>
+          </div>
+          <div className="checkbox">
+            <input type="checkbox" ref="vip" />我要成为萌旅会员
+          </div>
+      		<a href="javascript:void(0);" className="register_btn" onClick={this.toRegister}>注册</a>
       	</div>
       </div>
     )

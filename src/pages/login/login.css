@@ -1,8 +1,8 @@
-#register{
+#login{
 	padding: 170px 0;
 	background: url(../../imgs/bg.jpg);
 }
-#register .wrap{
+#login .wrap{
 	width: 600px;
 	height: 420px;
 	background: rgba(255, 255, 255, 0.6);
@@ -10,38 +10,44 @@
 	box-sizing:border-box;
 	padding: 25px 80px 40px 80px;
 }
-#register .wrap .title{
+#login .wrap .title{
 	line-height: 35px;
 	font-size: 18px;
 	text-align: left;
 	border-bottom: 1px solid #7d7d7d;
 	margin-bottom:20px;
 }
-#register .wrap .title span{
+#login .wrap .title a,
+#login .checkbox .forget_pw{
 	text-align: right;
 	font-size: 13px;
 	display: inline-block;
 	float: right;
 	color: #28739a;
 }
-#register .input_wrap {
+#login .input_wrap {
 	margin: 0 20px 10px 20px;
 	font-size: 14px;
 }
-#register .input_wrap input{
+#login .input_wrap span{
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+#login .input_wrap input{
 	line-height: 40px;
 	height: 40px;
 	width: 270px;
 	margin-left: 10px;
 }
-#register .checkbox{
+#login .checkbox{
 	line-height: 40px;
-	padding-left: 100px;
+	padding: 0 60px 0 100px;
 }
-#register .checkbox input{
+#login .checkbox input{
 	margin-right: 5px;
 }
-#register a.register_btn{
+#login a.login_btn{
 	display: inline-block;
 	width: 270px;
 	line-height: 40px;
@@ -49,4 +55,23 @@
 	margin:10px 0 0 80px;
 	background: #ff9c00;
 	color: #fff;
+}
+#login .wrap hr{
+  height:1px;
+  border:none;
+  border-top:1px solid #7d7d7d;
+  margin: 30px 0 25px 0;
+}
+#login .tip{
+	font-size: 13px;
+	display: inline-block;
+	color: #28739a;
+}
+#login a.firm_icon{
+  display: block;
+  margin-top: 10px;
+  clear: both;
+}
+#login .i-wechat-firm{
+  border-radius: 5px;
 }

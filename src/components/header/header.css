@@ -14,6 +14,10 @@
   color: #bcbcbc;
   margin-right: 10px;
 }
+#header .i-qq,
+#header .i-kefu{
+  margin:0 5px;
+}
 #header .line,
 #header .sign{
   color: #797979;
@@ -43,9 +47,11 @@
   font-size: 14px;
   text-align: center;
   background: #f8f8f8;
-  color: #9a9a9a;
   position: relative;
   border-right: 2px solid #e5e5e5;
+}
+#header .s_tab .t_title{
+  color: #9a9a9a;
 }
 #header .s_tab ul.list{
   display: none;
@@ -58,6 +64,7 @@
 #header ul.list li{
   list-style: none;
   padding-left: 22px;
+  color: #9b9b9b;
 }
 #header .s_tab:hover ul.list{
   display: block;
@@ -91,4 +98,5 @@
   margin: 5px;
   font-size: 13px;
   color: #9b9b9b;
+  list-style: none;
 }

@@ -18,7 +18,7 @@ var Homepage = React.createClass({
   render:function(){
     return(
       <div className="Homepage">
-      123123123
+      
       </div>
     )
   }

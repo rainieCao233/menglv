@@ -1,0 +1,98 @@
+#customize{
+  padding: 80px 0 20px 0;
+  background: url(../../imgs/bg.jpg);
+}
+#customize .wrap{
+  width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing:border-box;
+  padding-bottom: 20px;
+}
+#customize .wrap .title{
+  line-height: 60px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  background: #ff9c00;
+  margin-bottom: 25px;
+}
+#customize .wrap .slogan{
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  margin-bottom: 40px;
+}
+#customize .wrap .namebar{
+  display: block;
+  width: 135px;
+  line-height: 30px;
+  color: #fff;
+  font-size: 14px;
+  background: #ff9c00;
+  text-align: center;
+  border-radius: 5px;
+}
+#customize .wrap ul.list,
+#customize .wrap .otherreq,
+#customize .wrap .linkman{
+  padding:0 200px;
+}
+#customize .wrap ul.list input[type=text]{
+  line-height: 25px
+}
+#customize .wrap ul.list li{
+  line-height: 50px;
+  width: 33%;
+  list-style: none;
+  float: left;
+}
+#customize .wrap ul.list li input[type=radio]{
+  display: none;
+}
+#customize .wrap ul.list li label{
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  padding: 9px;
+  border-radius: 50px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+#customize .wrap ul.list li input[type=radio]:checked + label:after {
+    content: ' ';
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    position: absolute;
+    top: 3px;
+    background: #99a1a7;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+    text-shadow: 0px;
+    left: 3px;
+    font-size: 32px;
+}
+#customize .wrap .textarea{
+  width: 100%;
+  margin: 25px 30px 30px 30px;
+  height: 70px;
+  font-size: 12px;
+  line-height: 17px;
+  resize:none;
+}
+#customize .wrap .linkman .tip{
+  margin: 20px 0 20px 20px;
+  font-size: 12px;
+  color: #676767;
+}
+#customize .wrap .info{
+  margin: 20px 0 20px 20px;
+  color: #676767;
+  font-size: 14px;
+}
+#customize .wrap .info input{
+  line-height: 25px;
+}
