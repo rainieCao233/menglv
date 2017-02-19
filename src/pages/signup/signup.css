@@ -17,3 +17,121 @@
   background: #43b413;
   margin-bottom: 25px;
 }
+#signup .main{
+  margin: 25px 200px;
+}
+#signup .main .input_wrap{
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+#signup .main .input_wrap input{
+  line-height: 40px;
+  height: 40px;
+  width: 365px;
+}
+#signup .main a.signup_btn{
+  display: inline-block;
+  width: 270px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 14px;
+  background: #ff9c00;
+  margin: 40px 0 25px 233px;
+}
+#signup .main .discount{
+  padding: 20px 10px;
+  border-top: 1px dotted #bdbdbd;
+  position: relative;
+}
+#signup .discount h4{
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ff9c00;
+}
+#signup .discount .name{
+  font-size: 13px;
+  line-height: 25px;
+}
+#signup .discount .ruler{
+  font-size: 13px;
+  line-height: 25px;
+  color: #676767;
+}
+#signup .discount .detail_btn{
+  color: #3e609f;
+  line-height: 30px;
+}
+#signup .discount .price{
+  position: absolute;
+  top: 40px;
+  right: 0px;
+}
+#signup .discount .price span{
+  font-size: 14px;
+}
+#signup .discount .price b.before{
+  color: #676767;
+  text-decoration:line-through;
+  font-size: 14px;
+  margin-right: 10px;
+}
+#signup .discount .price b.now{
+  color: red;
+  font-size: 16px;
+}
+#signup .discount .counter{
+  position: absolute;
+  right: 0;
+  top: 100px;
+}
+#signup .discount h4 span{
+  color: #65be48;
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 14px;
+}
+#signup .discount .detail{
+  margin-top: 10px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #676767;
+}
+#signup .discount .detail b{
+  color: #000;
+}
+#signup .discount .tip{
+  color: #6d6b67;
+  margin-top: 20px; 
+  line-height: 25px;
+}
+#signup .discount .must_wrap{
+  color: #000;
+}
+#signup .discount a.must_know{
+  display: inline-block;
+  margin-left: 15px;
+  color: #43b413;
+}
+#signup .main .total{
+  float: right;
+}
+#signup .main .total b{
+  display: inline-block;
+  margin:0 15px;
+  color: red;
+  font-size: 14px;
+}
+#signup .main .total a.submit_btn{
+  font-size: 16px;
+  color: #fff;
+  display: inline-block;
+  width: 170px;
+  text-align: center;
+  background-color: #43b413;
+  line-height: 50px;
+  margin-left: 20px;
+}
