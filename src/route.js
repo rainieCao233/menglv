@@ -12,15 +12,17 @@ var Homepage = require("./pages/homepage/homepage")
 var Register = require("./pages/register/register")
 var Login = require("./pages/login/login")
 var Customize = require("./pages/customize/customize")
+var Signup = require("./pages/signup/signup")
 
 var routes =
     <Route path='/' component={App}>
-    	<IndexRoute component={Customize} />
+    	<IndexRoute component={Signup} />
       	<Route path="/homepage" component={Homepage} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       	<Route path="/customize" component={Customize} />
-      	<Route path="*" component={Customize} />
+      	<Route path="/signup" component={Signup} />
+      	<Route path="*" component={Signup} />
     </Route>
 
 var routerCfg = (

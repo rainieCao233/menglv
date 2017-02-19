@@ -71,13 +71,13 @@ var Customize = React.createClass({
             <span className="namebar">联系人信息</span>
             <p className="tip">请留下您的联系方式，我们会为您指派专属的服务人员，为您提供专属的服务内容</p>
             <div className="info">
-              姓名 * : <input type="text" name="" value="" />
+              姓名 * : <input type="text" name="name" value="" />
             </div>
             <div className="info">
-              手机 * : <input type="text" name="" value="" />
+              手机 * : <input type="text" name="tel" value="" />
             </div>
             <div className="info">
-              QQ/微信/E-mail * : <input type="text" name="" value="" />
+              QQ/微信/E-mail * : <input type="text" name="link" value="" />
             </div>
             <p className="tip">备注：在手机无法连接通信情况下预留在线的联系方式，以防第三方软件屏蔽电话号码</p>
           </div>
