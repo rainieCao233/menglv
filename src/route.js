@@ -17,14 +17,14 @@ var Detail = require("./pages/detail/detail")
 
 var routes =
     <Route path='/' component={App}>
-    	<IndexRoute component={Detail} />
+    	<IndexRoute component={Homepage} />
       	<Route path="/homepage" component={Homepage} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       	<Route path="/customize" component={Customize} />
         <Route path="/signup" component={Signup} />
       	<Route path="/detail" component={Detail} />
-      	<Route path="*" component={Detail} />
+      	<Route path="*" component={Homepage} />
     </Route>
 
 var routerCfg = (
