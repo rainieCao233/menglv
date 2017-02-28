@@ -63,7 +63,6 @@
   left: 0;
 }
 #header ul.list li{
-  list-style: none;
   padding-left: 22px;
   color: #9b9b9b;
 }
@@ -85,7 +84,7 @@
   display: inline-block;
   width: 120px;
   background: #ff9c00;
-  line-height: 33px;
+  line-height: 35px;
   border: 2px solid #ff9c00;
   color: #fff;
   text-align: center;
@@ -99,5 +98,4 @@
   margin: 5px;
   font-size: 13px;
   color: #9b9b9b;
-  list-style: none;
 }

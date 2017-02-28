@@ -44,7 +44,6 @@
 #customize .wrap ul.list li{
   line-height: 50px;
   width: 33%;
-  list-style: none;
   float: left;
 }
 #customize .wrap ul.list li input[type=radio]{

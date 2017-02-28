@@ -104,6 +104,9 @@ hr {
 input, select {
     vertical-align:middle;
 }
+ul li{
+    list-style: none;
+}
 #app{
   width: 100%;
 }

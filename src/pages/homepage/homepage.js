@@ -17,8 +17,19 @@ var Homepage = React.createClass({
   },
   render:function(){
     return(
-      <div className="Homepage">
-      
+      <div id="homepage">
+        <div className="topbar">插件topbar</div>
+        <div className="slider_wrap">
+          <div className="slider">
+            <div className="category">
+              <ul>
+                <h4></h4>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="wrap"></div>
       </div>
     )
   }

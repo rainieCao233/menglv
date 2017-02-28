@@ -1,0 +1,36 @@
+#enrollmentSituation{
+	margin-top: 15px;
+}
+#enrollmentSituation .wrap{
+	width: 300px;
+    border: 1px solid #e0e0e0;
+    padding: 0;
+}
+#enrollmentSituation .wrap h4{
+	background: #f6f6f6;
+    padding-left: 15px;
+    line-height: 50px;
+    border-bottom: 1px solid #e0e0e0;
+	font-size: 14px;
+}
+#enrollmentSituation .wrap ul{
+	padding: 0 10px 10px 10px;
+}
+#enrollmentSituation .wrap ul li{
+	padding: 10px 0;
+	line-height: 24px;
+	font-size: 14px;
+	border-bottom: 1px dotted #e0e0e0;
+}
+#enrollmentSituation .wrap ul li span{
+	color: #797979;
+	font-size: 14px;
+}
+#enrollmentSituation .wrap ul li span b{
+	color: #ffa324;
+	font-size: 14px;
+}
+#enrollmentSituation .wrap ul li a.title{
+	color: #7f92ba;
+	cursor: pointer;
+}
