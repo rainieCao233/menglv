@@ -16,9 +16,130 @@
 #homepage .slider{
 	width: 1200px;
 	margin: 0 auto;
-	background: #ddd;
+	width: 1200px;
+	height: 455px;
+	position: relative;
+}
+#homepage .category{
+	width: 250px;
+	height: 450px;
+	background: rgba(0, 0, 0, 0.35);
+	padding: 20px 6px;
+	box-sizing:border-box;
+	position:absolute; 
+	top: 0;
+	left: 0;
+}
+#homepage .category ul{
+	border-bottom: 1px solid #8e99a2;
+	width: 100%;
+}
+#homepage .category ul li{
+	float: left;
+	width: 33%;
+	vertical-align: middle;
+	text-align: left;
+}
+#homepage .category ul.blist,
+#homepage .category ul.clist{
+	margin-top: 20px;
+}
+#homepage .category ul .title span{
+	font-size: 14px;
+	line-height: 22px;
+	color: #fff;
+	display: inline-block;
+	margin-left: 10px;
+}
+#homepage .category ul .items{
+	padding: 15px 0 20px 0;
+}
+#homepage .category ul .items li{
+	font-size: 12px;
+	color: #fff;
+	line-height: 20px;
+}
+#homepage .aaa{
+	position: absolute;
+	left: 250px;
+}
+#homepage .selfinfo{
+	position: absolute;
+	right: 0;
+	width: 250px;
+	height: 450px;
+	background: rgba(0, 0, 0, 0.35);
+	text-align: center;
+}
+#homepage .selfinfo .i-avator{
+	margin-top: 10px;
+}
+#homepage .selfinfo ul{
+	margin-top: 25px;
+}
+#homepage .selfinfo ul li{
+	font-size: 14px;
+	color: #fff;
+	line-height: 30px;
+}
+#homepage .selfinfo .i-nav-right{
+	zoom: 1.17;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#homepage .pic_wrap{
+	width: 100%;
+	position: relative;
+	height: 120px;
+	overflow: hidden;
+}
+#homepage .hp-1,
+#homepage .hp-2,
+#homepage .hp-3{
+	position: absolute;
+	display: inline-block;
+	width: 1200px;
+	height: 120px;
+	margin-left: -600px;
+    left: 50%;
+	background: url(../../imgs/hp-1.png);
+	background-size: 100% 100%;
+}
+#homepage .hp-2{
+	background: url(../../imgs/hp-2.png);
+	height: 130px;
+}
+#homepage .hp-3{
+	background: url(../../imgs/detail_footer.png);
 }
 #homepage .wrap{
 	width:1200px;
 	margin: 0 auto;
+}
+#homepage ul.record {
+    width: 100%;
+    text-align: center;
+    width: 1050px;
+    margin: 0 auto;
+}
+#homepage ul.record li {
+    float: left;
+    width: 150px;
+    height: 150px;
+    border: 15px solid #80c7bf;
+    border-radius: 50% 50%;
+    margin: 25px;
+    line-height: 30px;
+    color: #6f6f6f;
+    font-weight: 700;
+    padding: 25px 0 0 0;
+    box-sizing: border-box;
+}
+#homepage ul.record li span {
+    color: #c8c8c8;
+}
+#homepage ul.record li span b {
+    color: #8bebe9;
+    font-size: 28px;
 }

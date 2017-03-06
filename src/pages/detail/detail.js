@@ -8,6 +8,7 @@ require("./detail.css")
 var Helper = require("../../components/helper/helper")
 var Recommendation = require("../../components/recommendation/recommendation")
 var Ad = require("../../components/ad/ad")
+var Topbar = require("../../components/topbar/topbar")
 var EnrollmentSituation = require("../../components/enrollmentSituation/enrollmentSituation")
 
 var Detail = React.createClass({
@@ -44,7 +45,7 @@ var Detail = React.createClass({
   render:function(){
     return(
       <div id="detail">
-        <div className="topbar">插件topbar</div>
+        <Topbar />
       	<div className="wrap clearfix">
       		<div className="breadcrumb">您当前的位置：首页 / 短途旅行</div>
           <div className="intro_wrap clearfix">
