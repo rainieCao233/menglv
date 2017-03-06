@@ -56,12 +56,12 @@ var config = {
         template:'./src/template.html',
         isdev: true
       }),
-      new HtmlWebpackPlugin({
-        title: '22',
-        filename: '22.html',
-        template:'./src/template.html',
-        isdev: true
-      })
+      // new HtmlWebpackPlugin({
+      //   title: '22',
+      //   filename: '22.html',
+      //   template:'./src/template.html',
+      //   isdev: true
+      // })
     ]
 }
 
