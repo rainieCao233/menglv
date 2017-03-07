@@ -14,6 +14,7 @@ var Login = require("./pages/login/login")
 var Customize = require("./pages/customize/customize")
 var Signup = require("./pages/signup/signup")
 var Detail = require("./pages/detail/detail")
+var Screening = require("./pages/screening/screening")
 
 var routes =
     <Route path='/' component={App}>
@@ -23,6 +24,7 @@ var routes =
         <Route path="/login" component={Login} />
       	<Route path="/customize" component={Customize} />
         <Route path="/signup" component={Signup} />
+        <Route path="/screening" component={Screening} />
       	<Route path="/detail" component={Detail} />
       	<Route path="*" component={Homepage} />
     </Route>

@@ -1,0 +1,112 @@
+#screening{
+	width: 100%;
+	background: #e8e8e8;
+}
+#screening em.screening{
+	display: block;
+	width: 100%;
+	height: 180px;
+	background: url(../../imgs/screening.png);
+	background-size: 100% 100%;
+}
+#screening .wrap{
+	width: 1200px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 25px 5px;
+}
+#screening .wrap .screening_wrap{
+	width: 860px;
+}
+#screening .wrap .screening_wrap .row{
+	border:1px solid #f7f7f7;
+	margin-bottom: 5px;
+}
+#screening .wrap .screening_wrap .input_name{
+	display: inline-block;
+	width: 130px;
+	height: 35px;
+	line-height: 35px;
+	background: #92b527;
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+}
+#screening .wrap .screening_wrap .input_wrap{
+	display: inline-block;
+	margin-left: 10px;
+}
+#screening .wrap .screening_wrap .tab_wrap{
+	position: relative;
+	margin-right: 20px;
+}
+#screening .wrap .screening_wrap .tab_wrap span{
+	color: #b4b4b4;
+	background-color: #fff;
+	width: 42px;
+	line-height: 30px;
+	display: inline-block;
+	text-align: center;
+}
+#screening .wrap .screening_wrap .tab_wrap.lg span{
+	width: 60px;
+}
+#screening .wrap .screening_wrap .tab_wrap input{
+	position: absolute;
+	width: 42px;
+	height: 30px;
+	margin: 0;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+#screening .wrap .screening_wrap .tab_wrap input:checked + span{
+	color: #9c9c9c;
+	background-color: #e8e8e6;
+}
+#screening .wrap .operate_wrap{
+	width: 858px;
+	line-height: 35px;
+	border:1px solid #e8e8e8;
+	border-left:2px solid #ff9d00;
+	background: #f6f6f6;
+}
+#screening .wrap .operate_wrap span.title,
+#screening .wrap .operate_wrap span.input{
+	color: #979797;
+	font-size: 15px;
+	display: inline-block;
+	height: 35px;
+}
+#screening .wrap .operate_wrap span.title{
+	padding: 0 20px;
+}
+#screening .wrap .operate_wrap span.input{
+	position: relative;
+}
+#screening .operate_wrap span.input input{
+	position: absolute;
+	width: 70px;
+	height: 35px;
+	margin: 0;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+#screening .operate_wrap span.input span{
+	display: inline-block;
+	width: 70px;
+	height: 35px;
+	text-align: center;
+	border-left: 1px solid #e8e8e8;
+}
+#screening .operate_wrap span.input:last-child{
+	border-right: 1px solid #e8e8e8;
+}
+#screening .operate_wrap span.input input:checked + span{
+	background: #fff;
+}
+#screening .operate_wrap em.i-lb,
+#screening .operate_wrap em.i-tw{
+	margin-right:5px;
+}

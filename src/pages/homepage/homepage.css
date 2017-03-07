@@ -117,6 +117,119 @@
 	width:1200px;
 	margin: 0 auto;
 }
+#homepage .tab_wrap{
+	margin-top: 10px;
+	border-bottom: 2px solid #ff9d00;
+}
+#homepage .tab_wrap .tab{
+	position: relative;
+	text-align: center;
+	display: inline-block;
+}
+#homepage .tab_wrap span{
+	font-size: 18px;
+	color: #ff9d00;
+	width: 200px;
+	line-height: 50px;
+	display: inline-block;
+}
+#homepage .tab_wrap input{
+	width: 200px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	opacity: 0;
+}
+#homepage .tab_wrap input:checked + span{
+	background:#ff9d00;
+	color: #fff;
+}
+#homepage .case_wrap{
+	padding: 10px 0;
+	box-sizing:border-box;
+}
+#homepage #case2,
+#homepage #case3{
+	display: none;
+}
+#homepage .case_wrap .left{
+	margin-right: 10px;
+	width: 370px;
+}
+#homepage .case_wrap .left .case{
+	display: inline-block;
+	width: 370px;
+	height: 230px;
+	background: url(../../imgs/case-1.png);
+	background-size: 100% 100%;
+	margin-bottom: 10px;
+}
+#homepage .case_wrap ul.right{
+	width: 810px;
+}
+#homepage .case_wrap ul.right li{
+	float: left;
+	width: 33%;
+	margin-bottom: 10px;
+}
+#homepage .case_wrap ul.right em.item{
+	display: inline-block;
+	width: 260px;
+	height: 160px;
+	background: url(../../imgs/case-2.png);
+	background-size: 100% 100%;
+}
+#homepage .case_wrap ul.right h4{
+	font-size: 14px;
+	line-height: 24px;
+	width: 260px;
+	position: relative;
+}
+#homepage .case_wrap ul.right .price{
+	font-size: 14px;
+	color: #c7c7c7;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#homepage .case_wrap ul.right .price b{
+	color: #ff9d00;
+	font-size: 14px;
+}
+#homepage .case_wrap ul.right .timestamp{
+	font-size: 16px;
+	line-height: 26px;
+	color: #c7c7c7;
+}
+#homepage ul.leader_wrap{
+	margin: 6px 0;
+}
+#homepage ul.leader_wrap li{
+	width: 200px;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+#homepage ul.leader_wrap li em.leader{
+	display: inline-block;
+	width: 185px;
+	height: 290px;
+	background: url(../../imgs/leader.png);
+	background-size: 100% 100%;
+}
+#homepage ul.leader_wrap li span{
+	display: inline-block;
+	width: 185px;
+	font-size: 14px;
+	line-height: 35px;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	bottom: 0;
+	left: 7.5px;
+}
 #homepage ul.record {
     width: 100%;
     text-align: center;
