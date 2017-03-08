@@ -70,6 +70,7 @@
 	border:1px solid #e8e8e8;
 	border-left:2px solid #ff9d00;
 	background: #f6f6f6;
+	margin-top: 20px;
 }
 #screening .wrap .operate_wrap span.title,
 #screening .wrap .operate_wrap span.input{
@@ -109,4 +110,43 @@
 #screening .operate_wrap em.i-lb,
 #screening .operate_wrap em.i-tw{
 	margin-right:5px;
+}
+#screening ul.triplist{
+	width: 840px;
+}
+#screening .ad-wrap{
+    width: 303px;
+    height: 131px;
+    background: url(../../imgs/ad-top.png);
+}
+#screening ul.hotlist{
+	width: 303px;
+	border:1px solid #e0e0e0;
+	margin-top: 10px;
+	padding-bottom: 9px;
+}
+#screening ul.hotlist h4{
+	background:#f6f6f6;
+	line-height: 50px;
+	font-size: 18px;
+	padding-left: 25px;
+	color: #ff9d00;
+	border-bottom: 1px solid #e0e0e0;
+}
+#screening ul.hotlist li{
+	padding: 9px 9px 0;
+}
+#screening ul.hotlist .ad-wrap{
+	width: 100%;
+	height: 152px;
+}
+#screening  .tip_btn{
+	display: block;
+	width: 303px;
+	line-height: 50px;
+	font-size: 20px;
+	background:#ff9d00;
+	color: #fff;
+	text-align: center;
+	margin-top: 10px;
 }
