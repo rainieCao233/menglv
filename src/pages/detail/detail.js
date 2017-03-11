@@ -14,9 +14,32 @@ var EnrollmentSituation = require("../../components/enrollmentSituation/enrollme
 var Detail = React.createClass({
   getInitialState:function(){
     return {
+      activity:{},
+      leaders:[{}],
+      types:[{}],
+      meetingPlaces:[{}],
+      participtors:[[],[]]
     }
   },
   componentDidMount:function(){
+    this.postRequest({});
+  },
+  postRequest:function(obj){
+    var _self = this;
+    // Helper.send("activityDetailAction_getActivityDetail",{id:this.props.params.id})
+    Helper.send("detail",{id:this.props.params.id})
+      .success(function(res){
+        _self.setState({activity:res.activity});
+        _self.setState({leaders:res.leaders});
+        _self.setState({types:res.types});
+        _self.setState({meetingPlaces:res.meetingPlaces});
+        _self.setState({participtors:res.participtors});
+        
+      })
+      .error(function(req){
+        console.log("error : " + req)
+      });
+      console.log(this.state.participtors)
   },
   changeTab:function(e){
     console.log(e.target.value)
@@ -62,19 +85,19 @@ var Detail = React.createClass({
               </div>
             </div>
             <div className="intro">
-              <div className="name">[徒步穿越] 穿越江南香格里拉 赏公盂世外美景</div>
+              <div className="name">{this.state.activity.title}</div>
               <ul>
-                <li>活动费用 : ¥ 350.00</li>
-                <li>活动日期 : 2016年11月11日 - 2016年11月13日</li>
-                <li>活动类型 : 初级</li>
-                <li>活动地点 : 浙江仙居</li>
-                <li>出发地 : 上海</li>
-                <li>住宿方式 : 农家或露营</li>
-                <li>报名截止时间 : 2016/11/30 13:00:00</li>
-                <li>活动人数(限额) : 9/25 (报名数 / 人数限制)</li>
-                <li>带队领队 : 风扇 <a href="#">查看领队情况</a></li>
-                <li>领队手机号码 : 13818658932</li>
-                <li>俱乐部号码 : 021-50585977/53068776 <a href="#">点击查看报名须知</a></li>
+                <li>活动费用 : ¥ {this.state.activity.originalPrice}.00</li>
+                <li>活动日期 : {this.state.activity.startTime} - {this.state.activity.endTime}</li>
+                <li>活动类型 : {this.state.types[0].type}</li>
+                <li>活动地点 : {this.state.activity.destination}</li>
+                <li>出发地 : {this.state.meetingPlaces[0].placeName}</li>
+                <li>住宿方式 : 农家或露营???</li>
+                <li>报名截止时间 : {this.state.activity.signUpEndTime}</li>
+                <li>活动人数(限额) : ???/{this.state.activity.maxPeople} (报名数 / 人数限制)</li>
+                <li>带队领队 : {this.state.leaders[0].name} <a href="#">查看领队情况</a></li>
+                <li>领队手机号码 : {this.state.leaders[0].phoneNum}</li>
+                <li>俱乐部号码 : 021-50585977/53068776??? <a href="#">点击查看报名须知</a></li>
               </ul>
               <a href="" className="intro_btn">活动进行中</a>
               <span className="vip">成为<b>VIP</b>，有更多的福利和优惠哦！</span>
@@ -100,18 +123,10 @@ var Detail = React.createClass({
               </div>
             </div>
             <div className="main_wrap" ref="main">
-              <div className="main" ref="main_1">
-                1111
-              </div>
-              <div className="main" ref="main_2">
-                2222
-              </div>
-              <div className="main" ref="main_3">
-                3333
-              </div>
-              <div className="main" ref="main_4">
-                4444
-              </div>
+              <div className="main" ref="main_1" dangerouslySetInnerHTML={{__html:this.state.activity.content1}}></div>
+              <div className="main" ref="main_2" dangerouslySetInnerHTML={{__html:this.state.activity.content2}}></div>
+              <div className="main" ref="main_3" dangerouslySetInnerHTML={{__html:this.state.activity.content3}}></div>
+              <div className="main" ref="main_4" dangerouslySetInnerHTML={{__html:this.state.activity.content4}}></div>
             </div>
             <Recommendation />
           </div>
@@ -119,12 +134,12 @@ var Detail = React.createClass({
             <div className="applicant_wrap">
               <h4>报名名单</h4>
               <ul className="clearfix">
-                <li><img src="" alt="" /><span>name</span></li>
-                <li><img src="" alt="" /><span>会撒娇的狗狗</span></li>
-                <li><img src="" alt="" /><span>会撒娇的狗狗</span></li>
-                <li><img src="" alt="" /><span>会撒娇的狗狗</span></li>
-                <li><img src="" alt="" /><span>会撒娇的狗狗</span></li>
-                <li><img src="" alt="" /><span>会撒娇的狗狗</span></li>
+                <li><img src="" alt="" /><span>{}</span></li>
+                <li><img src="" alt="" /><span>{}</span></li>
+                <li><img src="" alt="" /><span>{}</span></li>
+                <li><img src="" alt="" /><span>{}</span></li>
+                <li><img src="" alt="" /><span>{}</span></li>
+                <li><img src="" alt="" /><span>{}</span></li>
               </ul>
             </div>
             <EnrollmentSituation />

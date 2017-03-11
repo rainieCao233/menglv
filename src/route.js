@@ -25,7 +25,7 @@ var routes =
       	<Route path="/customize" component={Customize} />
         <Route path="/signup" component={Signup} />
         <Route path="/screening" component={Screening} />
-      	<Route path="/detail" component={Detail} />
+      	<Route path="/detail/:id" component={Detail} />
       	<Route path="*" component={Homepage} />
     </Route>
 
@@ -34,9 +34,3 @@ var routerCfg = (
 )
 
 module.exports = routerCfg
-// <Route path='/' component={App}>
-//       // <IndexRoute component={Homepage} />
-//       // <Route path="/homepage" component={Homepage} />
-//       <Route path="/register" component={Register} />
-//       // <Route path="*" component={Homepage} />
-//     </Route>

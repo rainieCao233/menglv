@@ -6,6 +6,8 @@ require("./signup.css")
 
 //components
 var Helper = require("../../components/helper/helper")
+var LinkageMenu = require("../../components/linkageMenu/linkageMenu")
+var Counter = require("../../components/counter/counter")
 
 var Signup = React.createClass({
   getInitialState:function(){
@@ -24,7 +26,7 @@ var Signup = React.createClass({
             <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" /></div>
             <div className="input_wrap">*身份证号: <input type="text" /></div>
             <div className="input_wrap">*手机号码: <input type="text" /></div>
-            <div className="input_wrap">*集合地点: linkageMenu</div>
+            <div className="input_wrap">*集合地点: <LinkageMenu /></div>
             <a href="" className="signup_btn">增加报名人员</a>
             <div className="discount">
               <h4>可享受优惠促销套装</h4>
@@ -35,7 +37,7 @@ var Signup = React.createClass({
                 <span>市场价：<b className="before">¥298</b></span>
                 <span><b className="now">¥298</b>/份</span>
               </div>
-              <div className="counter">计数器counter插件</div>
+              <Counter />
             </div>
             <div className="discount">
               <h4>可享受优惠促销套装</h4>
@@ -46,7 +48,7 @@ var Signup = React.createClass({
                 <span>市场价：<b className="before">¥298</b></span>
                 <span><b className="now">¥298</b>/份</span>
               </div>
-              <div className="counter">计数器counter插件</div>
+              <Counter />
             </div>
             <div className="discount">
               <h4>可享受优惠促销套装</h4>
@@ -57,7 +59,7 @@ var Signup = React.createClass({
                 <span>市场价：<b className="before">¥298</b></span>
                 <span><b className="now">¥298</b>/份</span>
               </div>
-              <div className="counter">计数器counter插件</div>
+              <Counter />
             </div>
             <div className="discount">
               <h4>已享受优惠 <span>优惠说明</span></h4>

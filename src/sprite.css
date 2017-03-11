@@ -1,156 +1,162 @@
 .i-add{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -99px -304px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -156px -304px;
     width: 18px;
     height: 18px;
 }
 .i-avator{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: -252px -178px;
     width: 122px;
     height: 116px;
 }
 .i-collect{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -437px -249px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -29px -304px;
     width: 23px;
     height: 23px;
 }
+.i-down-lg{
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -402px -117px;
+    width: 41px;
+    height: 37px;
+}
 .i-down{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -292px -160px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -448px -117px;
     width: 11px;
     height: 7px;
 }
 .i-f_1{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -51px -304px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -108px -304px;
     width: 20px;
     height: 19px;
 }
 .i-f_2{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -76px -304px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -133px -304px;
     width: 18px;
     height: 19px;
 }
 .i-f_3{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -439px -117px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -439px -251px;
     width: 21px;
     height: 22px;
 }
 .i-f_4{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -415px -214px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -379px -251px;
     width: 26px;
     height: 26px;
 }
 .i-free{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -379px -214px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -379px -216px;
     width: 31px;
     height: 30px;
 }
 .i-gift{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -379px -178px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -416px -178px;
     width: 31px;
     height: 31px;
 }
 .i-give{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -415px -178px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -415px -216px;
     width: 31px;
     height: 30px;
 }
 .i-hot{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: -221px -160px;
     width: 29px;
     height: 12px;
 }
 .i-hp-1{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: 0px -304px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -57px -304px;
     width: 20px;
     height: 20px;
 }
 .i-hp-2{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -25px -304px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -82px -304px;
     width: 21px;
     height: 19px;
 }
 .i-hp-3{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: 0px -329px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: 0px -333px;
     width: 19px;
     height: 20px;
 }
 .i-kefu{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -379px -249px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: 0px -304px;
     width: 24px;
     height: 24px;
 }
 .i-lb{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: -274px -160px;
     width: 13px;
     height: 12px;
 }
 .i-logo{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: -221px 0px;
     width: 239px;
     height: 112px;
 }
 .i-nav-right{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: 0px 0px;
     width: 216px;
     height: 173px;
 }
 .i-qq{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -408px -249px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -410px -251px;
     width: 24px;
     height: 24px;
 }
 .i-qqgroup{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -126px -178px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: 0px -178px;
     width: 121px;
     height: 121px;
 }
 .i-tel{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: -221px -117px;
     width: 176px;
     height: 38px;
 }
 .i-tw{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
+    background-image: url("imgs/sprite20170309_08_57_00.png");
     background-position: -255px -160px;
     width: 14px;
     height: 12px;
 }
 .i-wechat-firm{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -402px -117px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -379px -178px;
     width: 32px;
     height: 33px;
 }
 .i-wechat-sm{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: -379px -278px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -179px -304px;
     width: 16px;
     height: 16px;
 }
 .i-wechat{
-    background-image: url("imgs/sprite20170307_10_19_25.png");
-    background-position: 0px -178px;
+    background-image: url("imgs/sprite20170309_08_57_00.png");
+    background-position: -126px -178px;
     width: 121px;
     height: 121px;
 }

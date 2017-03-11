@@ -45,9 +45,15 @@
   line-height: 50px;
   width: 33%;
   float: left;
+  position: relative;
 }
-#customize .wrap ul.list li input[type=radio]{
-  display: none;
+#customize .wrap ul.list li input{
+  opacity: 0;
+  position: absolute;
+  width: 230px;
+  height: 50px;
+  left: -100px;
+  top: 0;
 }
 #customize .wrap ul.list li label{
   -webkit-appearance: none;
@@ -61,7 +67,7 @@
   vertical-align: middle;
   margin-right: 5px;
 }
-#customize .wrap ul.list li input[type=radio]:checked + label:after {
+#customize .wrap ul.list li input:checked + label:after {
     content: ' ';
     width: 12px;
     height: 12px;

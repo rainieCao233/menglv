@@ -39,35 +39,31 @@ var helper = {
 		var host = getHost();
 
 		var json = {};
-		if(route.indexOf("\/\/")==0){
-			json.url = route;
-		}else{
-			json.url = host+route;
-		}
+		json.url = host+route;
 
 		json.data = param;
 		json.type = method||"POST";
 		var tmpPromise = net.ajax(json).success(function(res){
 			if(res){
 				var json = JSON.parse(res);
-				if(json.message){
-					console.log(json.message);
+				if(json.errorMsg){
+					console.log(json.errorMsg);
 				}else{
-					if(json.errorCode==0){
+					if(json.retcode=="0000"){
 						if(simplePromise.successCall){//业务逻辑成功
-							simplePromise.successCall(json.data);
+							simplePromise.successCall(json.obj);
 						}
 					}else{
-						window.helper.observer.trigger("alert",window.helper.errorCode.getError(json.errorCode));
-						if(simplePromise.errorCall){	//业务逻辑错误
-							simplePromise.errorCall(json.errorCode,json);
-						}
+						// window.helper.observer.trigger("alert",window.helper.errorCode.getError(json.errorCode));
+						// if(simplePromise.errorCall){	//业务逻辑错误
+						// 	simplePromise.errorCall(json.retcode,json);
+						// }
 					}
 				}
 			}
 
 		}).error(function(req){	//net错误
-			console.error(req)
+			console.log(req)
 		})
 		simplePromise.request = tmpPromise.request;
 		return simplePromise;
@@ -76,26 +72,19 @@ var helper = {
 
 function getHost(){
 	switch(helper.ENV){
-		case "test":
 		case "develop":
 		case "release":
-			//var port = window.location.port?(window.location.port>>0)+2:"9092";
-			//return "//172.16.20.25:"+port+"/api/";
-			//return "http://61.129.129.110:8090/";
-			//return "//localhost:24444/";
-			return "//qaapics.eastmoney.com:8090/"
+			// return "http://www.shmlhw.com/huihuan/"
+			var port = window.location.port?(window.location.port>>0)+2:"9092";
+			return "http://192.168.1.115:"+port+"/api/";
 		break;
 	}
 }
 
 //环境设置
 var href = window.location.href;
-if(href.indexOf("eastmoney")>=0){
-	if(href.indexOf("cs.eastmoney")>=0){
-		helper.ENV="test";	//测试服务器
-	}else{
-		helper.ENV="release"; //发布服务器
-	}
+if(href.indexOf("menglv")>=0){
+	helper.ENV="release"; //发布服务器
 }else{
 	helper.ENV="develop";	//本机开发
 }

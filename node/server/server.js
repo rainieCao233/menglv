@@ -16,7 +16,7 @@ var url = require("url")
 // })
 
 app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:9090");
+    res.header("Access-Control-Allow-Origin", "http://192.168.1.115:9090");
     res.header("Access-Control-Allow-Credentials","true");
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
@@ -53,15 +53,15 @@ function handleReq(req,res){
 			}else{
 				data = fs.readFileSync(__dirname+"/api/"+route+".json","utf-8");
 			}
-
-			res.send(data);
+			
+			res.send(data);			
 		}catch(e){
 			res.send("not found "+route+"<br/>path:"+e.path)
 		}
 
 	}else{
-		res.send("not found "+route);
-	}
+		res.send("not found "+route);	
+	}	
 }
 
 module.exports = app

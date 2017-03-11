@@ -67,6 +67,7 @@
 #detail .name{
 	font-size: 18px;
 	line-height: 30px;
+	width: 550px;
 	color: #797979;
 }
 #detail .intro ul{
@@ -155,6 +156,7 @@
 	padding: 40px 20px;
 	box-sizing:border-box;
 	position: relative;
+	overflow: scroll;
 }
 #detail .main_wrap .main{
 	display: none;

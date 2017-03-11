@@ -83,11 +83,6 @@
   color: red;
   font-size: 16px;
 }
-#signup .discount .counter{
-  position: absolute;
-  right: 0;
-  top: 100px;
-}
 #signup .discount h4 span{
   color: #65be48;
   display: inline-block;

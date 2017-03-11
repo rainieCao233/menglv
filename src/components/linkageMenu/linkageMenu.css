@@ -1,0 +1,39 @@
+#linkageMenu{
+	display: inline;
+	position: relative;
+}
+#linkageMenu .select_wrap{
+	line-height: 40px;
+    height: 40px;
+    width: 370px;
+    display: inline-block;
+}
+#linkageMenu .select_wrap input.down{
+	width: 315px;
+	display: inline-block;
+}
+#linkageMenu .select_wrap em.i-down-lg{
+	zoom:1.23;
+}
+#linkageMenu ul.citylist{
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 370px;
+	height: 165px;
+	line-height: 40px;
+	background: #fff;
+	border: 1px solid #d4d4d4;
+	padding: 0 10px;
+	box-sizing:border-box;
+	z-index: 9999;
+	overflow: auto;
+	display: none;
+}
+#linkageMenu ul.citylist li{
+	border-bottom: 1px solid #d4d4d4;
+	background: #fff;
+}
+#linkageMenu ul.citylist li:last-child{
+	border: 0;
+}

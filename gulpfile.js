@@ -7,6 +7,8 @@ var md5 = require("gulp-md5");
 var del = require('del');
 var dateFormat = require('dateformat');
 
+var serverApp = require("./node/server/server")
+
 gulp.task('sprite', function () {
   var day = dateFormat(new Date(),"yyyymmdd_hh_MM_ss");
   del([
@@ -24,19 +26,19 @@ gulp.task('sprite', function () {
       .pipe(gulp.dest('./src/'))
 });
 
-// gulp.task('apiserver',function(){
-//   var serverPort = 9092;
-//     var server = serverApp.listen(serverPort,function(){
-//       var host = server.address().address;
-//       var port = server.address().port;
-//
-//       setTimeout(function(){
-//         console.log('api server start at:'+host+":"+port);
-//       },6000)
-//     })
-// })
+gulp.task('apiserver',function(){
+  var serverPort = 9092;
+    var server = serverApp.listen(serverPort,function(){
+      var host = server.address().address;
+      var port = server.address().port;
 
-gulp.task('debug', [], function() {
+      setTimeout(function(){
+        console.log('api server start at:'+host+":"+port);
+      },6000)
+    })
+})
+
+gulp.task('debug', ['apiserver'], function() {
   var port = 9090;
   var config = require('./webpack.config.dev.js');
 

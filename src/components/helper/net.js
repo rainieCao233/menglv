@@ -45,6 +45,7 @@ function ajax(json){
 			request.open(type,url+"?mt="+Math.random(),async);
 			request.withCredentials = true;
 			request.setRequestHeader("Content-Type",contentType);
+			
 			request.send(dataStr);
 		}
 
