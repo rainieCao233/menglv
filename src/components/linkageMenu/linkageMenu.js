@@ -30,12 +30,9 @@ var LinkageMenu = React.createClass({
 					<em className="icon i-down-lg"></em>
 				</div>
 				<ul className="citylist" ref="citylist" onClick={this.getvalue}>
-					<li>上海</li>
-					<li>北京</li>
-					<li>深圳</li>
-					<li>深圳</li>
-					<li>深圳</li>
-					<li>广州</li>
+					<li>上海体育馆2号扶梯口</li>
+					<li>南方商城</li>
+					<li>松江老城高速进口9号线松江体育中心</li>
 				</ul>
 			</div>
 		)

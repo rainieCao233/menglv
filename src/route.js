@@ -23,7 +23,7 @@ var routes =
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
       	<Route path="/customize" component={Customize} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/signup/:id" component={Signup} />
         <Route path="/screening" component={Screening} />
       	<Route path="/detail/:id" component={Detail} />
       	<Route path="*" component={Homepage} />

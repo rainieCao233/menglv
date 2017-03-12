@@ -37,14 +37,14 @@ var Homepage = React.createClass({
                 </div>
                 <div className="items clearfix">
                   <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
+                  <li>路线2 <em className="icon i-hot"></em></li>
+                  <li>路线3 </li>
+                  <li>路线4 </li>
+                  <li>路线5 </li>
+                  <li>路线6 </li>
+                  <li>路线7 </li>
+                  <li>路线8 </li>
+                  <li>路线9 </li>
                 </div>
               </ul>
               <ul className="blist ">
@@ -53,15 +53,15 @@ var Homepage = React.createClass({
                   <span>活动类型</span>
                 </div>
                 <div  className="items clearfix">
-                  <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
+                  <li>轻装 </li>
+                  <li>重装(露营) </li>
+                  <li>轻装/重装 </li>
+                  <li>单日路线 </li>
+                  <li>长途 </li>
+                  <li>水线/海岛 </li>
+                  <li>技术 </li>
+                  <li>市内 </li>
+                  <li>体验 </li>
                 </div>
               </ul>
               <ul className="clist ">
@@ -70,15 +70,18 @@ var Homepage = React.createClass({
                   <span>月份分类</span>
                 </div>
                 <div  className="items clearfix">
-                  <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
-                  <li>路线1 </li>
+                  <li>一月 <em className="icon i-hot"></em></li>
+                  <li>二月 <em className="icon i-hot"></em></li>
+                  <li>三月 </li>
+                  <li>四月 </li>
+                  <li>五月 </li>
+                  <li>六月 </li>
+                  <li>七月 </li>
+                  <li>八月 </li>
+                  <li>九月 </li>
+                  <li>十月 </li>
+                  <li>十一月 </li>
+                  <li>十二月 </li>
                 </div>
               </ul>
             </div>
