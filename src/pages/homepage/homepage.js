@@ -8,6 +8,7 @@ require("./homepage.css")
 //components
 var Helper = require("../../components/helper/helper")
 var Topbar = require("../../components/topbar/topbar")
+var Slider = require("../../components/slider/slider")
 
 var Homepage = React.createClass({
   getInitialState:function(){
@@ -15,7 +16,7 @@ var Homepage = React.createClass({
     }
   },
   componentDidMount:function(){
-   
+
   },
   switchTab:function(e){
     this.refs["case1"].style.display = "none";
@@ -85,7 +86,7 @@ var Homepage = React.createClass({
                 </div>
               </ul>
             </div>
-            <div className="aaa">slider</div>
+            <Slider />
             <div className="selfinfo">
               <em className="icon i-avator"></em>
               <ul>
