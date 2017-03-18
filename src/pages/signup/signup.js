@@ -8,23 +8,38 @@ require("./signup.css")
 var Helper = require("../../components/helper/helper")
 var LinkageMenu = require("../../components/linkageMenu/linkageMenu")
 var Counter = require("../../components/counter/counter")
+var validator = require("../../components/helper/validator")
 
 var Signup = React.createClass({
   getInitialState:function(){
     return {
       res:[{}],
-      number:1,
-      detail:""
+      info:[1],
+      detail:"",
+      rewards:[{}],
+      price:0
     }
   },
   componentDidMount:function(){
     this.postRequest({});
+    this.getDiscount({})
   },
   postRequest:function(obj){
     var _self = this;
     Helper.send("orderSubmitAction_initEquipments",{id:this.props.params.id})
       .success(function(res){
         _self.setState({res:res});
+      })
+      .error(function(req){
+        console.log("error : " + req)
+      });
+  },
+  getDiscount:function(){
+    var _self = this;
+    Helper.send("activityDetailAction_getActivityDetail",{id:this.props.params.id})
+      .success(function(res){
+        _self.setState({rewards:res.rewards});
+        _self.setState({price:res.activity.offPrice});
       })
       .error(function(req){
         console.log("error : " + req)
@@ -51,7 +66,82 @@ var Signup = React.createClass({
       });
   },
   addPerson:function(){
-    this.setState({number:number+1});
+    this.state.info.push(1);
+    this.forceUpdate();
+  },
+  calculatePrice:function(p,num){
+    this.setState({price:(this.state.price+p*num)})
+  },
+  submit:function(){
+    var object = {
+      user:[],
+      num:0,
+      equipment_id:[],
+      equipment_num:[],
+      equipment_type_num:[],
+      deliver_type:0,
+      deliver_name:"",
+      deliver_phone:"",
+      deliver_address:"",
+      shareId:"none",
+      activity_id:this.props.params.id
+    }
+    // 获取user—info
+    var nodes = ReactDOM.findDOMNode(this.refs["info_wrap"]).childNodes;
+    object.num = nodes.length;
+    for (var i = 0; i < nodes.length; i++) {
+      if(this.validator(nodes[i].getElementsByTagName("input"))){
+        if(i == 0){
+          object.user[0] = nodes[i].getElementsByTagName("input")[0].value;
+          object.user[1] = nodes[i].getElementsByTagName("input")[1].value;
+          object.user[2] = nodes[i].getElementsByTagName("input")[2].value;
+          object.user[3] = nodes[i].getElementsByTagName("input")[3].value;
+          object.user[4] = nodes[i].getElementsByTagName("input")[4].value;
+        }else{
+          object["participator"+i] = [];
+          object["participator"+i][0] = nodes[i].getElementsByTagName("input")[0].value;
+          object["participator"+i][1] = nodes[i].getElementsByTagName("input")[1].value;
+          object["participator"+i][2] = nodes[i].getElementsByTagName("input")[2].value;
+          object["participator"+i][3] = nodes[i].getElementsByTagName("input")[3].value;
+          object["participator"+i][4] = nodes[i].getElementsByTagName("input")[4].value;
+        }
+      }else{
+        alert("信息填写有误，请重新检查")
+      }
+    };
+    // 获取可享受的优惠 equipment_id
+    for (var i = 0; i < this.state.res.length; i++) {
+      object.equipment_id.push(this.state.res[i].id);
+    };
+    // 获取可享受的优惠 equipment_num
+    var nodes2 = ReactDOM.findDOMNode(this.refs["discount1"]).childNodes;
+    for (var i = 0; i < nodes2.length; i++) {
+      object.equipment_num.push(nodes2[i].lastChild.getElementsByTagName('span')[0].innerText)
+    }
+    // 获取可享受的优惠 equipment_type_num
+    object.equipment_type_num = object.equipment_id.length;
+
+    console.log(object)
+
+    Helper.send("orderSubmitAction_submitOrder", object)
+      .success(function(res){
+        console.log(res)
+      })
+      .error(function(req){
+        console.log("error : " + req)
+      });
+  },
+  validator:function(arr){
+    if(!(arr[0].value=="") && !(arr[1].value=="") && validator.isCardID(arr[2].value) && validator.isPhone(arr[3].value) && !(arr[4].value=="")){
+      return true;
+    }else{
+      return false;
+    }
+  },
+  test:function(e){
+    if(e.target.value == ""){
+      alert("empty")
+    }
   },
   render:function(){
     var _self = this;
@@ -61,15 +151,20 @@ var Signup = React.createClass({
           <div className="title">报名信息</div>
           <div className="main clearfix">
             <div className="info_wrap" ref="info_wrap">
-              <div className="info" ref="info">
-                <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" /></div>
-                <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" /></div>
-                <div className="input_wrap">*身份证号: <input type="text" /></div>
-                <div className="input_wrap">*手机号码: <input type="text" /></div>
-                <div className="input_wrap">*集合地点: <LinkageMenu /></div>
-              </div>
+            {
+              this.state.info.map(function(item, index){
+                return  <div className="info" ref="info" key={"info"+index}>
+                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /></div>
+                          <div className="input_wrap">*集合地点: <LinkageMenu /></div>
+                        </div>
+              })
+            }
             </div>
             <a href="javascript:void(0);" className="signup_btn" onClick={this.addPerson}>增加报名人员</a>
+            <div ref="discount1">
             {
               _self.state.res.map(function(item, index){
                 return <div className="discount" key={"zb"+index}>
@@ -81,31 +176,40 @@ var Signup = React.createClass({
                             <span>市场价：<b className="before">¥{item.originalPrice}</b></span>
                             <span><b className="now">¥{item.offPrice}</b>/份</span>
                           </div>
-                        <Counter />
+                        <Counter calculatePrice={_self.calculatePrice} p={item.offPrice}/>
                       </div>
               })
             }
-
+            </div>
             <div className="discount">
               <h4>已享受优惠 <span>优惠说明</span></h4>
-              <div className="detail">
-                <em className="icon i-gift"></em>
-                <b>【新人红包】</b>首次参加活动立减10
-              </div>
-              <div className="detail">
-                <em className="icon i-free"></em>
-                <b>【免单抽奖】</b>分享照片，赢取活动免单
-              </div>
-              <div className="detail">
-                <em className="icon i-give"></em>
-                <b>【携朋带友】</b>带朋友参加活动送豪华户外装备
-              </div>
+              {
+                this.state.rewards.map(function(item, index){
+                  if(item.type == "礼"){
+                    return  <div className="detail" key={"gift"+index}>
+                            <em className="icon i-gift"></em>
+                            <b>【{item.name}】</b>{item.content}
+                          </div>
+                  }else if(item.type == "免"){
+                    return <div className="detail" key={"free"+index}>
+                              <em className="icon i-free"></em>
+                              <b>【{item.name}】</b>{item.content}
+                            </div>
+                  }else if(item.type == "送"){
+                    return <div className="detail" key={"give"+index}>
+                              <em className="icon i-give"></em>
+                              <b>【{item.name}】</b>{item.content}
+                            </div>
+                  }
+                  
+                })
+              }
               <div className="tip">备注：身份信息仅用来购买户外专业保险，萌旅户外旅行承诺不会泄露玩家身份信息或用户其他用途</div>
               <div className="must_wrap">继续预定代表您已经阅读并同意<a href="javascript:void(0);" className="must_know" onClick={this.showModal}>预订须知</a></div>
             </div>
             <div className="total">
-              总价 : <b>¥569</b>可获积分 : 569
-              <a href="" className="submit_btn">提交订单</a>
+              总价 : <b>¥{this.state.price}</b>可获积分 : {this.state.price}
+              <a href="javascript:void(0);" className="submit_btn" onClick={this.submit}>提交订单</a>
             </div>
           </div>
         </div>

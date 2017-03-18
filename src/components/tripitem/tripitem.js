@@ -6,7 +6,16 @@ require("./tripitem.css")
 
 //跳转伪装标签
 var Tripitem = React.createClass({
-
+	getInitialState:function(){
+		return {
+			time:""
+		}
+	},
+	componentDidMount:function(){
+		this.state.time = this.props.v.startTime;
+		this.forceUpdate();
+		this.refs.em.style.background = "url('"+this.props.v.mainPicRoute+"')";
+	},
 	render:function(){
 		switch(this.props.type){
 			case "1":
@@ -22,15 +31,17 @@ var Tripitem = React.createClass({
 		return (
 			<li id="tripitem">
 				<div className="class_1 clearfix" style={{display:class_1}}>
-					<em className="item-pic left"></em>
-					<div className="detail right">
-						<h4>【经典徒步】经典徒步经典徒步经典徒，经典徒步经典徒步经典徒步</h4>
-						<p>经典徒步经典徒步经典徒，经典徒步经典徒步经典徒步典徒步经典徒步经典徒，经典徒步经典徒步经典徒典徒步经典徒步经典徒，经典徒步经典徒步经典徒典徒步经典徒步经典徒，经典徒步经典徒步经典徒...</p>
-						<div className="timenbtn">
-							<span className="timestamp">活动日期 : 2012/12/30</span>
-							<a href="/#/" className="signup_btn">活动报名</a>
+					<a href={"/#/detail/"+this.props.v.id}>
+						<em className="item-pic left" ref="em"></em>
+						<div className="detail right">
+							<h4>{this.props.v.title}</h4>
+							<p>{this.props.v.description1},{this.props.v.description2},{this.props.v.description3}</p>
+							<div className="timenbtn">
+								<span className="timestamp">活动日期 : {this.state.time}</span>
+								<a href={"/#/signup/"+this.props.v.id} className="signup_btn">活动报名</a>
+							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 				<div className="class_2" style={{display:class_2}}>
 					1234

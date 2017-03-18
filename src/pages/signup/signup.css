@@ -20,6 +20,9 @@
 #signup .main{
   margin: 25px 200px;
 }
+#signup .main .info{
+  margin-bottom: 20px;
+}
 #signup .main .input_wrap{
   font-size: 14px;
   line-height: 30px;

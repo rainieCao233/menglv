@@ -156,11 +156,9 @@
 	padding: 40px 20px;
 	box-sizing:border-box;
 	position: relative;
-	overflow: scroll;
 }
 #detail .main_wrap .main{
 	display: none;
-	position: absolute;
 }
 #detail .main_wrap .main:first-child{
 	display: block;

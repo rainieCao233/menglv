@@ -161,7 +161,7 @@ var Homepage = React.createClass({
               this.state.list1.map(function(item,index){
                 return <li key={"case1"+index}>
                          <a href={"/#/detail/"+item.id}>
-                          <img src={item.mainPicRoute} alt="" className="item" />
+                           <img src={item.mainPicRoute} alt="" className="item" />
                            <h4>
                              {item.title}
                              <span className="price"><b>¥ {item.offPrice}</b> 元</span>
@@ -183,7 +183,7 @@ var Homepage = React.createClass({
               this.state.list2.map(function(item,index){
                 return <li key={"case2"+index}>
                          <a href={"/#/detail/"+item.id}>
-                           <em className="item"></em>
+                           <img src={item.mainPicRoute} alt="" className="item" />
                            <h4>
                              {item.title}
                              <span className="price"><b>¥ {item.offPrice}</b> 元</span>
@@ -205,7 +205,7 @@ var Homepage = React.createClass({
               this.state.list3.map(function(item,index){
                 return <li key={"case3"+index}>
                          <a href={"/#/detail/"+item.id}>
-                           <em className="item"></em>
+                           <img src={item.mainPicRoute} alt="" className="item" />
                            <h4>
                              {item.title}
                              <span className="price"><b>¥ {item.offPrice}</b> 元</span>
