@@ -12,16 +12,53 @@ var Topbar = require("../../components/topbar/topbar")
 var Homepage = React.createClass({
   getInitialState:function(){
     return {
+      list1:[{}],
+      list2:[{}],
+      list3:[{}]
     }
   },
   componentDidMount:function(){
-   
+    this.getActivities({is_long_journey:"0"});
+  },
+  getActivities:function(json){
+    var obj = {
+      "id":-1,
+      "type":-1,
+      "level":-1,
+      "duration":-1,
+      "holiday":-1,
+      "low_price":-1,
+      "high_price":-1,
+      "is_long_journey":json.is_long_journey
+    }
+    var _self = this;
+    Helper.send("getActivitiesAction_getActivities",obj)
+      .success(function(res){
+        for(var i=0;i<res.length;i++){
+          res[i].startTime = res[i].startTime.substring(0,10);
+          if(res[i].title.length >25){
+            res[i].title = res[i].title.substring(0,25) + "...";
+          }
+        }
+        if(obj.is_long_journey == "0"){
+          _self.setState({list1:res});
+        }else if(obj.is_long_journey == "1"){
+          _self.setState({list2:res});
+        }else if(obj.is_long_journey == "2"){
+          _self.setState({list3:res});
+        }
+      })
+      .error(function(req){
+        console.log("error : " + req)
+      });
   },
   switchTab:function(e){
     this.refs["case1"].style.display = "none";
     this.refs["case2"].style.display = "none";
     this.refs["case3"].style.display = "none";
     this.refs[e.target.value].style.display = "block";
+    console.log(e.target.value.substring(4,5)-1);
+    this.getActivities({is_long_journey:(e.target.value.substring(4,5)-1)});
   },
   render:function(){
     return(
@@ -119,54 +156,20 @@ var Homepage = React.createClass({
               <em className="case"></em>
             </div>
             <ul className="right">
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
+            {
+              this.state.list1.map(function(item,index){
+                return <li key={"case1"+index}>
+                         <a href={"/#/detail/"+item.id}>
+                          <img src={item.mainPicRoute} alt="" className="item" />
+                           <h4>
+                             {item.title}
+                             <span className="price"><b>¥ {item.offPrice}</b> 元</span>
+                           </h4>
+                           <div className="timestamp">{item.startTime}</div>
+                         </a>
+                       </li>
+              })
+            }
             </ul>
           </div>
           <div className="case_wrap clearfix" id="case2" ref="case2">
@@ -175,54 +178,20 @@ var Homepage = React.createClass({
               <em className="case"></em>
             </div>
             <ul className="right">
-              <li>
-                <em className="item"></em>
-                <h4>
-                  case2case2case2s+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
+              {
+              this.state.list2.map(function(item,index){
+                return <li key={"case2"+index}>
+                         <a href={"/#/detail/"+item.id}>
+                           <em className="item"></em>
+                           <h4>
+                             {item.title}
+                             <span className="price"><b>¥ {item.offPrice}</b> 元</span>
+                           </h4>
+                           <div className="timestamp">{item.startTime}</div>
+                         </a>
+                       </li>
+              })
+            }
             </ul>
           </div>
           <div className="case_wrap clearfix" id="case3" ref="case3">
@@ -231,54 +200,20 @@ var Homepage = React.createClass({
               <em className="case"></em>
             </div>
             <ul className="right">
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
-              <li>
-                <em className="item"></em>
-                <h4>
-                  宁海森林温泉+轻徒步,宁海森林温泉轻 徒步宁海森......
-                  <span className="price"><b>$12345</b> 元</span>
-                </h4>
-                <div className="timestamp">2016-12-26</div>
-              </li>
+              {
+              this.state.list3.map(function(item,index){
+                return <li key={"case3"+index}>
+                         <a href={"/#/detail/"+item.id}>
+                           <em className="item"></em>
+                           <h4>
+                             {item.title}
+                             <span className="price"><b>¥ {item.offPrice}</b> 元</span>
+                           </h4>
+                           <div className="timestamp">{item.startTime}</div>
+                         </a>
+                       </li>
+              })
+            }
             </ul>
           </div>
         </div>
