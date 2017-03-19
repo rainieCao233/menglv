@@ -38,7 +38,7 @@ gulp.task('apiserver',function(){
     })
 })
 
-gulp.task('debug', ['apiserver'], function() {
+gulp.task('debug', [], function() {
   var port = 9090;
   var config = require('./webpack.config.dev.js');
 
