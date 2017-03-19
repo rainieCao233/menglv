@@ -31,7 +31,7 @@ var Tripitem = React.createClass({
 		return (
 			<li id="tripitem">
 				<div className="class_1 clearfix" style={{display:class_1}}>
-					<a href={"/#/detail/"+this.props.v.id}>
+					<a href={"/#/detail/"+this.props.v.id} >
 						<em className="item-pic left" ref="em"></em>
 						<div className="detail right">
 							<h4>{this.props.v.title}</h4>

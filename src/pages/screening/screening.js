@@ -14,6 +14,7 @@ var Screening = React.createClass({
   getInitialState:function(){
     return {
     	res:[{}],
+    	totalCount:0,
     	pagenum:1,
     	time_tab:[true,false,false],
     	class_tab:[true,false,false,false,false],
@@ -37,13 +38,18 @@ var Screening = React.createClass({
   	}else if(obj.low_price != undefined && obj.high_price != undefined){
   		this.state.object.low_price = obj.low_price;
   		this.state.object.high_price = obj.high_price;
+  	}else if(obj.start_index != undefined && obj.page_size != undefined){
+  		this.state.object.start_index = obj.start_index;
+  		this.state.object.page_size = obj.page_size;
   	}
   	this.forceUpdate();
   	console.log(this.state.object)
     var _self = this;
     Helper.send("getActivitiesAction_getActivities",_self.state.object)
       .success(function(res){
-        _self.setState({res:res});
+        _self.state.res = res.activities;
+        _self.state.totalCount = res.totalCount;
+        _self.forceUpdate();
       })
       .error(function(req){
         console.log("error : " + req)
@@ -88,6 +94,10 @@ var Screening = React.createClass({
   		default:
   	}
   	this.forceUpdate();
+  },
+  changePage:function(start_index, page_size){
+  	this.setState({pnum : start_index/6});
+  	this.searchActivities({"start_index":start_index,"page_size":page_size})
   },
   render:function(){
     return(
@@ -223,7 +233,7 @@ var Screening = React.createClass({
 	      			})
 	      		}
 	      		</ul>
-	      		<Pagination num=""/>
+	      		<Pagination num={this.state.totalCount} click={this.changePage}/>
 	      	</div>
 	      	<div className="right">
 	      		<div className="ad-wrap"></div>

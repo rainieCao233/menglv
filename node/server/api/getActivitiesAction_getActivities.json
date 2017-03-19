@@ -1,6 +1,8 @@
 {
   "errorMsg": null,
-  "obj": [
+  "obj": {
+    "totalCount":123,
+    "activities":[
     {
       "attendance": 462,
       "brokerage": null,
@@ -186,7 +188,7 @@
       "tag3": "丰富业务生活",
       "title": "【羽毛球】带上拍，带上一颗运动的心，来球场上挥汗两小时吧！",
       "whetherDisplaySchool": 0
-    }
-  ],
+    }]
+  },
   "retcode": "0000"
 }

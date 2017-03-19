@@ -8,29 +8,31 @@ require("./pagination.css")
 var Pagination = React.createClass({
 	getInitialState:function(){
     return {
-    	items:[]
     }
   },
   componentDidMount:function(){
-	var items = [];
-	var length = this.props.num>10?10:this.props.num;
-	if(this.props.num<=10){
-		this.refs["page_btn"].style.display = "none";
-	}
-	for (var i = 1; i <= length; i++) {
-    	items.push(<a href='' className='page_btn' key={i}>{i}</a>);
-	}
-	this.setState({items:items});
+  },
+  jumpPage:function(e){
+  	this.props.click((e.target.innerText-1)*6,6);
   },
 	render:function(){
+		var items = [];
+		var isShow = "inline-block";
+		var length = Math.ceil(this.props.num/6)>10?10:this.props.num;
+		if(this.props.num<=10){
+			isShow = "none";
+		}
+		for (var i = 1; i <= length; i++) {
+	    	items.push(<a href='javascript:void(0);' className='page_btn' key={i} onClick={this.jumpPage}>{i}</a>);
+		}
 		return (
 			<div id="pagination">
-				<a href="" className="page_btn last">上一页</a>
-				{this.state.items}
-				<span className="page_btn" ref="page_btn">...</span>
-				<a href="" className="page_btn next">下一页</a>
+				<a href="javascript:void(0);" className="page_btn last" onClick={this.lastPage}>上一页</a>
+				{items}
+				<span className="page_btn" ref="page_btn" style={{display:isShow}}>...</span>
+				<a href="javascript:void(0);" className="page_btn next" onClick={this.nextPage}>下一页</a>
 				<input type="text" />
-				<a href="" className="page_btn go">go</a>
+				<a href="javascript:void(0);" className="page_btn go">go</a>
 			</div>
 		)
 	}
