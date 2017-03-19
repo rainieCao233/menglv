@@ -19,7 +19,7 @@ var Screening = React.createClass({
     	class_tab:[true,false,false,false,false],
     	festival_tab:[true,false,false,false,false,false,false,false,false,false,false],
     	price_tab:[true,false,false],
-    	object:{"id":-1,"type":-1,"level":-1,"duration":-1,"holiday":-1,"low_price":-1,"high_price":-1,"is_long_journey":-1}
+    	object:{"start_index":0,"page_size":6,"id":-1,"type":-1,"level":-1,"duration":-1,"holiday":-1,"low_price":-1,"high_price":-1,"is_long_journey":-1}
     }
   },
   componentDidMount:function(){
@@ -223,7 +223,7 @@ var Screening = React.createClass({
 	      			})
 	      		}
 	      		</ul>
-	      		<Pagination num="8"/>
+	      		<Pagination num=""/>
 	      	</div>
 	      	<div className="right">
 	      		<div className="ad-wrap"></div>
