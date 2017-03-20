@@ -54,6 +54,10 @@ var Homepage = React.createClass({
       });
   },
   switchTab:function(e){
+    if(e.target.value == "case3"){
+      Helper.forwardTo('/customize')
+      return;
+    }
     this.refs["case1"].style.display = "none";
     this.refs["case2"].style.display = "none";
     this.refs["case3"].style.display = "none";
