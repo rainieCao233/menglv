@@ -20,7 +20,6 @@ var Slider = React.createClass({
 		}
 	},
 	changePic:function(id){
-		console.log(id)
 		for (var i = 0; i < this.refs["dot_list"].childNodes.length; i++) {
 			this.refs["dot_list"].childNodes[i].className = "";
 		}
@@ -52,8 +51,8 @@ var Slider = React.createClass({
 	render:function(){
 		return (
 			<div id="slider">
-				<a href="#" className="slider_btn last" onClick={this.lastPic}><em className="icon i-left"></em></a>
-				<a href="#" className="slider_btn next" onClick={this.nextPic}><em className="icon i-left"></em></a>
+				<a href="javascript:void(0);" className="slider_btn last" onClick={this.lastPic}><em className="icon i-left"></em></a>
+				<a href="javascript:void(0);" className="slider_btn next" onClick={this.nextPic}><em className="icon i-right"></em></a>
 				<ul className="pic_list clearfix" ref="pic_list">
 					<li className="fade"></li>
 					<li></li>

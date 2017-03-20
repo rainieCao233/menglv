@@ -14,6 +14,8 @@
   top: 200px;
   background: rgba(0, 0, 0, 0.35);
   z-index: 9999;
+  padding-top:12.5px;
+  box-sizing:border-box;
 }
 #slider a.slider_btn.last{
   left: 250px;

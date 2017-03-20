@@ -16,11 +16,14 @@ var Counter = React.createClass({
 		if(this.state.number>0){
 			this.setState({number:this.state.number-1});
 			this.props.calculatePrice(this.props.p,(this.state.number-1));
+			console.log("minus", this.props.p,(this.state.number-1))
 		}
 	},
 	add:function(){
 		this.setState({number:this.state.number+1});
 		this.props.calculatePrice(this.props.p,(this.state.number+1));
+		console.log("add",this.props.p,(this.state.number+1))
+
 	},
 	render:function(){
 		return (

@@ -14,8 +14,7 @@ var Homepage = React.createClass({
   getInitialState:function(){
     return {
       list1:[{}],
-      list2:[{}],
-      list3:[{}]
+      list2:[{}]
     }
   },
   componentDidMount:function(){
@@ -23,7 +22,9 @@ var Homepage = React.createClass({
   },
   getActivities:function(json){
     var obj = {
-      "id":-1,
+      "start_index":-1,
+      "page_size":-1,
+      "month":-1,
       "type":-1,
       "level":-1,
       "duration":-1,
@@ -35,6 +36,7 @@ var Homepage = React.createClass({
     var _self = this;
     Helper.send("getActivitiesAction_getActivities",obj)
       .success(function(res){
+        res = res.activities;
         for(var i=0;i<res.length;i++){
           res[i].startTime = res[i].startTime.substring(0,10);
           if(res[i].title.length >25){
@@ -45,8 +47,6 @@ var Homepage = React.createClass({
           _self.setState({list1:res});
         }else if(obj.is_long_journey == "1"){
           _self.setState({list2:res});
-        }else if(obj.is_long_journey == "2"){
-          _self.setState({list3:res});
         }
       })
       .error(function(req){
@@ -58,7 +58,7 @@ var Homepage = React.createClass({
     this.refs["case2"].style.display = "none";
     this.refs["case3"].style.display = "none";
     this.refs[e.target.value].style.display = "block";
-    console.log(e.target.value.substring(4,5)-1);
+    // console.log(e.target.value.substring(4,5)-1);
     this.getActivities({is_long_journey:(e.target.value.substring(4,5)-1)});
   },
   render:function(){
@@ -201,20 +201,7 @@ var Homepage = React.createClass({
               <em className="case"></em>
             </div>
             <ul className="right">
-              {
-              this.state.list3.map(function(item,index){
-                return <li key={"case3"+index}>
-                         <a href={"/#/detail/"+item.id}>
-                           <img src={item.mainPicRoute} alt="" className="item" />
-                           <h4>
-                             {item.title}
-                             <span className="price"><b>¥ {item.offPrice}</b> 元</span>
-                           </h4>
-                           <div className="timestamp">{item.startTime}</div>
-                         </a>
-                       </li>
-              })
-            }
+              
             </ul>
           </div>
         </div>

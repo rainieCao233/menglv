@@ -17,7 +17,8 @@ var Signup = React.createClass({
       info:[1],
       detail:"",
       rewards:[{}],
-      price:0
+      price:0,
+      sum:0
     }
   },
   componentDidMount:function(){
@@ -39,6 +40,7 @@ var Signup = React.createClass({
     Helper.send("activityDetailAction_getActivityDetail",{id:this.props.params.id})
       .success(function(res){
         _self.setState({rewards:res.rewards});
+        _self.setState({sum:res.activity.offPrice});
         _self.setState({price:res.activity.offPrice});
       })
       .error(function(req){
@@ -54,9 +56,9 @@ var Signup = React.createClass({
   closeDetail:function(){
     this.refs.modal2.style.display = "none";
   },
-  showDetail:function(){
+  showDetail:function(e){
     var _self = this;
-    Helper.send("equipmentOperationAction_getEquipmentDetailInfo",{itemId:this.props.params.id})
+    Helper.send("equipmentOperationAction_getEquipmentDetailInfo",{itemId:e.target.id})
       .success(function(res){
         _self.setState({detail:res});
         _self.refs.modal2.style.display = "block";
@@ -70,7 +72,8 @@ var Signup = React.createClass({
     this.forceUpdate();
   },
   calculatePrice:function(p,num){
-    this.setState({price:(this.state.price+p*num)})
+    console.log("calculatePrice",p,num)
+    this.setState({sum:(this.state.price+p*num)})
   },
   submit:function(){
     var object = {
@@ -107,6 +110,7 @@ var Signup = React.createClass({
         }
       }else{
         alert("信息填写有误，请重新检查")
+        return false;
       }
     };
     // 获取可享受的优惠 equipment_id
@@ -171,7 +175,7 @@ var Signup = React.createClass({
                           <h4>可享受优惠促销套装</h4>
                           <p className="name">{item.name}</p>
                           <p className="ruler">{item.content}</p>
-                          <a href="javascript:void(0);" className="detail_btn" onClick={_self.showDetail}>查看详情</a>
+                          <a href="javascript:void(0);" className="detail_btn" id={item.id} onClick={_self.showDetail}>查看详情</a>
                           <div className="price">
                             <span>市场价：<b className="before">¥{item.originalPrice}</b></span>
                             <span><b className="now">¥{item.offPrice}</b>/份</span>
@@ -208,7 +212,7 @@ var Signup = React.createClass({
               <div className="must_wrap">继续预定代表您已经阅读并同意<a href="javascript:void(0);" className="must_know" onClick={this.showModal}>预订须知</a></div>
             </div>
             <div className="total">
-              总价 : <b>¥{this.state.price}</b>可获积分 : {this.state.price}
+              总价 : <b>¥{this.state.sum}</b>可获积分 : {this.state.sum}
               <a href="javascript:void(0);" className="submit_btn" onClick={this.submit}>提交订单</a>
             </div>
           </div>

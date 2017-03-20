@@ -143,7 +143,7 @@ var Detail = React.createClass({
               <div className="main" ref="main_3" dangerouslySetInnerHTML={{__html:this.state.activity.content3}}></div>
               <div className="main" ref="main_4" dangerouslySetInnerHTML={{__html:this.state.activity.content4}}></div>
             </div>
-            <Recommendation activityId={this.state.activity.id} />
+            <Recommendation activityId={this.props.params.id} />
           </div>
           <div className="sidebar_wrap">
             <div className="applicant_wrap">
