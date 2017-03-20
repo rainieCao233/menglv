@@ -183,6 +183,8 @@
 	line-height: 24px;
 	width: 260px;
 	position: relative;
+	/*height: 48px;*/
+	/*overflow: hidden;*/
 }
 #homepage .case_wrap ul.right .price{
 	font-size: 14px;

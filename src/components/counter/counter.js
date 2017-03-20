@@ -9,16 +9,18 @@ var Helper = require("../../components/helper/helper")
 var Counter = React.createClass({
 	getInitialState:function(){
 		return{
-			number:1
+			number:0
 		}
 	},
 	minus:function(){
 		if(this.state.number>0){
 			this.setState({number:this.state.number-1});
+			this.props.calculatePrice(this.props.p,(this.state.number-1));
 		}
 	},
 	add:function(){
 		this.setState({number:this.state.number+1});
+		this.props.calculatePrice(this.props.p,(this.state.number+1));
 	},
 	render:function(){
 		return (
