@@ -30,10 +30,11 @@ var Header = React.createClass({
             <em className="icon i-logo"></em>
             <div className="search_input">
               <div className="s_tab">
-                <span className="t_title">线 &nbsp; 路 <em className="icon i-down"></em></span>
+                <span className="t_title">时 &nbsp; 长 &nbsp;<em className="icon i-down"></em></span>
                 <ul className="list">
-                  <li>日 &nbsp; 期</li>
-                  <li>国 &nbsp; 家</li>
+                  <li>等 &nbsp; 级</li>
+                  <li>类 &nbsp; 型</li>
+                  <li>月 &nbsp; 份</li>
                 </ul>
               </div>
               <input type="text" className="s_input" placeholder="" />

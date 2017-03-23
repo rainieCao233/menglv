@@ -38,26 +38,26 @@
 }
 #screening .wrap .screening_wrap .tab_wrap{
 	position: relative;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 #screening .wrap .screening_wrap .tab_wrap span{
 	color: #b4b4b4;
 	background-color: #fff;
-	width: 42px;
+	padding: 0 5px;
 	line-height: 30px;
 	display: inline-block;
 	text-align: center;
 }
-#screening .wrap .screening_wrap .tab_wrap.lg span{
-	width: 60px;
-}
 #screening .wrap .screening_wrap .tab_wrap input{
 	position: absolute;
-	width: 42px;
+	width: 30px;
 	height: 30px;
 	margin: 0;
 	left: 0;
 	opacity: 0;
+}
+#screening .wrap .screening_wrap .tab_wrap.lg input{
+	width: 60px;
 }
 #screening .wrap .screening_wrap .tab_wrap input:checked + span{
 	color: #9c9c9c;
@@ -66,7 +66,6 @@
 #screening .wrap .operate_wrap{
 	width: 858px;
 	line-height: 35px;
-	border:1px solid #e8e8e8;
 	border-left:2px solid #ff9d00;
 	background: #f6f6f6;
 	margin-top: 20px;

@@ -75,18 +75,18 @@ var Homepage = React.createClass({
               <ul className="alist ">
                 <div className="title">
                   <em className="icon i-hp-1"></em>
-                  <span>热门路线</span>
+                  <span>时间</span>
                 </div>
                 <div className="items clearfix">
-                  <li>路线1 <em className="icon i-hot"></em></li>
-                  <li>路线2 <em className="icon i-hot"></em></li>
-                  <li>路线3 </li>
-                  <li>路线4 </li>
-                  <li>路线5 </li>
-                  <li>路线6 </li>
-                  <li>路线7 </li>
-                  <li>路线8 </li>
-                  <li>路线9 </li>
+                  <li><a href="/#/screening/duration/1">1天 <em className="icon i-hot"></em></a></li>
+                  <li><a href="/#/screening/duration/2">2天 <em className="icon i-hot"></em></a></li>
+                  <li><a href="/#/screening/duration/3">3天 </a></li>
+                  <li><a href="/#/screening/duration/4">4天 </a></li>
+                  <li><a href="/#/screening/duration/5">5天 </a></li>
+                  <li><a href="/#/screening/duration/6">6天 </a></li>
+                  <li><a href="/#/screening/duration/7">7天 </a></li>
+                  <li><a href="/#/screening/duration/8">8天 </a></li>
+                  <li><a href="/#/screening/duration/9">9天 </a></li>
                 </div>
               </ul>
               <ul className="blist ">
@@ -95,15 +95,16 @@ var Homepage = React.createClass({
                   <span>活动类型</span>
                 </div>
                 <div  className="items clearfix">
-                  <li>轻装 </li>
-                  <li>重装(露营) </li>
-                  <li>轻装/重装 </li>
-                  <li>单日路线 </li>
-                  <li>长途 </li>
-                  <li>水线/海岛 </li>
-                  <li>技术 </li>
-                  <li>市内 </li>
-                  <li>体验 </li>
+                  <li><a href="/#/screening/type/1">轻装(农家) </a></li>
+                  <li><a href="/#/screening/type/2">重装(露营) </a></li>
+                  <li><a href="/#/screening/type/3">水线 </a></li>
+                  <li><a href="/#/screening/type/4">长线 </a></li>
+                  <li><a href="/#/screening/type/5">技术路线 </a></li>
+                  <li><a href="/#/screening/type/6">单日 </a></li>
+                  <li><a href="/#/screening/type/7">室内 </a></li>
+                  <li><a href="/#/screening/type/8">初体验 </a></li>
+                  <li><a href="/#/screening/type/9">海岛 </a></li>
+                  <li><a href="/#/screening/type/10">特价 </a></li>
                 </div>
               </ul>
               <ul className="clist ">
@@ -112,18 +113,18 @@ var Homepage = React.createClass({
                   <span>月份分类</span>
                 </div>
                 <div  className="items clearfix">
-                  <li>一月 <em className="icon i-hot"></em></li>
-                  <li>二月 <em className="icon i-hot"></em></li>
-                  <li>三月 </li>
-                  <li>四月 </li>
-                  <li>五月 </li>
-                  <li>六月 </li>
-                  <li>七月 </li>
-                  <li>八月 </li>
-                  <li>九月 </li>
-                  <li>十月 </li>
-                  <li>十一月 </li>
-                  <li>十二月 </li>
+                  <li><a href="/#/screening/month/1">一月 <em className="icon i-hot"></em></a></li>
+                  <li><a href="/#/screening/month/2">二月 <em className="icon i-hot"></em></a></li>
+                  <li><a href="/#/screening/month/3">三月 </a></li>
+                  <li><a href="/#/screening/month/4">四月 </a></li>
+                  <li><a href="/#/screening/month/5">五月 </a></li>
+                  <li><a href="/#/screening/month/6">六月 </a></li>
+                  <li><a href="/#/screening/month/7">七月 </a></li>
+                  <li><a href="/#/screening/month/8">八月 </a></li>
+                  <li><a href="/#/screening/month/9">九月 </a></li>
+                  <li><a href="/#/screening/month/10">十月 </a></li>
+                  <li><a href="/#/screening/month/11">十一月 </a></li>
+                  <li><a href="/#/screening/month/12">十二月 </a></li>
                 </div>
               </ul>
             </div>

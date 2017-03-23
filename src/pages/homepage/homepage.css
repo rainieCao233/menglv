@@ -56,8 +56,10 @@
 }
 #homepage .category ul .items li{
 	font-size: 12px;
-	color: #fff;
 	line-height: 20px;
+}
+#homepage .category ul .items li a{
+	color: #fff;
 }
 #homepage .selfinfo{
 	position: absolute;
