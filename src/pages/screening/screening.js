@@ -88,6 +88,8 @@ var Screening = React.createClass({
         _self.state.res = res.activities;
         if(!isChangePage){
           _self.state.totalCount = res.totalCount;
+        }else{
+          this.isChangePage = false;
         }
         _self.forceUpdate();
       })
@@ -97,6 +99,7 @@ var Screening = React.createClass({
   },
   changeTab:function(e){
   	console.log(e.target.name)
+    this.state.pagenum = 1;
   	switch(e.target.name){
   		case "time_tab":
   			for (var i = 0; i < this.state.time_tab.length; i++) {
