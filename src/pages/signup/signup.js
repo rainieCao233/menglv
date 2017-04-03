@@ -93,7 +93,7 @@ var Signup = React.createClass({
   },
   submit:function(){
     var object = {
-      user:[],
+      user:{},
       num:0,
       equipment_id:[],
       equipment_num:[],
@@ -111,25 +111,18 @@ var Signup = React.createClass({
     for (var i = 0; i < nodes.length; i++) {
       if(this.validator(nodes[i].getElementsByTagName("input"))){
         if(i == 0){
-          // object.user[0] = nodes[i].getElementsByTagName("input")[0].value;
-          // object.user[1] = nodes[i].getElementsByTagName("input")[1].value;
-          // object.user[2] = nodes[i].getElementsByTagName("input")[2].value;
-          // object.user[3] = nodes[i].getElementsByTagName("input")[3].value;
-          // object.user[4] = nodes[i].getElementsByTagName("input")[4].value;
-          object = {
-            "user":nodes[i].getElementsByTagName("input")[0].value,
-            "user":nodes[i].getElementsByTagName("input")[1].value,
-            "user":nodes[i].getElementsByTagName("input")[2].value,
-            "user":nodes[i].getElementsByTagName("input")[3].value,
-            "user":nodes[i].getElementsByTagName("input")[4].value,
-          };
+          object.user.name = nodes[i].getElementsByTagName("input")[0].value;
+          object.user.nickname = nodes[i].getElementsByTagName("input")[1].value;
+          object.user.idcard = nodes[i].getElementsByTagName("input")[2].value;
+          object.user.tel = nodes[i].getElementsByTagName("input")[3].value;
+          object.user.address = nodes[i].getElementsByTagName("input")[4].value;
         }else{
-          object["participator"+i] = [];
-          object["participator"+i][0] = nodes[i].getElementsByTagName("input")[0].value;
-          object["participator"+i][1] = nodes[i].getElementsByTagName("input")[1].value;
-          object["participator"+i][2] = nodes[i].getElementsByTagName("input")[2].value;
-          object["participator"+i][3] = nodes[i].getElementsByTagName("input")[3].value;
-          object["participator"+i][4] = nodes[i].getElementsByTagName("input")[4].value;
+          object["participator"+i] = {};
+          object["participator"+i].name = nodes[i].getElementsByTagName("input")[0].value;
+          object["participator"+i].nickname = nodes[i].getElementsByTagName("input")[1].value;
+          object["participator"+i].idcard = nodes[i].getElementsByTagName("input")[2].value;
+          object["participator"+i].tel = nodes[i].getElementsByTagName("input")[3].value;
+          object["participator"+i].address = nodes[i].getElementsByTagName("input")[4].value;
         }
       }else{
         alert("信息填写有误，请重新检查")
