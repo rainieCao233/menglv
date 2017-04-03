@@ -142,6 +142,7 @@ var Signup = React.createClass({
     object.equipment_type_num = object.equipment_id.length;
     if(object.equipment_id.length > 0){
       if(this.refs.expressRadio.checked){
+        object.deliver_type = 1;
         if(this.refs.infoname.value != "" && validator.isPhone(this.refs.infotel.value) && this.refs.infoaddress.value != ""){
           object.deliver_name = this.refs.infoname.value;
           object.deliver_phone = this.refs.infotel.value;
@@ -150,6 +151,8 @@ var Signup = React.createClass({
           alert("快递信息填写有误");
           return false;
         }
+      }else{
+        object.deliver_type = 0;
       }
     }
 
@@ -157,10 +160,11 @@ var Signup = React.createClass({
 
     Helper.send("orderSubmitAction_submitOrder", object)
       .success(function(res){
-        console.log(res)
+        console.log(res);
+        Helper.forwardTo("/pay/" + this.props.params.id);
       })
       .error(function(req){
-        console.log("error : " + req)
+        console.log("error : " + req);
       });
   },
   validator:function(arr){
@@ -187,82 +191,94 @@ var Signup = React.createClass({
       this.refs.info.style.display = "none";
     }
   },
+  durationJump:function(e){
+    Helper.forwardTo("/screening/duration/" + e.target.id);
+    location.reload();
+  },
+  typeJump:function(e){
+    Helper.forwardTo("/screening/type/" + e.target.id);
+    location.reload();
+  },
+  monthJump:function(e){
+    Helper.forwardTo("/screening/month/" + e.target.id);
+    location.reload();
+  },
   render:function(){
     var _self = this;
     return(
       <div id="signup">
       <Topbar />
       <div className="slider_wrap">
-        <div className="slider">
-          <div className="category">
-            <ul className="alist ">
-              <div className="title">
-                <em className="icon i-hp-1"></em>
-                <span>时间</span>
-              </div>
-              <div className="items clearfix">
-                <li><a href="/#/screening/duration/1">1天 <em className="icon i-hot"></em></a></li>
-                <li><a href="/#/screening/duration/2">2天 <em className="icon i-hot"></em></a></li>
-                <li><a href="/#/screening/duration/3">3天 </a></li>
-                <li><a href="/#/screening/duration/4">4天 </a></li>
-                <li><a href="/#/screening/duration/5">5天 </a></li>
-                <li><a href="/#/screening/duration/6">6天 </a></li>
-                <li><a href="/#/screening/duration/7">7天 </a></li>
-                <li><a href="/#/screening/duration/8">8天 </a></li>
-                <li><a href="/#/screening/duration/9">9天 </a></li>
-              </div>
-            </ul>
-            <ul className="blist ">
-              <div className="title">
-                <em className="icon i-hp-2"></em>
-                <span>活动类型</span>
-              </div>
-              <div  className="items clearfix">
-                <li><a href="/#/screening/type/1">轻装(农家) </a></li>
-                <li><a href="/#/screening/type/2">重装(露营) </a></li>
-                <li><a href="/#/screening/type/3">水线 </a></li>
-                <li><a href="/#/screening/type/4">长线 </a></li>
-                <li><a href="/#/screening/type/5">技术路线 </a></li>
-                <li><a href="/#/screening/type/6">单日 </a></li>
-                <li><a href="/#/screening/type/7">室内 </a></li>
-                <li><a href="/#/screening/type/8">初体验 </a></li>
-                <li><a href="/#/screening/type/9">海岛 </a></li>
-                <li><a href="/#/screening/type/10">特价 </a></li>
-              </div>
-            </ul>
-            <ul className="clist ">
-              <div className="title">
-                <em className="icon i-hp-3"></em>
-                <span>月份分类</span>
-              </div>
-              <div  className="items clearfix">
-                <li><a href="/#/screening/month/1">一月 <em className="icon i-hot"></em></a></li>
-                <li><a href="/#/screening/month/2">二月 <em className="icon i-hot"></em></a></li>
-                <li><a href="/#/screening/month/3">三月 </a></li>
-                <li><a href="/#/screening/month/4">四月 </a></li>
-                <li><a href="/#/screening/month/5">五月 </a></li>
-                <li><a href="/#/screening/month/6">六月 </a></li>
-                <li><a href="/#/screening/month/7">七月 </a></li>
-                <li><a href="/#/screening/month/8">八月 </a></li>
-                <li><a href="/#/screening/month/9">九月 </a></li>
-                <li><a href="/#/screening/month/10">十月 </a></li>
-                <li><a href="/#/screening/month/11">十一月 </a></li>
-                <li><a href="/#/screening/month/12">十二月 </a></li>
-              </div>
-            </ul>
-          </div>
-          <Slider />
-          <div className="selfinfo">
-            <em className="icon i-avator"></em>
-            <ul>
-              <li>网名：123</li>
-              <li>余额：123</li>
-              <li>积分：123</li>
-            </ul>
-            <em className="icon i-nav-right"></em>
+          <div className="slider">
+            <div className="category">
+              <ul className="alist ">
+                <div className="title">
+                  <em className="icon i-hp-1"></em>
+                  <span>时间</span>
+                </div>
+                <div className="items clearfix" onClick={this.durationJump}>
+                  <li id="1">1天 <em className="icon i-hot"></em></li>
+                  <li id="2">2天 <em className="icon i-hot"></em></li>
+                  <li id="3">3天 </li>
+                  <li id="4">4天 </li>
+                  <li id="5">5天 </li>
+                  <li id="6">6天 </li>
+                  <li id="7">7天 </li>
+                  <li id="8">8天 </li>
+                  <li id="9">9天 </li>
+                </div>
+              </ul>
+              <ul className="blist ">
+                <div className="title">
+                  <em className="icon i-hp-2"></em>
+                  <span>活动类型</span>
+                </div>
+                <div  className="items clearfix" onClick={this.typeJump}>
+                  <li id="1">轻装(农家) </li>
+                  <li id="2">重装(露营) </li>
+                  <li id="3">水线 </li>
+                  <li id="4">长线 </li>
+                  <li id="5">技术路线 </li>
+                  <li id="6">单日 </li>
+                  <li id="7">室内 </li>
+                  <li id="8">初体验 </li>
+                  <li id="9">海岛 </li>
+                  <li id="10">特价 </li>
+                </div>
+              </ul>
+              <ul className="clist ">
+                <div className="title">
+                  <em className="icon i-hp-3"></em>
+                  <span>月份分类</span>
+                </div>
+                <div  className="items clearfix" onClick={this.monthJump}>
+                  <li id="1">一月 <em className="icon i-hot"></em></li>
+                  <li id="2">二月 <em className="icon i-hot"></em></li>
+                  <li id="3">三月 </li>
+                  <li id="4">四月 </li>
+                  <li id="5">五月 </li>
+                  <li id="6">六月 </li>
+                  <li id="7">七月 </li>
+                  <li id="8">八月 </li>
+                  <li id="9">九月 </li>
+                  <li id="10">十月 </li>
+                  <li id="11">十一月 </li>
+                  <li id="12">十二月 </li>
+                </div>
+              </ul>
+            </div>
+            <Slider />
+            <div className="selfinfo">
+              <em className="icon i-avator"></em>
+              <ul>
+                <li>网名：123</li>
+                <li>余额：123</li>
+                <li>积分：123</li>
+              </ul>
+              <em className="icon i-nav-right"></em>
+            </div>
           </div>
         </div>
-      </div>
       <div className="content">
         <div className="wrap">
           <div className="title">报名信息</div>

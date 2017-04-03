@@ -51,8 +51,6 @@
 #signup .category ul .items li{
   font-size: 12px;
   line-height: 20px;
-}
-#signup .category ul .items li a{
   color: #fff;
 }
 #signup .selfinfo{
@@ -161,7 +159,8 @@
   font-size: 14px;
   margin-right: 10px;
 }
-#signup .discount .price b.now{
+#signup .discount .price b.now,
+#signup .discount .price b.now span{
   color: red;
   font-size: 16px;
 }

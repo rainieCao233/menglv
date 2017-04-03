@@ -47,34 +47,73 @@ var Header = React.createClass({
     var url = "", param = "";
     switch(this.state.selectId){
       case 0: 
-        url="time"; 
-        // switch(this.refs.s_input.value){
-        //   case "全部": break;
-        //   case "1天": break;
-        //   case "2天": break;
-        //   case "3天": break;
-        //   case "4天": break;
-        //   case "5天": break;
-        //   case "6天": break;
-        //   case "7天": break;
-        //   case "8天": break;
-        //   case "9天": break;
-        //   default:
-        // }
+        url="duration"; 
+        switch(this.refs.s_input.value){
+          case "全部": param="-1"; break;
+          case "1天": param="1"; break;
+          case "2天": param="2"; break;
+          case "3天": param="3"; break;
+          case "4天": param="4"; break;
+          case "5天": param="5"; break;
+          case "6天": param="6"; break;
+          case "7天": param="7"; break;
+          case "8天": param="8"; break;
+          case "9天": param="9"; break;
+          default:
+        }
         break;
       case 1: 
         url="level"; 
+        switch(this.refs.s_input.value){
+          case "全部": param="-1"; break;
+          case "休闲": param="0"; break;
+          case "初级": param="1"; break;
+          case "进阶": param="2"; break;
+          case "高深": param="3"; break;
+          default:
+        }
         break;
       case 2: 
         url="type"; 
+        switch(this.refs.s_input.value){
+          case "全部": param="-1"; break;
+          case "轻装(农家)": param="0"; break;
+          case "重装(露营)": param="1"; break;
+          case "水线": param="2"; break;
+          case "长线": param="3"; break;
+          case "技术路线": param="4"; break;
+          case "单日": param="5"; break;
+          case "室内": param="6"; break;
+          case "初体验": param="7"; break;
+          case "海岛": param="8"; break;
+          case "特价": param="9"; break;
+          default:
+        }
         break;
       case 3: 
         url="month"; 
+        switch(this.refs.s_input.value){
+          case "全部": param="-1"; break;
+          case "一月": param="1"; break;
+          case "二月": param="2"; break;
+          case "三月": param="3"; break;
+          case "四月": param="4"; break;
+          case "五月": param="5"; break;
+          case "六月": param="6"; break;
+          case "七月": param="7"; break;
+          case "八月": param="8"; break;
+          case "九月": param="9"; break;
+          case "十月": param="10"; break;
+          case "十一月": param="11"; break;
+          case "十二月": param="12"; break;
+          default:
+        }
         break;
       default: 
-        url="time";
+        url="time"; param="-1";
     }
-    Helper.forwardTo("/screening/" + url + "/" + this.refs.s_input.value)
+    Helper.forwardTo("/screening/" + url + "/" + param);
+    location.reload();
   },
   render:function(){
     return(

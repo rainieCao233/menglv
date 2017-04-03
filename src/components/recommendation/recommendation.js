@@ -30,14 +30,19 @@ var Recommendation = React.createClass({
         console.log("error : " + req)
       });
   },
+  jump:function(id){
+  	Helper.forwardTo("/detail/"+id);
+  	location.reload();
+  },
 	render:function(){
+		var _self = this;
 		return (
 			<div id="recommendation">
 				<h4>近期活动推荐</h4>
 				<ul className="item_wrap clearfix">
 				{
 					this.state.activityList.map(function(item, index){
-						return <li key={"recommendation"+index}><a href={"/#/detail/"+item.id}><div className='img'></div><div className='name'>{item.title}</div><div className='time'>¥ {item.offPrice} 元</div></a></li>
+						return <li key={"recommendation"+index}><a href="javascript:void(0);" onClick={_self.jump.bind(null,item.id)}><div className='img'></div><div className='name'>{item.title}</div><div className='time'>¥ {item.offPrice} 元</div></a></li>
 					})
 				}
 				</ul>
