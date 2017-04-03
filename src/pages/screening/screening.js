@@ -28,28 +28,34 @@ var Screening = React.createClass({
   	switch(this.props.params.type){
   		case "duration":
 			obj.duration = this.props.params.value;
+			this.refs.time.childNodes[obj.duration].childNodes[0].checked = true;
   			break;
   		case "level":
   			obj.level = this.props.params.value;
+  			this.refs.level.childNodes[obj.level].childNodes[0].checked = true;
   			break;
   		case "type":
   			obj.type = this.props.params.value;
+  			this.refs.type.childNodes[obj.type].childNodes[0].checked = true;
   			break;
   		case "price":
   			if(this.props.params.value==1){
   				obj.low_price = 0;
   				obj.high_price = 500;
+  				this.refs.price.childNodes[1].childNodes[0].checked = true;
   			}else if(this.props.params.value==2){
   				obj.low_price = 500;
   				obj.high_price = 1000;
+  				this.refs.price.childNodes[2].childNodes[0].checked = true;
   			}
   			break;
   		case "month":
   			obj.month = this.props.params.value;
+  			this.refs.month.childNodes[obj.month].childNodes[0].checked = true;
   			break;
   		default:
   	}
-  	this.searchActivities();
+  	this.searchActivities(obj);
   },
   searchActivities:function(obj){
   	if(obj==null){
@@ -135,7 +141,7 @@ var Screening = React.createClass({
 	      		<div className="screening_wrap">
 	      			<div className="row">
 	      				<span className="input_name">时 间</span>
-		      			<div className="input_wrap">
+		      			<div className="input_wrap" ref="time">
 		      				<span className="tab_wrap">
 			      				<input type="radio" name="time_tab" value="-1" onChange={this.changeTab} defaultChecked="checked"/>
 			      				<span>全部</span>
@@ -180,7 +186,7 @@ var Screening = React.createClass({
 	      			</div>
 	      			<div className="row">
 	      				<span className="input_name">等 级</span>
-		      			<div className="input_wrap">
+		      			<div className="input_wrap" ref="level">
 		      				<span className="tab_wrap">
 			      				<input type="radio" name="level_tab" value="-1" onChange={this.changeTab} defaultChecked="checked"/>
 			      				<span>全部</span>
@@ -205,7 +211,7 @@ var Screening = React.createClass({
 	      			</div>
 	      			<div className="row">
 	      				<span className="input_name">类 型</span>
-		      			<div className="input_wrap">
+		      			<div className="input_wrap" ref="type">
 		      				<span className="tab_wrap">
 			      				<input type="radio" name="type_tab" value="-1"  onChange={this.changeTab}  defaultChecked="checked"/>
 			      				<span>全部</span>
@@ -254,7 +260,7 @@ var Screening = React.createClass({
 	      			</div>
 	      			<div className="row">
 	      				<span className="input_name">价 格</span>
-		      			<div className="input_wrap">
+		      			<div className="input_wrap" ref="price">
 		      				<span className="tab_wrap">
 			      				<input type="radio" name="price_tab" value="-1" onChange={this.changeTab}  defaultChecked="checked"/>
 			      				<span>全部</span>
@@ -271,7 +277,7 @@ var Screening = React.createClass({
 	      			</div>
 	      			<div className="row">
 	      				<span className="input_name">月 份</span>
-		      			<div className="input_wrap">
+		      			<div className="input_wrap" ref="month">
 		      				<span className="tab_wrap">
 			      				<input type="radio" name="month_tab" value="-1" onChange={this.changeTab}  defaultChecked="checked"/>
 			      				<span>全部</span>

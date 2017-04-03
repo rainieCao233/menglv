@@ -114,6 +114,23 @@
   margin-left: 15px;
   color: #43b413;
 }
+#signup .express label{
+  line-height: 30px;
+  font-size: 13px;
+  display: inline-block;
+  vertical-align: middle;
+}
+#signup .express .express_input{
+  vertical-align: middle;
+  display: inline-block;
+}
+#signup .express .info{
+  display: none;
+  padding: 20px 10px;
+}
+#signup .express .express_input.two:checked + label + .info{
+  display: block;
+}
 #signup .main .total{
   float: right;
 }

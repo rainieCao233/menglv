@@ -49,7 +49,7 @@
   text-align: center;
   background: #f8f8f8;
   position: relative;
-  border-right: 2px solid #e5e5e5;
+  border-right: 2px solid #ff9c00;
 }
 #header .s_tab .t_title{
   color: #9a9a9a;
@@ -59,8 +59,8 @@
   position: absolute;
   width: 100%;
   text-align: left;
-  top: 37px;
-  left: 0;
+  top: 35px;
+  left: -2px;
 }
 #header ul.list li{
   padding-left: 22px;
@@ -68,6 +68,16 @@
 }
 #header .s_tab:hover ul.list{
   display: block;
+  background: #f8f8f8;
+  border:2px solid #ff9c00;
+  z-index: 999;
+  border-top: 0;
+}
+#header .s_tab:hover ul.list li:hover{
+  text-decoration: underline;
+}
+#header .s_tab:hover ul.list li.on{
+  display: none;
 }
 #header .s_input{
   display: inline-block;

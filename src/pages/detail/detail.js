@@ -107,12 +107,10 @@ var Detail = React.createClass({
                 <li>活动类型 : {this.state.types[0].type}</li>
                 <li>活动地点 : {this.state.activity.destination}</li>
                 <li>出发地 : {this.state.meetingPlaces[0].placeName}</li>
-                <li>住宿方式 : 农家或露营???</li>
                 <li>报名截止时间 : {this.state.activity.signUpEndTime}</li>
                 <li>活动人数(限额) : {this.state.pnum}/{this.state.activity.maxPeople} (报名数 / 人数限制)</li>
                 <li>带队领队 : {this.state.leaders[0].name} <a href="javascript:void(0);" onClick={this.showLeader}>查看领队情况</a></li>
-                <li>领队手机号码 : {this.state.leaders[0].phoneNum}</li>
-                <li>俱乐部号码 : 021-50585977/53068776??? <a href="javascript:void(0);" onClick={this.showModal}>点击查看报名须知</a></li>
+                <li>领队手机号码 : {this.state.leaders[0].phoneNum}<a href="javascript:void(0);" onClick={this.showModal}>点击查看报名须知</a></li>
               </ul>
               <a href={"/#/signup/"+this.props.params.id} className="intro_btn">活动进行中</a>
               <span className="vip">成为<b>VIP</b>，有更多的福利和优惠哦！</span>

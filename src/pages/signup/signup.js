@@ -11,6 +11,7 @@ var Counter = require("../../components/counter/counter")
 var validator = require("../../components/helper/validator")
 
 var Signup = React.createClass({
+  hasExpress:"none",
   getInitialState:function(){
     return {
       res:[{}],
@@ -73,6 +74,11 @@ var Signup = React.createClass({
   },
   calculatePrice:function(p,num){
     console.log("calculatePrice",p,num)
+    if(p>0){
+      this.hasExpress = "block";
+    }else{
+      this.hasExpress = "none";
+    }
     this.setState({sum:(this.state.price+p*num)})
   },
   submit:function(){
@@ -124,6 +130,11 @@ var Signup = React.createClass({
     }
     // 获取可享受的优惠 equipment_type_num
     object.equipment_type_num = object.equipment_id.length;
+    if(object.equipment_id.length > 0){
+      object.deliver_name = this.refs.infoname.value;
+      object.deliver_phone = this.refs.infotel.value;
+      object.deliver_address = this.refs.infoaddress.value;
+    }
 
     console.log(object)
 
@@ -145,6 +156,18 @@ var Signup = React.createClass({
   test:function(e){
     if(e.target.value == ""){
       alert("empty")
+    }
+  },
+  testInfo:function(e){
+    if(e.target.value == ""){
+      alert("empty")
+    }
+  },
+  showInfo:function(e){
+    if(e.target.value == "2"){
+      this.refs.info.style.display = "block";
+    }else{
+      this.refs.info.style.display = "none";
     }
   },
   render:function(){
@@ -184,6 +207,19 @@ var Signup = React.createClass({
                       </div>
               })
             }
+            </div>
+            <div className="discount express" style={{display:this.hasExpress}}>
+              <h4>购买装备领取方式</h4>
+              <input type="radio" name="expressRadio" value="1" className="express_input" onChange={this.showInfo} defaultChecked="checked"/>
+              <label htmlFor="">随活动上车领取</label><br />
+              <input type="radio" name="expressRadio" value="2" className="express_input two" onChange={this.showInfo}/>
+              <label htmlFor="">快递到家</label><br />
+              <div className="info" ref="info">
+                <h4>请填写快递信息</h4>
+                <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.testInfo} ref="infoname"/></div>
+                <div className="input_wrap">*电 &nbsp; &nbsp; &nbsp; 话: <input type="text" onBlur={_self.testInfo} ref="infotel"/></div>
+                <div className="input_wrap">*地 &nbsp; &nbsp; &nbsp; 址: <input type="text" onBlur={_self.testInfo} ref="infoaddress"/></div>
+              </div>
             </div>
             <div className="discount">
               <h4>已享受优惠 <span>优惠说明</span></h4>
