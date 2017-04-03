@@ -128,7 +128,7 @@
   line-height: 30px;
   margin-bottom: 20px;
 }
-#pay .tip_wrap{
+/*#pay .tip_wrap{
   border: 1px solid #e9e9e9;
   padding-bottom: 10px;
 }
@@ -167,9 +167,9 @@
 #pay .tip_wrap em.triangle.down{
   border-color: #2e9900 transparent transparent transparent;
   margin-top: 7px;
-}
+}*/
 #pay .pay_wrap{
-  line-height: 90px;
+  line-height: 70px;
   padding-left: 50px;
   background: #fffceb;
   border:2px solid #ff9c00;
@@ -195,7 +195,7 @@
   background: #ff9c00;
   border-radius: 10px;
   float: right;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-right: 20px;
 }
 #pay .modal_wrap{

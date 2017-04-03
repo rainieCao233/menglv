@@ -52,16 +52,6 @@ var Pay = React.createClass({
     }
     this.forceUpdate();
   },
-  aqxz:function(){
-    this.refs.modal1.style.display = "block";
-  },
-  wmgy:function(){
-    this.refs.modal2.style.display = "block";
-  },
-  closeModal:function(){
-    this.refs.modal2.style.display = "none";
-    this.refs.modal1.style.display = "none";
-  },
   render:function(){
     return(
       <div id="pay">
@@ -150,23 +140,6 @@ var Pay = React.createClass({
                 <li><h4>签约邮箱 : </h4> 123123</li>
               </ul>
               <p className="tip">付款完成后，您的邮箱将会收到加盖公章的合同，您也可以在个人中心查看和下载您的合同</p>
-              <div className="tip_wrap">
-                <h4 className="strong">
-                  安全提示
-                  <span style={{display:this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>收起明细 <em className="triangle down"></em></span>
-                  <span style={{display:!this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>展开明细 <em className="triangle top"></em></span>
-                </h4>
-                <p style={{display:this.state.aqtoggle?"block":"none"}}>1.为普及旅游安全知识以及旅游文明公约，使您的旅程顺利圆满完成，特拟定安全须知与文明公约:
-                <a href="javascript:void(0);" onClick={this.aqxz}>《安全须知》</a>、<a href="javascript:void(0);" onClick={this.wmgy}>《文明公约》</a></p>
-              </div>
-              <div className="tip_wrap">
-                <h4 className="strong">
-                  保险条款
-                  <span style={{display:this.state.bxtoggle?"block":"none"}} onClick={this.switch.bind(null,"bxtoggle")}>收起明细 <em className="triangle down"></em></span>
-                  <span style={{display:!this.state.bxtoggle?"block":"none"}} onClick={this.switch.bind(null,"bxtoggle")}>展开明细 <em className="triangle top"></em></span>
-                </h4>
-                <p style={{display:this.state.bxtoggle?"block":"none"}}>123123</p>
-              </div>
             </div>
             <div className="pay_wrap">
               <span>订单金额：<b>583</b></span>
@@ -174,23 +147,26 @@ var Pay = React.createClass({
             </div>
           </div>
         </div>
-        <div className="modal_wrap" ref="modal1">
-          <div className="modal">
-            <em className="icon i-close" onClick={this.closeModal}></em>
-            <h4 className="title">安全须知</h4>
-            
-          </div>
-        </div>
-        <div className="modal_wrap" ref="modal2">
-          <div className="modal">
-            <em className="icon i-close" onClick={this.closeModal}></em>
-            <h4 className="title">wmgy</h4>
-            
-          </div>
-        </div>
       </div>
     )
   }
 })
 
-module.exports = Pay
+module.exports = Pay;
+// <div className="tip_wrap">
+//                 <h4 className="strong">
+//                   安全提示
+//                   <span style={{display:this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>收起明细 <em className="triangle down"></em></span>
+//                   <span style={{display:!this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>展开明细 <em className="triangle top"></em></span>
+//                 </h4>
+//                 <p style={{display:this.state.aqtoggle?"block":"none"}}>1.为普及旅游安全知识以及旅游文明公约，使您的旅程顺利圆满完成，特拟定安全须知与文明公约:
+//                 <a href="javascript:void(0);" onClick={this.aqxz}>《安全须知》</a>、<a href="javascript:void(0);" onClick={this.wmgy}>《文明公约》</a></p>
+//               </div>
+//               <div className="tip_wrap">
+//                 <h4 className="strong">
+//                   保险条款
+//                   <span style={{display:this.state.bxtoggle?"block":"none"}} onClick={this.switch.bind(null,"bxtoggle")}>收起明细 <em className="triangle down"></em></span>
+//                   <span style={{display:!this.state.bxtoggle?"block":"none"}} onClick={this.switch.bind(null,"bxtoggle")}>展开明细 <em className="triangle top"></em></span>
+//                 </h4>
+//                 <p style={{display:this.state.bxtoggle?"block":"none"}}>123123</p>
+//               </div>

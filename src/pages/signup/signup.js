@@ -111,11 +111,18 @@ var Signup = React.createClass({
     for (var i = 0; i < nodes.length; i++) {
       if(this.validator(nodes[i].getElementsByTagName("input"))){
         if(i == 0){
-          object.user[0] = nodes[i].getElementsByTagName("input")[0].value;
-          object.user[1] = nodes[i].getElementsByTagName("input")[1].value;
-          object.user[2] = nodes[i].getElementsByTagName("input")[2].value;
-          object.user[3] = nodes[i].getElementsByTagName("input")[3].value;
-          object.user[4] = nodes[i].getElementsByTagName("input")[4].value;
+          // object.user[0] = nodes[i].getElementsByTagName("input")[0].value;
+          // object.user[1] = nodes[i].getElementsByTagName("input")[1].value;
+          // object.user[2] = nodes[i].getElementsByTagName("input")[2].value;
+          // object.user[3] = nodes[i].getElementsByTagName("input")[3].value;
+          // object.user[4] = nodes[i].getElementsByTagName("input")[4].value;
+          object = {
+            "user":nodes[i].getElementsByTagName("input")[0].value,
+            "user":nodes[i].getElementsByTagName("input")[1].value,
+            "user":nodes[i].getElementsByTagName("input")[2].value,
+            "user":nodes[i].getElementsByTagName("input")[3].value,
+            "user":nodes[i].getElementsByTagName("input")[4].value,
+          };
         }else{
           object["participator"+i] = [];
           object["participator"+i][0] = nodes[i].getElementsByTagName("input")[0].value;
