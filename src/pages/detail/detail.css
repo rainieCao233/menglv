@@ -9,6 +9,85 @@
 	color: #fff;
 	text-align: center;
 }
+#detail .slider_wrap{
+	width:100%;
+	height: 455px;
+	background: url(../../imgs/bg-big.png);
+}
+#detail .slider{
+	width: 1200px;
+	margin: 0 auto;
+	height: 455px;
+	position: relative;
+}
+#detail .category{
+	width: 250px;
+	height: 455px;
+	background: rgba(0, 0, 0, 0.35);
+	padding: 20px 6px;
+	box-sizing:border-box;
+	position:absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+#detail .category ul{
+	border-bottom: 1px solid #8e99a2;
+	width: 100%;
+}
+#detail .category ul li{
+	float: left;
+	width: 33%;
+	vertical-align: middle;
+	text-align: left;
+}
+#detail .category ul.blist,
+#detail .category ul.clist{
+	margin-top: 20px;
+}
+#detail .category ul .title span{
+	font-size: 14px;
+	line-height: 22px;
+	color: #fff;
+	display: inline-block;
+	margin-left: 10px;
+}
+#detail .category ul .items{
+	padding: 15px 0 20px 0;
+}
+#detail .category ul .items li{
+	font-size: 12px;
+	line-height: 20px;
+}
+#detail .category ul .items li a{
+	color: #fff;
+}
+#detail .selfinfo{
+	position: absolute;
+	z-index: 99;
+	right: 0;
+	width: 250px;
+	height: 455px;
+	background: rgba(0, 0, 0, 0.35);
+	text-align: center;
+}
+#detail .selfinfo .i-avator{
+	margin-top: 10px;
+}
+#detail .selfinfo ul{
+	margin-top: 25px;
+}
+#detail .selfinfo ul li{
+	font-size: 14px;
+	color: #fff;
+	line-height: 30px;
+}
+#detail .selfinfo .i-nav-right{
+	zoom: 1.17;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
 #detail .wrap{
     margin: 0 auto;
     max-width: 1200px;
