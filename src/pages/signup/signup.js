@@ -74,14 +74,22 @@ var Signup = React.createClass({
     this.state.info.push(1);
     this.forceUpdate();
   },
-  calculatePrice:function(p,num){
-    console.log("calculatePrice",p,num)
-    if(p>0){
+  calculatePrice:function(p,num,index){
+    console.log("calculatePrice",p,num,index);
+    var elsep = 0;
+    this.hasExpress = "none";
+    if(num!=0){
       this.hasExpress = "block";
-    }else{
-      this.hasExpress = "none";
     }
-    this.setState({sum:(this.state.price+p*num)})
+    for (var i = 0; i < this.refs.discount1.childNodes.length; i++) {
+      if(index != i){
+        if(this.refs.discount1.childNodes[i].childNodes[5].childNodes[1].innerText != 0){
+          elsep = (+this.refs.discount1.childNodes[i].childNodes[5].childNodes[1].innerText)*(+this.refs.discount1.childNodes[i].childNodes[4].childNodes[1].childNodes[0].childNodes[3].innerText);
+          this.hasExpress = "block";
+        }
+      }
+    };
+    this.setState({sum:(this.state.price+p*num+elsep)})
   },
   submit:function(){
     var object = {
@@ -133,9 +141,16 @@ var Signup = React.createClass({
     // 获取可享受的优惠 equipment_type_num
     object.equipment_type_num = object.equipment_id.length;
     if(object.equipment_id.length > 0){
-      object.deliver_name = this.refs.infoname.value;
-      object.deliver_phone = this.refs.infotel.value;
-      object.deliver_address = this.refs.infoaddress.value;
+      if(this.refs.expressRadio.checked){
+        if(this.refs.infoname.value != "" && validator.isPhone(this.refs.infotel.value) && this.refs.infoaddress.value != ""){
+          object.deliver_name = this.refs.infoname.value;
+          object.deliver_phone = this.refs.infotel.value;
+          object.deliver_address = this.refs.infoaddress.value;
+        }else{
+          alert("快递信息填写有误");
+          return false;
+        }
+      }
     }
 
     console.log(object)
@@ -276,9 +291,9 @@ var Signup = React.createClass({
                           <a href="javascript:void(0);" className="detail_btn" id={item.id} onClick={_self.showDetail}>查看详情</a>
                           <div className="price">
                             <span>市场价：<b className="before">¥{item.originalPrice}</b></span>
-                            <span><b className="now">¥{item.offPrice}</b>/份</span>
+                            <span><b className="now">¥<span>{item.offPrice}</span></b>/份</span>
                           </div>
-                        <Counter calculatePrice={_self.calculatePrice} p={item.offPrice}/>
+                        <Counter calculatePrice={_self.calculatePrice} p={item.offPrice} index={index}/>
                       </div>
               })
             }
@@ -287,7 +302,7 @@ var Signup = React.createClass({
               <h4>购买装备领取方式</h4>
               <input type="radio" name="expressRadio" value="1" className="express_input" onChange={this.showInfo} defaultChecked="checked"/>
               <label htmlFor="">随活动上车领取</label><br />
-              <input type="radio" name="expressRadio" value="2" className="express_input two" onChange={this.showInfo}/>
+              <input ref="expressRadio" type="radio" name="expressRadio" value="2" className="express_input two" onChange={this.showInfo}/>
               <label htmlFor="">快递到家</label><br />
               <div className="info" ref="info">
                 <h4>请填写快递信息</h4>
