@@ -1,0 +1,224 @@
+#pay .slider_wrap{
+  width:100%;
+  height: 455px;
+  background: url(../../imgs/bg-big.png);
+}
+#pay .slider{
+  width: 1200px;
+  margin: 0 auto;
+  height: 455px;
+  position: relative;
+}
+#pay .category{
+  width: 250px;
+  height: 455px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 20px 6px;
+  box-sizing:border-box;
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+#pay .category ul{
+  border-bottom: 1px solid #8e99a2;
+  width: 100%;
+}
+#pay .category ul li{
+  float: left;
+  width: 33%;
+  vertical-align: middle;
+  text-align: left;
+}
+#pay .category ul.blist,
+#pay .category ul.clist{
+  margin-top: 20px;
+}
+#pay .category ul .title span{
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 10px;
+}
+#pay .category ul .items{
+  padding: 15px 0 20px 0;
+}
+#pay .category ul .items li{
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+}
+#pay .selfinfo{
+  position: absolute;
+  z-index: 99;
+  right: 0;
+  width: 250px;
+  height: 455px;
+  background: rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+#pay .selfinfo .i-avator{
+  margin-top: 10px;
+}
+#pay .selfinfo ul{
+  margin-top: 25px;
+}
+#pay .selfinfo ul li{
+  font-size: 14px;
+  color: #fff;
+  line-height: 30px;
+}
+#pay .selfinfo .i-nav-right{
+  zoom: 1.17;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#pay .content{
+  padding: 80px 0 20px 0;
+  background: url(../../imgs/bg.jpg);
+}
+#pay .wrap{
+  width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  box-sizing:border-box;
+  padding-bottom: 20px;
+}
+#pay .wrap .title{
+  line-height: 60px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  background: #43b413;
+  margin-bottom: 25px;
+}
+#pay .main{
+  margin: 25px 200px;
+}
+#pay .main h4.strong{
+  color: #000;
+  font-size: 18px;
+}
+#pay .main ul li.title{
+  background: #e9e9e9;
+  line-height: 45px;
+  padding: 10px;
+  font-size: 18px;
+  text-align: left;
+  color: #808080;
+  margin-bottom: 10px;
+}
+#pay .main ul li{
+  line-height: 30px;
+  font-size: 15px;
+  padding-left: 20px;
+}
+#pay .main ul li h4{
+  font-size: #000;
+  display: inline-block;
+  font-size: 18px;
+}
+#pay .main p.tip{
+  margin-top: 30px;
+  font-size: 16px;
+  color: #a5a5a5;
+  padding-left: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+#pay .tip_wrap{
+  border: 1px solid #e9e9e9;
+  padding-bottom: 10px;
+}
+#pay .tip_wrap h4.strong{
+  background: #e9e9e9;
+  line-height: 45px;
+  padding: 10px;
+  text-align: left;
+  color: #000;
+  margin-bottom: 10px;
+}
+#pay .tip_wrap h4.strong span{
+  color: #2e9900;
+  float: right;
+}
+#pay .tip_wrap p{
+  font-size: 14px;
+  line-height: 25px;
+  padding: 0 20px;
+}
+#pay .tip_wrap p a{
+  color: #ff9c00;
+}
+#pay .tip_wrap em.triangle.top,
+#pay .tip_wrap em.triangle.down{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 5px solid #2e9900;
+  vertical-align: middle;
+}
+#pay .tip_wrap em.triangle.top{
+  border-color: transparent transparent #2e9900 transparent;
+  margin-bottom: 7px;
+}
+#pay .tip_wrap em.triangle.down{
+  border-color: #2e9900 transparent transparent transparent;
+  margin-top: 7px;
+}
+#pay .pay_wrap{
+  line-height: 90px;
+  padding-left: 50px;
+  background: #fffceb;
+  border:2px solid #ff9c00;
+  margin-bottom: -20px;
+  margin-top: 80px;
+}
+#pay .pay_wrap span{
+  font-size: 20px;
+  color: #000;vertical-align: middle;
+}
+#pay .pay_wrap span b{
+  font-size: 40px;
+  color: #ff9c00;
+  vertical-align: middle;
+}
+#pay .pay_wrap a.toPay{
+  display: inline-block;
+  width: 300px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 50px;
+  color: #fff;
+  background: #ff9c00;
+  border-radius: 10px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+#pay .modal_wrap{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  display: none;
+}
+#pay .modal_wrap .modal{
+  background: #fff;
+  padding: 50px;
+  width: 800px;
+  margin-left: -400px;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  position: absolute;
+  height: 500px;
+  overflow-x: hidden; 
+  overflow-y: auto;
+}
