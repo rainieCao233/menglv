@@ -17,6 +17,7 @@ var Signup = React.createClass({
   getInitialState:function(){
     return {
       res:[{}],
+      meetingPlaces:[{}],
       info:[1],
       detail:"",
       rewards:[{}],
@@ -42,6 +43,7 @@ var Signup = React.createClass({
     var _self = this;
     Helper.send("activityDetailController/getActivityDetail",{id:this.props.params.id})
       .success(function(res){
+        _self.setState({meetingPlaces:res.meetingPlaces});
         _self.setState({rewards:res.rewards});
         _self.setState({sum:res.activity.offPrice});
         _self.setState({price:res.activity.offPrice});
@@ -94,20 +96,12 @@ var Signup = React.createClass({
   submit:function(){
     var object = {
       user:{},
-      num:0,
-      equipment_id:[],
-      equipment_num:[],
-      equipment_type_num:[],
+      equipments:[],
       deliver_type:0,
-      deliver_name:"",
-      deliver_phone:"",
-      deliver_address:"",
-      shareId:"none",
       activity_id:this.props.params.id
     }
     // 获取user—info
     var nodes = ReactDOM.findDOMNode(this.refs["info_wrap"]).childNodes;
-    object.num = nodes.length;
     for (var i = 0; i < nodes.length; i++) {
       if(this.validator(nodes[i].getElementsByTagName("input"))){
         if(i == 1){
@@ -118,7 +112,7 @@ var Signup = React.createClass({
           object.user.nickname = nodes[i].getElementsByTagName("input")[1].value;
           object.user.idcard = nodes[i].getElementsByTagName("input")[2].value;
           object.user.tel = nodes[i].getElementsByTagName("input")[3].value;
-          object.user.address = nodes[i].getElementsByTagName("input")[4].value;
+          object.user.address = nodes[i].getElementsByTagName("input")[4].id;
           object.user = JSON.stringify(object.user);
         }else{
           var temp = {};
@@ -126,7 +120,7 @@ var Signup = React.createClass({
           temp.nickname = nodes[i].getElementsByTagName("input")[1].value;
           temp.idcard = nodes[i].getElementsByTagName("input")[2].value;
           temp.tel = nodes[i].getElementsByTagName("input")[3].value;
-          temp.address = nodes[i].getElementsByTagName("input")[4].value;
+          temp.address = nodes[i].getElementsByTagName("input")[4].id;
           object["participators"].push(temp);
         }
       }else{
@@ -134,19 +128,22 @@ var Signup = React.createClass({
         return false;
       }
     };
-    object["participators"] = JSON.stringify(object["participators"]);
-    // 获取可享受的优惠 equipment_id
-    for (var i = 0; i < this.state.res.length; i++) {
-      object.equipment_id.push(this.state.res[i].id);
-    };
-    // 获取可享受的优惠 equipment_num
-    var nodes2 = ReactDOM.findDOMNode(this.refs["discount1"]).childNodes;
-    for (var i = 0; i < nodes2.length; i++) {
-      object.equipment_num.push(nodes2[i].lastChild.getElementsByTagName('span')[0].innerText)
+    if(object["participators"] != undefined){
+      object["participators"] = JSON.stringify(object["participators"]);
     }
-    // 获取可享受的优惠 equipment_type_num
-    object.equipment_type_num = object.equipment_id.length;
-    if(object.equipment_id.length > 0){
+
+    var nodes2 = ReactDOM.findDOMNode(this.refs["discount1"]).childNodes;
+    for (var i = 0; i < this.state.res.length; i++) {
+      var temp = {};
+      temp.equipmentid = this.state.res[i].id;
+      temp.number = nodes2[i].lastChild.getElementsByTagName('span')[0].innerText;
+      object.equipments.push(temp);
+    };
+    if(object.equipments != undefined){
+      object.equipments = JSON.stringify(object.equipments);
+    }
+
+    if(this.hasExpress == "block"){
       if(this.refs.expressRadio.checked){
         object.deliver_type = 1;
         if(this.refs.infoname.value != "" && validator.isPhone(this.refs.infotel.value) && this.refs.infoaddress.value != ""){
@@ -297,7 +294,7 @@ var Signup = React.createClass({
                           <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
                           <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/></div>
                           <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /></div>
-                          <div className="input_wrap">*集合地点: <LinkageMenu /></div>
+                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/></div>
                         </div>
               })
             }

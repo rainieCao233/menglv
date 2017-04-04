@@ -20,6 +20,7 @@ var LinkageMenu = React.createClass({
 	},
 	getvalue:function(e){
 		this.refs["input"].value = e.target.firstChild.nodeValue;
+		this.refs["input"].id = e.target.id;
 		this.hidelist();
 	},
 	render:function(){
@@ -30,9 +31,11 @@ var LinkageMenu = React.createClass({
 					<em className="icon i-down-lg"></em>
 				</div>
 				<ul className="citylist" ref="citylist" onClick={this.getvalue}>
-					<li>上海体育馆2号扶梯口</li>
-					<li>南方商城</li>
-					<li>松江老城高速进口9号线松江体育中心</li>
+					{
+						this.props.v.map(function(item,index){
+							return <li id={item.id} key={"linkageMenu"+index}>{item.placeName}</li>
+						})
+					}
 				</ul>
 			</div>
 		)
