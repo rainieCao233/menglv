@@ -83,7 +83,7 @@ var Screening = React.createClass({
   	this.forceUpdate();
   	console.log(this.state.object)
     var _self = this;
-    Helper.send("getActivitiesController_getActivities",_self.state.object)
+    Helper.send("getActivitiesController/getActivities",_self.state.object)
       .success(function(res){
         _self.state.res = res.activities;
         if(!isChangePage){

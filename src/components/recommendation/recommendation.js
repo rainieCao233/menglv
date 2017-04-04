@@ -22,7 +22,7 @@ var Recommendation = React.createClass({
 	  },
   postRequest:function(obj){
     var _self = this;
-    Helper.send("activityDetailController_getSimilarActivities",{id:this.props.activityId})
+    Helper.send("activityDetailController/getSimilarActivities",{id:this.props.activityId})
       .success(function(res){
         _self.setState({activityList:res});
       })

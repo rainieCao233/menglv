@@ -21,7 +21,7 @@ var EnrollmentSituation = React.createClass({
 	},
 	postRequest:function(obj){
 		var _self = this;
-    Helper.send("activityDetailController_getSignUpInfo",obj)
+    Helper.send("activityDetailController/getSignUpInfo",obj)
       .success(function(res){
         console.log(res)
         _self.setState({info:res});

@@ -30,7 +30,7 @@ var Signup = React.createClass({
   },
   postRequest:function(obj){
     var _self = this;
-    Helper.send("orderSubmitController_initEquipments",{id:this.props.params.id})
+    Helper.send("orderSubmitController/initEquipments",{id:this.props.params.id})
       .success(function(res){
         _self.setState({res:res});
       })
@@ -40,7 +40,7 @@ var Signup = React.createClass({
   },
   getDiscount:function(){
     var _self = this;
-    Helper.send("activityDetailController_getActivityDetail",{id:this.props.params.id})
+    Helper.send("activityDetailController/getActivityDetail",{id:this.props.params.id})
       .success(function(res){
         _self.setState({rewards:res.rewards});
         _self.setState({sum:res.activity.offPrice});
@@ -61,7 +61,7 @@ var Signup = React.createClass({
   },
   showDetail:function(e){
     var _self = this;
-    Helper.send("equipmentOperationController_getEquipmentDetailInfo",{itemId:e.target.id})
+    Helper.send("equipmentOperationController/getEquipmentDetailInfo",{itemId:e.target.id})
       .success(function(res){
         _self.setState({detail:res});
         _self.refs.modal2.style.display = "block";
@@ -110,6 +110,9 @@ var Signup = React.createClass({
     object.num = nodes.length;
     for (var i = 0; i < nodes.length; i++) {
       if(this.validator(nodes[i].getElementsByTagName("input"))){
+        if(i == 1){
+          object["participators"] = [];
+        }
         if(i == 0){
           object.user.name = nodes[i].getElementsByTagName("input")[0].value;
           object.user.nickname = nodes[i].getElementsByTagName("input")[1].value;
@@ -118,19 +121,20 @@ var Signup = React.createClass({
           object.user.address = nodes[i].getElementsByTagName("input")[4].value;
           object.user = JSON.stringify(object.user);
         }else{
-          object["participator"+i] = {};
-          object["participator"+i].name = nodes[i].getElementsByTagName("input")[0].value;
-          object["participator"+i].nickname = nodes[i].getElementsByTagName("input")[1].value;
-          object["participator"+i].idcard = nodes[i].getElementsByTagName("input")[2].value;
-          object["participator"+i].tel = nodes[i].getElementsByTagName("input")[3].value;
-          object["participator"+i].address = nodes[i].getElementsByTagName("input")[4].value;
-          object["participator"+i] = JSON.stringify(object["participator"+i]);
+          var temp = {};
+          temp.name = nodes[i].getElementsByTagName("input")[0].value;
+          temp.nickname = nodes[i].getElementsByTagName("input")[1].value;
+          temp.idcard = nodes[i].getElementsByTagName("input")[2].value;
+          temp.tel = nodes[i].getElementsByTagName("input")[3].value;
+          temp.address = nodes[i].getElementsByTagName("input")[4].value;
+          object["participators"].push(temp);
         }
       }else{
         alert("信息填写有误，请重新检查")
         return false;
       }
     };
+    object["participators"] = JSON.stringify(object["participators"]);
     // 获取可享受的优惠 equipment_id
     for (var i = 0; i < this.state.res.length; i++) {
       object.equipment_id.push(this.state.res[i].id);
@@ -160,7 +164,7 @@ var Signup = React.createClass({
 
     console.log(object)
 
-    Helper.send("orderSubmitController_submitOrder", object)
+    Helper.send("orderSubmitController/submitOrder", object)
       .success(function(res){
         console.log(res);
         Helper.forwardTo("/pay/" + this.props.params.id);

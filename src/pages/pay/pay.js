@@ -20,7 +20,7 @@ var Pay = React.createClass({
     this.postRequest();
   },
   postRequest:function(){
-    Helper.send("activityDetailController_getActivityDetail", {id:this.props.params.id})
+    Helper.send("activityDetailController/getActivityDetail", {id:this.props.params.id})
       .success(function(res){
         console.log(res);
       })
