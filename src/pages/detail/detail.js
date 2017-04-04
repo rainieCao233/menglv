@@ -29,7 +29,7 @@ var Detail = React.createClass({
   },
   postRequest:function(obj){
     var _self = this;
-    Helper.send("activityDetailAction_getActivityDetail",{id:_self.props.params.id})
+    Helper.send("activityDetailController_getActivityDetail",{id:_self.props.params.id})
       .success(function(res){
         _self.setState({activity:res.activity});
         _self.setState({leaders:res.leaders});

@@ -34,7 +34,7 @@ var Homepage = React.createClass({
       "is_long_journey":json.is_long_journey
     }
     var _self = this;
-    Helper.send("getActivitiesAction_getActivities",obj)
+    Helper.send("getActivitiesController_getActivities",obj)
       .success(function(res){
         res = res.activities;
         for(var i=0;i<res.length;i++){

@@ -30,7 +30,7 @@ var Signup = React.createClass({
   },
   postRequest:function(obj){
     var _self = this;
-    Helper.send("orderSubmitAction_initEquipments",{id:this.props.params.id})
+    Helper.send("orderSubmitController_initEquipments",{id:this.props.params.id})
       .success(function(res){
         _self.setState({res:res});
       })
@@ -40,7 +40,7 @@ var Signup = React.createClass({
   },
   getDiscount:function(){
     var _self = this;
-    Helper.send("activityDetailAction_getActivityDetail",{id:this.props.params.id})
+    Helper.send("activityDetailController_getActivityDetail",{id:this.props.params.id})
       .success(function(res){
         _self.setState({rewards:res.rewards});
         _self.setState({sum:res.activity.offPrice});
@@ -61,7 +61,7 @@ var Signup = React.createClass({
   },
   showDetail:function(e){
     var _self = this;
-    Helper.send("equipmentOperationAction_getEquipmentDetailInfo",{itemId:e.target.id})
+    Helper.send("equipmentOperationController_getEquipmentDetailInfo",{itemId:e.target.id})
       .success(function(res){
         _self.setState({detail:res});
         _self.refs.modal2.style.display = "block";
@@ -116,6 +116,7 @@ var Signup = React.createClass({
           object.user.idcard = nodes[i].getElementsByTagName("input")[2].value;
           object.user.tel = nodes[i].getElementsByTagName("input")[3].value;
           object.user.address = nodes[i].getElementsByTagName("input")[4].value;
+          object.user = JSON.stringify(object.user);
         }else{
           object["participator"+i] = {};
           object["participator"+i].name = nodes[i].getElementsByTagName("input")[0].value;
@@ -123,6 +124,7 @@ var Signup = React.createClass({
           object["participator"+i].idcard = nodes[i].getElementsByTagName("input")[2].value;
           object["participator"+i].tel = nodes[i].getElementsByTagName("input")[3].value;
           object["participator"+i].address = nodes[i].getElementsByTagName("input")[4].value;
+          object["participator"+i] = JSON.stringify(object["participator"+i]);
         }
       }else{
         alert("信息填写有误，请重新检查")
@@ -158,7 +160,7 @@ var Signup = React.createClass({
 
     console.log(object)
 
-    Helper.send("orderSubmitAction_submitOrder", object)
+    Helper.send("orderSubmitController_submitOrder", object)
       .success(function(res){
         console.log(res);
         Helper.forwardTo("/pay/" + this.props.params.id);
@@ -186,9 +188,9 @@ var Signup = React.createClass({
   },
   showInfo:function(e){
     if(e.target.value == "2"){
-      this.refs.info.style.display = "block";
+      this.refs.expressInfo.style.display = "block";
     }else{
-      this.refs.info.style.display = "none";
+      this.refs.expressInfo.style.display = "none";
     }
   },
   durationJump:function(e){
@@ -320,7 +322,7 @@ var Signup = React.createClass({
               <label htmlFor="">随活动上车领取</label><br />
               <input ref="expressRadio" type="radio" name="expressRadio" value="2" className="express_input two" onChange={this.showInfo}/>
               <label htmlFor="">快递到家</label><br />
-              <div className="info" ref="info">
+              <div className="info" ref="expressInfo">
                 <h4>请填写快递信息</h4>
                 <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.testInfo} ref="infoname"/></div>
                 <div className="input_wrap">*电 &nbsp; &nbsp; &nbsp; 话: <input type="text" onBlur={_self.testInfo} ref="infotel"/></div>
