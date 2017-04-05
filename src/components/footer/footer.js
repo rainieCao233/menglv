@@ -4,7 +4,18 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./footer.css")
 
+var Helper = require("../helper/helper")
+
 var Footer = React.createClass({
+  toIntro:function(){
+    Helper.forwardTo("/intro");
+  },
+  toCulture:function(){
+    Helper.forwardTo("/culture");
+  },
+  toAbout:function(){
+    Helper.forwardTo("/about");
+  },
   render:function() {
     return(
       <div id="footer">
@@ -17,9 +28,9 @@ var Footer = React.createClass({
               <em className="icon i-f_1"></em>
               <span className="title">关于我们</span>
               <ul className="list">
-                <li><a href="#">萌馿簡介</a></li>
-                <li><a href="#">企業文化</a></li>
-                <li><a href="#">聯繫我們</a></li>
+                <li><a href="javascript:void(0);" onClick={this.toIntro}>萌旅简介</a></li>
+                <li><a href="javascript:void(0);" onClick={this.toCulture}>企业文化</a></li>
+                <li><a href="javascript:void(0);" onClick={this.toAbout}>联系我们</a></li>
               </ul>
             </div>
             <div className="apply_wrap">
@@ -27,7 +38,6 @@ var Footer = React.createClass({
               <span className="title">报名流程</span>
               <ul className="list">
                 <li><a href="#">报名参加</a></li>
-                <li><a href="#">活动出票</a></li>
                 <li><a href="#">活动退出</a></li>
               </ul>
             </div>
@@ -36,8 +46,7 @@ var Footer = React.createClass({
               <span className="title">付款指南</span>
               <ul className="list">
                 <li><a href="#">支付宝/网银</a></li>
-                <li><a href="#">活动出票</a></li>
-                <li><a href="#">活动退出</a></li>
+                <li><a href="#">活动发票</a></li>
               </ul>
             </div>
             <div className="kefu_wrap">
@@ -46,18 +55,18 @@ var Footer = React.createClass({
               <ul className="list">
                 <li>客服QQ : 165223546</li>
                 <li>客服微信 : shml007</li>
-                <li>客服电话 : 021-37697991</li>
+                <li>客服电话 : 021-52277179</li>
                 <li>客服邮箱 : csr@shmlhw.com</li>
               </ul>
             </div>
             <div className="QRCode_wrap">
-              <div className="wechat">
-                <p>微信服务号</p>
-                <em className="icon i-wechat"></em>
-              </div>
               <div className="QQ">
                 <p>QQ交流群</p>
                 <em className="icon i-qqgroup"></em>
+              </div>
+              <div className="wechat">
+                <p>微信服务号</p>
+                <em className="icon i-wechat"></em>
               </div>
             </div>
           </div>
@@ -68,14 +77,23 @@ var Footer = React.createClass({
               <a href="#">额济纳摄影</a>
               <a href="#">新疆摄影</a>
               <a href="#">东北摄影</a>
+              <a href="#">稻城亚丁摄影</a>
+              <a href="#">游侠客旅游网</a>
+              <a href="#">关于游侠客</a> 
+              <a href="#">游侠客的故事</a> 
+              <a href="#">联系游侠客</a> 
+              <a href="#">游侠客招聘</a>
+              <a href="#">意见反馈</a>
+              <a href="#">使用协议</a>
+              <a href="#">隐私政策</a>
+              <a href="#">交换链接</a>
+              <a href="#">帮助中心</a>
             </div>
           </div>
           <em className="icon i-certification"></em>
         </div>
         <div className="license_wrap">
-          <div>萌驴旅行有限公司，旅行社业务经营许可证编号：BJ-CJ00144</div>
-          <div>Copyright © 2006-2016 南京途牛科技有限公司 Mengl.com | 营业执照 | ICP证:浙-20130006 | 浙ICP备12009060号 | 上海旅行网</div>
-          <div>上海市互联网违法和不良信息举报中心电话（021-55056666）旅行违法行为举报电话（12318）服务质量投诉电话（962020）</div>
+          <div>© 2005-2017 上海萌驴户外用品有限公司 版权所有，并保留所有权利 </div>
         </div>
       </div>
     )

@@ -127,7 +127,7 @@ var Header = React.createClass({
               <span className="sign">[<ALink href="/register">注册</ALink>]</span>
             </div>
             <div className="right">
-              <em className="icon i-qq"></em>官方QQ群
+              <em className="icon i-qq"></em>官方微信公众号
               <em className="icon i-kefu"></em>客服QQ
             </div>
           </div>
