@@ -99,6 +99,12 @@
 }
 #signup .main .info{
   margin-bottom: 20px;
+  padding: 10px 0;
+  width: 600px;
+  margin-left: 50px;
+}
+#signup .main .info:hover{
+  background: #f4f4f4;
 }
 #signup .main .input_wrap{
   font-size: 14px;
@@ -181,7 +187,7 @@
 }
 #signup .discount .tip{
   color: #6d6b67;
-  margin-top: 20px; 
+  margin-top: 20px;
   line-height: 25px;
 }
 #signup .discount .must_wrap{
@@ -259,7 +265,7 @@
 #signup .modal_wrap .modal p{
   font-size: 14px;
   line-height: 20px;
-  text-indent: 28px; 
+  text-indent: 28px;
 }
 #signup .modal_wrap .modal h4{
   text-align: center;
