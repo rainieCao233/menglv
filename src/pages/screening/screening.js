@@ -61,7 +61,7 @@ var Screening = React.createClass({
   	}
   	this.searchActivities(obj);
   },
-  searchActivities:function(obj){
+  searchActivities:function(obj,isTab){
   	if(obj==null){
 
   	}else if(obj.duration != undefined){
@@ -78,8 +78,12 @@ var Screening = React.createClass({
   		this.state.object.page_size = obj.page_size;
       this.isChangePage = true;
   	}else if(obj.month != undefined){
-		this.state.object.month = obj.month;
+		  this.state.object.month = obj.month;
   	}
+    if(isTab){
+      this.state.object.page_size = 6;
+      this.state.object.start_index = 0;
+    }
   	this.forceUpdate();
   	console.log(this.state.object)
     var _self = this;
@@ -106,21 +110,21 @@ var Screening = React.createClass({
           this.state.time_tab[i] = false;
         };
         this.state.time_tab[e.target.value] = true;
-        this.searchActivities({duration:e.target.value})
+        this.searchActivities({duration:e.target.value},true)
         break;
       case "level_tab":
         for (var i = 0; i < this.state.level_tab.length; i++) {
           this.state.level_tab[i] = false;
         };
         this.state.level_tab[e.target.value] = true;
-        this.searchActivities({level:e.target.value})
+        this.searchActivities({level:e.target.value},true)
         break;
       case "type_tab":
         for (var i = 0; i < this.state.type_tab.length; i++) {
           this.state.type_tab[i] = false;
         };
         this.state.type_tab[e.target.value] = true;
-        this.searchActivities({type:e.target.value})
+        this.searchActivities({type:e.target.value},true)
         break;
       case "price_tab":
         for (var i = 0; i < this.state.price_tab.length; i++) {
@@ -128,11 +132,11 @@ var Screening = React.createClass({
         };
         this.state.price_tab[e.target.value] = true;
         if(e.target.value == "0"){
-          this.searchActivities({low_price:0,high_price:500})
+          this.searchActivities({low_price:0,high_price:500},true)
         }else if(e.target.value == "1"){
-          this.searchActivities({low_price:500,high_price:1000})
+          this.searchActivities({low_price:500,high_price:1000},true)
         }else{
-          this.searchActivities({low_price:-1,high_price:-1})
+          this.searchActivities({low_price:-1,high_price:-1},true)
         }
         break;
       case "month_tab":
@@ -140,7 +144,7 @@ var Screening = React.createClass({
           this.state.month_tab[i] = false;
         };
         this.state.month_tab[e.target.value] = true;
-        this.searchActivities({month:e.target.value})
+        this.searchActivities({month:e.target.value},true)
         break;
       default:
     }
