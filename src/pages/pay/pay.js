@@ -53,7 +53,10 @@ var Pay = React.createClass({
         });
         break;
       default:
+        this.refs.modal1.style.display = "none";
     }
+    e.preventDefault();
+    e.stopPropagation();
   },
   backToOrder:function(){
     Helper.goBack();

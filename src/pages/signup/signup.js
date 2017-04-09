@@ -171,7 +171,7 @@ var Signup = React.createClass({
     Helper.send("orderSubmitController/submitOrder", object)
       .success(function(res){
         console.log(res);
-        Helper.forwardTo("/order/" + _self.props.params.id);
+        Helper.forwardTo("/order/" + res);
       })
       .error(function(req){
         console.log("error : " + req);
