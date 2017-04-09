@@ -18,8 +18,8 @@ var Pagination = React.createClass({
 	render:function(){
 		var items = [];
 		var isShow = "inline-block";
-		var length = Math.ceil(this.props.num/6)>10?10:this.props.num/6;
-		if(this.props.num<=10){
+		var length = Math.ceil(this.props.num/6)>10?10:Math.ceil(this.props.num/6);
+		if(Math.ceil(this.props.num/6)<=10){
 			isShow = "none";
 		}
 		for (var i = 1; i <= length; i++) {

@@ -2,49 +2,53 @@
 	width: 100%;
 	margin-left: 20px;
 }
-.class_1,
-.class_2{
+#tripitem .class_1,
+#tripitem .class_2{
 	display: none;
 }
-.class_1{
+#tripitem .class_1{
 	padding: 20px 0;
 	border-bottom:1px dotted #969696;
 }
-.class_1 em.item-pic{
+#tripitem .class_1 em.item-pic{
 	display: inline-block;
 	width: 200px;
 	height: 140px;
 	background: url(../../imgs/item-pic.png);
 	background-size: 100% 100%;
 }
-.class_1 .detail{
+#tripitem .class_1 .detail{
 	width: 600px;
 	height: 140px;
 	position: relative;
 	margin: 0 20px;
 }
-.class_1 .detail h4{
+#tripitem .class_1 .detail h4{
 	font-size: 14px;
-	color: #959595;
-	line-height: 25px;
+    color: #959595;
+    line-height: 25px;
+    width: 480px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
-.class_1 .detail p{
+#tripitem .class_1 .detail p{
 	font-size: 12px;
 	color: #b4b4b4;
 	line-height: 25px;
 }
-.class_1 .detail .timenbtn{
+#tripitem .class_1 .detail .timenbtn{
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 }
-.class_1 .detail .timenbtn .timestamp{
+#tripitem .class_1 .detail .timenbtn .timestamp{
 	font-size: 12px;
 	color: #b4b4b4;
 	line-height: 30px;
 }
-.class_1 .detail .timenbtn a.signup_btn{
+#tripitem .class_1 .detail .timenbtn a.signup_btn{
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -55,4 +59,17 @@
 	text-align: center;
 	color: #fff;
 	background:#ff9d00;
+}
+#tripitem .class_1 .detail .price{
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 14px;
+    color: #959595;
+    line-height: 25px;
+}
+#tripitem .class_1 .detail .price b{
+	color: #ff9c00;
+	font-size: 14px;
+    line-height: 25px;
 }

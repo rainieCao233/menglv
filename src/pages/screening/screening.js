@@ -16,7 +16,7 @@ var Screening = React.createClass({
   isChangePage:false,
   getInitialState:function(){
     return {
-    	res:[{}],
+    	res:[],
     	totalCount:0,
     	pagenum:1,
     	time_tab:[true,false,false],
@@ -83,7 +83,7 @@ var Screening = React.createClass({
   	this.forceUpdate();
   	console.log(this.state.object)
     var _self = this;
-    Helper.send("getActivitiesController/getActivities",_self.state.object)
+    Helper.send("getActivitiesController_getActivities",_self.state.object)
       .success(function(res){
         _self.state.res = res.activities;
         if(!this.isChangePage){
@@ -94,61 +94,62 @@ var Screening = React.createClass({
         _self.forceUpdate();
       })
       .error(function(req){
-        console.log("error : " + req)
+        console.log("error : " + req);
       });
   },
   changeTab:function(e){
-  	console.log(e.target.name)
+    console.log(e.target.name)
     this.state.pagenum = 1;
-  	switch(e.target.name){
-  		case "time_tab":
-  			for (var i = 0; i < this.state.time_tab.length; i++) {
-	        this.state.time_tab[i] = false;
-	      };
-  			this.state.time_tab[e.target.value] = true;
-  			this.searchActivities({duration:e.target.value})
-  			break;
-  		case "level_tab":
-  			for (var i = 0; i < this.state.level_tab.length; i++) {
-	        this.state.level_tab[i] = false;
-	      };
-  			this.state.level_tab[e.target.value] = true;
-  			this.searchActivities({level:e.target.value})
-  			break;
-  		case "type_tab":
-  			for (var i = 0; i < this.state.type_tab.length; i++) {
-	        this.state.type_tab[i] = false;
-	      };
-  			this.state.type_tab[e.target.value] = true;
-  			this.searchActivities({type:e.target.value})
-  			break;
-  		case "price_tab":
-  			for (var i = 0; i < this.state.price_tab.length; i++) {
-	        this.state.price_tab[i] = false;
-	      };
-  			this.state.price_tab[e.target.value] = true;
-  			if(e.target.value == "0"){
-  				this.searchActivities({low_price:0,high_price:500})
-  			}else if(e.target.value == "1"){
-  				this.searchActivities({low_price:500,high_price:1000})
-  			}else{
-  				this.searchActivities({low_price:-1,high_price:-1})
-  			}
-  			break;
-  		case "month_tab":
-  			for (var i = 0; i < this.state.month_tab.length; i++) {
-	        this.state.month_tab[i] = false;
-	      };
-  			this.state.month_tab[e.target.value] = true;
-  			this.searchActivities({month:e.target.value})
-  			break;
-  		default:
-  	}
-  	this.forceUpdate();
+    switch(e.target.name){
+      case "time_tab":
+        for (var i = 0; i < this.state.time_tab.length; i++) {
+          this.state.time_tab[i] = false;
+        };
+        this.state.time_tab[e.target.value] = true;
+        this.searchActivities({duration:e.target.value})
+        break;
+      case "level_tab":
+        for (var i = 0; i < this.state.level_tab.length; i++) {
+          this.state.level_tab[i] = false;
+        };
+        this.state.level_tab[e.target.value] = true;
+        this.searchActivities({level:e.target.value})
+        break;
+      case "type_tab":
+        for (var i = 0; i < this.state.type_tab.length; i++) {
+          this.state.type_tab[i] = false;
+        };
+        this.state.type_tab[e.target.value] = true;
+        this.searchActivities({type:e.target.value})
+        break;
+      case "price_tab":
+        for (var i = 0; i < this.state.price_tab.length; i++) {
+          this.state.price_tab[i] = false;
+        };
+        this.state.price_tab[e.target.value] = true;
+        if(e.target.value == "0"){
+          this.searchActivities({low_price:0,high_price:500})
+        }else if(e.target.value == "1"){
+          this.searchActivities({low_price:500,high_price:1000})
+        }else{
+          this.searchActivities({low_price:-1,high_price:-1})
+        }
+        break;
+      case "month_tab":
+        for (var i = 0; i < this.state.month_tab.length; i++) {
+          this.state.month_tab[i] = false;
+        };
+        this.state.month_tab[e.target.value] = true;
+        this.searchActivities({month:e.target.value})
+        break;
+      default:
+    }
+    this.forceUpdate();
   },
   changePage:function(start_index, page_size){
-  	this.setState({pnum : start_index/6});
-  	this.searchActivities({"start_index":start_index,"page_size":page_size})
+    this.setState({pnum : start_index/6});
+    this.setState({isSearch:!this.state.isSearch});
+    this.searchActivities({"start_index":start_index,"page_size":page_size})
   },
   durationJump:function(e){
     Helper.forwardTo("/screening/duration/" + e.target.id);
@@ -437,9 +438,9 @@ var Screening = React.createClass({
 	      		<div className="operate_wrap"></div>
 	      		<ul className="triplist">
 	      		{
-	      			this.state.res.map(function(item, index){
-	      				return <Tripitem key={"trip"+index} type="1" v={item}/>
-	      			})
+              this.state.res.map(function(item, index){
+                return <Tripitem key={"trip"+index} type="1" v={item}/>
+              })
 	      		}
 	      		</ul>
 	      		<Pagination num={this.state.totalCount} click={this.changePage}/>

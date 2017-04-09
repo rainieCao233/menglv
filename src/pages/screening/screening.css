@@ -1,6 +1,7 @@
 #screening{
 	width: 100%;
 	background: #e8e8e8;
+	position: relative;
 }
 #screening em.screening{
 	display: block;
