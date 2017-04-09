@@ -77,6 +77,11 @@ var Signup = React.createClass({
     this.state.info.push(1);
     this.forceUpdate();
   },
+  removePerson:function(index){
+    // this.state.info.splice(index,1);
+    // this.refs.info_wrap.childNodes.remove(this.refs.info_wrap.childNodes[index]);
+    // console.log(this.refs.info_wrap.childNodes[index]);
+  },
   calculatePrice:function(p,num,index){
     console.log("calculatePrice",p,num,index);
     var elsep = 0;
@@ -300,13 +305,24 @@ var Signup = React.createClass({
             <div className="info_wrap" ref="info_wrap">
             {
               this.state.info.map(function(item, index){
-                return  <div className="info" ref="info" key={"info"+index}>
+                if(index == 0){
+                  return  <div className="info" ref="info" key={"info"+index}>
                           <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/></div>
                           <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
                           <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/></div>
                           <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /></div>
                           <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/></div>
                         </div>
+                }else{
+                  return  <div className="info" ref="info" key={"info"+index}>
+                          <em className="icon i-close" onClick={_self.removePerson.bind(null,index)}></em>
+                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /></div>
+                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/></div>
+                        </div>
+                }
               })
             }
             </div>

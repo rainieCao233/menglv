@@ -11,11 +11,6 @@ var helper = {
 		hashHistory.push(hash)
 	},
 	goBack:function(){
-
-		if(window.helper.bridge.isHybrid() && window.helper.roueteHistory.length<=0){
-			window.helper.bridge.closeWebview();
-			return;
-		}
 		window.helper.roueteHistory.pop();
 		hashHistory.goBack()
 	},

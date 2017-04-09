@@ -117,9 +117,20 @@
   padding: 10px 0;
   width: 600px;
   margin-left: 50px;
+  position: relative;
+}
+#signup .main .info .i-close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: none;
+  zoom:.7;
 }
 #signup .main .info:hover{
   background: #f4f4f4;
+}
+#signup .main .info:hover .i-close{
+  display: block;
 }
 #signup .main .input_wrap{
   font-size: 14px;

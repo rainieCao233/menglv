@@ -16,6 +16,7 @@ var Signup = require("./pages/signup/signup")
 var Detail = require("./pages/detail/detail")
 var Screening = require("./pages/screening/screening")
 var Pay = require("./pages/pay/pay")
+var Order = require("./pages/order/order")
 var Culture = require("./pages/culture/culture")
 var About = require("./pages/about/about")
 var Intro = require("./pages/intro/intro")
@@ -30,7 +31,8 @@ var routes =
         <Route path="/signup/:id" component={Signup} />
         <Route path="/screening(/:type/:value)" component={Screening} />
         <Route path="/detail/:id" component={Detail} />
-        <Route path="/pay/:id" component={Pay} />
+        <Route path="/pay/:id/:title" component={Pay} />
+        <Route path="/order/:id" component={Order} />
         <Route path="/culture" component={Culture} />
         <Route path="/about" component={About} />
       	<Route path="/intro" component={Intro} />
