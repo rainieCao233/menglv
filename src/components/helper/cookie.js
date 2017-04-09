@@ -20,7 +20,7 @@ var cookie = {
 	 */
 	set:function(name,value,time)
 	{
-	    var domain = ".eastmoney.com";
+	    var domain = ".shmlhw.com";
 	    //var domain=window.location.hostname;
 	    var exp = new Date();
 
