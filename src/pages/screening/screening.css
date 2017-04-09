@@ -68,24 +68,39 @@
   width: 250px;
   height: 455px;
   background: rgba(0, 0, 0, 0.35);
-  text-align: center;
+  padding: 0 10px 20px 10px;
+  box-sizing:border-box;
 }
 #screening .selfinfo .i-avator{
   margin-top: 10px;
+	margin-left: 54px;
 }
 #screening .selfinfo ul{
-  margin-top: 25px;
+	margin-top: 25px;
+}
+#screening .selfinfo ul.info{
+	text-align: center;
 }
 #screening .selfinfo ul li{
-  font-size: 14px;
+  font-size: 12px;
   color: #fff;
-  line-height: 30px;
+  line-height: 24px;
 }
 #screening .selfinfo .i-nav-right{
   zoom: 1.17;
   position: absolute;
   bottom: 0;
   left: 0;
+}
+#screening .selfinfo em.i-wechat.hp{
+    display: none;
+    position: absolute;
+    bottom: 172px;
+    left: 120px;
+    zoom: .65;
+}
+#screening .selfinfo .i-nav-right:hover + em.i-wechat.hp{
+  display: block;
 }
 #screening .wrap{
 	width: 1200px;

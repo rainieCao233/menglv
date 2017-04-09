@@ -1,3 +1,25 @@
+#culture .culture_wrap{
+    padding: 80px 0;
+    background: url(../../imgs/bg-culture.png);
+}
 #culture .wrap{
-	
+	width: 1100px;
+	min-height:200px;
+	background: #fff;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+#culture .wrap h4{
+	font-size: 28px;
+	color: #fff;
+	line-height: 60px;
+	background: #43b413;
+	margin-bottom: 30px;
+	text-align: center;
+}
+#culture .wrap p{
+	line-height: 30px;
+	padding: 0 160px;
+	font-size: 14px;
+	color: #000;
 }

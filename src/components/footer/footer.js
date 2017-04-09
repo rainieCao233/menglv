@@ -9,12 +9,15 @@ var Helper = require("../helper/helper")
 var Footer = React.createClass({
   toIntro:function(){
     Helper.forwardTo("/intro");
+    location.reload();
   },
   toCulture:function(){
     Helper.forwardTo("/culture");
+    location.reload();
   },
   toAbout:function(){
     Helper.forwardTo("/about");
+    location.reload();
   },
   render:function() {
     return(

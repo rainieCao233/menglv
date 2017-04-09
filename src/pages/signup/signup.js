@@ -14,6 +14,7 @@ var Slider = require("../../components/slider/slider")
 
 var Signup = React.createClass({
   hasExpress:"none",
+  isLogin:false,
   getInitialState:function(){
     return {
       res:[{}],
@@ -210,7 +211,7 @@ var Signup = React.createClass({
     var _self = this;
     return(
       <div id="signup">
-      <Topbar />
+      <Topbar isLogin={this.isLogin}/>
       <div className="slider_wrap">
           <div className="slider">
             <div className="category">
@@ -272,13 +273,23 @@ var Signup = React.createClass({
             </div>
             <Slider />
             <div className="selfinfo">
-              <em className="icon i-avator"></em>
-              <ul>
-                <li>网名：123</li>
-                <li>余额：123</li>
-                <li>积分：123</li>
-              </ul>
+              <div  style={{display:this.isLogin?"block":"none"}}>
+                <em className="icon i-avator"></em>
+                <ul className="info">
+                  <li>网名：123</li>
+                  <li>余额：123</li>
+                  <li>积分：123</li>
+                </ul>
+              </div>
+              <div  style={{display:!this.isLogin?"block":"none"}}>
+                <ul>
+                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
+                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
+                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
+                </ul>
+              </div>
               <em className="icon i-nav-right"></em>
+              <em className="icon i-wechat hp"></em>
             </div>
           </div>
         </div>

@@ -71,9 +71,13 @@
 }
 #homepage .selfinfo .i-avator{
 	margin-top: 10px;
+	margin-left: 54px;
 }
 #homepage .selfinfo ul{
 	margin-top: 25px;
+}
+#homepage .selfinfo ul.info{
+	text-align: center;
 }
 #homepage .selfinfo ul li{
 	font-size: 12px;

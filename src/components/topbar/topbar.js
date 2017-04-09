@@ -19,7 +19,7 @@ var Topbar = React.createClass({
 					<li><a href="#">装备商城</a></li>
 					<li><a href="#">积分兑换</a></li>
 					<li><a href="#">成为VIP</a></li>
-					<li className="lg"><a href="#">{this.props.isLogin?"最新公告":"个人中心"}</a></li>
+					<li className="lg"><a href="#">{this.props.isLogin?"个人中心":"最新公告"}</a></li>
 				</ul>
 			</div>
 		)

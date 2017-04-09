@@ -4,7 +4,10 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./culture.css")
 
+var Topbar = require("../../components/topbar/topbar")
+
 var Culture = React.createClass({
+  isLogin:false,
   getInitialState:function(){
     return {
     }
@@ -14,9 +17,16 @@ var Culture = React.createClass({
   render:function(){
     return(
       <div id="culture">
-      	<div className="wrap">
-      		
-      	</div>
+        <Topbar isLogin={this.isLogin}/>
+        <div className="culture_wrap">
+        	<div className="wrap">
+        		<h4>企业文化</h4>
+            <p>萌驴户外是一家专业的以自助户外旅行和团队拓展、团建为主的户外活动组织，上海登协会员单位、A级户外俱乐部，集徒步、登山穿越、越野、骑行、旅行等为一体的综合性户外团体，致力于为喜欢自然、喜欢旅行、追求自由的朋友打造一个更宽更广的平台。</p>
+            <p>萌旅户外提供企业及社会各团体各团队的团队拓展、旅行、会议等策划创意定制活动，提供有助于调动员工的积极性、团队凝聚力的创意策划活动。</p>
+            <p>户外装备的销售与租借，为您提供最适合您的户外装备；</p>
+            <p>组织户外徒步露营等活动，各类户外体验运动；</p>
+        	</div>
+        </div>
       </div>
     )
   }

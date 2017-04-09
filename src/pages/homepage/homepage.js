@@ -11,7 +11,7 @@ var Topbar = require("../../components/topbar/topbar")
 var Slider = require("../../components/slider/slider")
 
 var Homepage = React.createClass({
-  isLogin:false,
+  isLogin:true,
   getInitialState:function(){
     return {
       list1:[{}],
@@ -145,7 +145,7 @@ var Homepage = React.createClass({
             <div className="selfinfo">
               <div  style={{display:this.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
-                <ul>
+                <ul className="info">
                   <li>网名：123</li>
                   <li>余额：123</li>
                   <li>积分：123</li>
