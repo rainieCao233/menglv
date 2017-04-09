@@ -237,28 +237,28 @@ var Homepage = React.createClass({
         <div className="wrap">
           <ul className="leader_wrap clearfix">
             <li>
-              <em className="leader"></em>
-              <span>精英领队：路客</span>
+              <em className="leader leader1"></em>
+              <span>精英领队：Lost</span>
             </li>
             <li>
-              <em className="leader"></em>
-              <span>精英领队：路客</span>
+              <em className="leader leader2"></em>
+              <span>精英领队：saturn</span>
             </li>
             <li>
-              <em className="leader"></em>
-              <span>精英领队：路客</span>
+              <em className="leader leader3"></em>
+              <span>精英领队：猴子</span>
             </li>
             <li>
-              <em className="leader"></em>
-              <span>精英领队：路客</span>
+              <em className="leader leader4"></em>
+              <span>精英领队：老怪</span>
             </li>
             <li>
-              <em className="leader"></em>
-              <span>精英领队：路客</span>
+              <em className="leader leader5"></em>
+              <span>精英领队：顺子大叔</span>
             </li>
             <li>
-              <em className="leader"></em>
-              <span>精英领队：路客</span>
+              <em className="leader leader6"></em>
+              <span>精英领队：太阳</span>
             </li>
           </ul>
         </div>

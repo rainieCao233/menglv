@@ -230,8 +230,25 @@
 	display: inline-block;
 	width: 185px;
 	height: 290px;
-	background: url(../../imgs/leader.png);
 	background-size: 100% 100%;
+}
+#homepage ul.leader_wrap li em.leader1{
+	background: url(../../imgs/leader1.png)
+}
+#homepage ul.leader_wrap li em.leader2{
+	background: url(../../imgs/leader2.png)
+}
+#homepage ul.leader_wrap li em.leader3{
+	background: url(../../imgs/leader3.png)
+}
+#homepage ul.leader_wrap li em.leader4{
+	background: url(../../imgs/leader4.png)
+}
+#homepage ul.leader_wrap li em.leader5{
+	background: url(../../imgs/leader5.png)
+}
+#homepage ul.leader_wrap li em.leader6{
+	background: url(../../imgs/leader6.png)
 }
 #homepage ul.leader_wrap li span{
 	display: inline-block;
