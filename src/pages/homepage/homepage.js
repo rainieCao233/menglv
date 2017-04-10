@@ -1,6 +1,5 @@
 var React = require("react")
 var ReactDOM = require("react-dom")
-var tripList = require('../../../node/server/api/tripList.json');
 
 //CSS
 require("./homepage.css")
@@ -9,17 +8,34 @@ require("./homepage.css")
 var Helper = require("../../components/helper/helper")
 var Topbar = require("../../components/topbar/topbar")
 var Slider = require("../../components/slider/slider")
+var Cookie = require("../../components/helper/cookie")
 
 var Homepage = React.createClass({
-  isLogin:true,
   getInitialState:function(){
     return {
       list1:[{}],
-      list2:[{}]
+      list2:[{}],
+      isLogin:false,
     }
   },
   componentDidMount:function(){
     this.getActivities({is_long_journey:"0"});
+    var _self = this;
+    if(location.hash.indexOf("code=") != -1){
+      var search = location.hash.substring(location.hash.indexOf("code="));
+      var code = search.substring(5,search.indexOf("&"));
+      Helper.send("loginController/pcLogin",{code:code},"GET")
+      .success(function(res){
+        _self.setState({isLogin:true})
+        // Cookie.set();
+        console.log(res);
+      })
+      .error(function(req){
+        alert("登录失败：" + req)
+        _self.setState({isLogin:false})
+        console.log(req)
+      })
+    }
   },
   getActivities:function(json){
     var obj = {
@@ -81,7 +97,7 @@ var Homepage = React.createClass({
   render:function(){
     return(
       <div id="homepage">
-        <Topbar isLogin={this.isLogin}/>
+        <Topbar isLogin={this.state.isLogin}/>
         <div className="slider_wrap">
           <div className="slider">
             <div className="category">
@@ -143,7 +159,7 @@ var Homepage = React.createClass({
             </div>
             <Slider />
             <div className="selfinfo">
-              <div  style={{display:this.isLogin?"block":"none"}}>
+              <div  style={{display:this.state.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
                 <ul className="info">
                   <li>网名：123</li>
@@ -151,7 +167,7 @@ var Homepage = React.createClass({
                   <li>积分：123</li>
                 </ul>
               </div>
-              <div  style={{display:!this.isLogin?"block":"none"}}>
+              <div  style={{display:!this.state.isLogin?"block":"none"}}>
                 <ul>
                   <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
                   <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
@@ -234,7 +250,7 @@ var Homepage = React.createClass({
           </div>
         </div>
         <div className="pic_wrap"><em className="hp-2"></em></div>
-        <div className="wrap">
+        <div className="wrap leader">
           <ul className="leader_wrap clearfix">
             <li>
               <em className="leader leader1"></em>
@@ -259,6 +275,18 @@ var Homepage = React.createClass({
             <li>
               <em className="leader leader6"></em>
               <span>精英领队：太阳</span>
+            </li>
+            <li>
+              <em className="leader leader7"></em>
+              <span>精英领队：夏天</span>
+            </li>
+            <li>
+              <em className="leader leader8"></em>
+              <span>精英领队：萧萧</span>
+            </li>
+            <li>
+              <em className="leader leader9"></em>
+              <span>精英领队：亚亚</span>
             </li>
           </ul>
         </div>

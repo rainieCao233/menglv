@@ -129,6 +129,11 @@
 	width:1200px;
 	margin: 0 auto;
 }
+#homepage .wrap.leader{
+	overflow: hidden;    
+	height: 300px;
+	position: relative;
+}
 #homepage .tab_wrap{
 	margin-top: 10px;
 	border-bottom: 2px solid #ff9d00;
@@ -219,6 +224,24 @@
 }
 #homepage ul.leader_wrap{
 	margin: 6px 0;
+	width: 1800px;
+	position: absolute;
+	left: 0;
+	animation:slide 30s infinite;
+	-webkit-animation:slide 30s infinite; 
+}
+@keyframes slide
+{
+    0% {left: 0;}
+    50% {left: -600px;}
+    100% {left: 0px;}
+}
+ 
+@-webkit-keyframes slide 
+{
+    0% {left: 0;}
+    50% {left: -600px;}
+    100% {left: 0px;}
 }
 #homepage ul.leader_wrap li{
 	width: 200px;
@@ -230,25 +253,42 @@
 	display: inline-block;
 	width: 185px;
 	height: 290px;
-	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li em.leader1{
-	background: url(../../imgs/leader1.png)
+	background: url(../../imgs/leader/leader1.png);
+	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li em.leader2{
-	background: url(../../imgs/leader2.png)
+	background: url(../../imgs/leader/leader2.png);
+	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li em.leader3{
-	background: url(../../imgs/leader3.png)
+	background: url(../../imgs/leader/leader3.png);
+	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li em.leader4{
-	background: url(../../imgs/leader4.png)
+	background: url(../../imgs/leader/leader4.png);
+	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li em.leader5{
-	background: url(../../imgs/leader5.png)
+	background: url(../../imgs/leader/leader5.png);
+	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li em.leader6{
-	background: url(../../imgs/leader6.png)
+	background: url(../../imgs/leader/leader6.png);
+	background-size: 100% 100%;
+}
+#homepage ul.leader_wrap li em.leader7{
+	background: url(../../imgs/leader/leader7.png);
+	background-size: 100% 100%;
+}
+#homepage ul.leader_wrap li em.leader8{
+	background: url(../../imgs/leader/leader8.png);
+	background-size: 100% 100%;
+}
+#homepage ul.leader_wrap li em.leader9{
+	background: url(../../imgs/leader/leader9.png);
+	background-size: 100% 100%;
 }
 #homepage ul.leader_wrap li span{
 	display: inline-block;

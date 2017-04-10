@@ -77,10 +77,9 @@ var Signup = React.createClass({
     this.state.info.push(1);
     this.forceUpdate();
   },
-  removePerson:function(index){
-    // this.state.info.splice(index,1);
-    // this.refs.info_wrap.childNodes.remove(this.refs.info_wrap.childNodes[index]);
-    // console.log(this.refs.info_wrap.childNodes[index]);
+  removePerson:function(index,e){
+    this.state.info.pop();
+    e.currentTarget.parentNode.remove();
   },
   calculatePrice:function(p,num,index){
     console.log("calculatePrice",p,num,index);

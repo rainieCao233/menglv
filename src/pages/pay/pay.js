@@ -32,10 +32,10 @@ var Pay = React.createClass({
       });
   },
   changeTab:function(e){
-    console.log(e.target.value)
     switch(e.target.value){
       case "1":
         this.refs.modal1.style.display = "none";
+        this.forceUpdate();
         alert("支付宝还没开通");
         break;
       case "2":
@@ -44,7 +44,6 @@ var Pay = React.createClass({
         var title = decodeURIComponent(this.props.params.title);
         Helper.send("paymentController/getCodeUrl", {order_id:this.props.params.id,body:title})
         .success(function(res){
-          console.log(res);
           _self.state.path = res;
           _self.forceUpdate();
         })
@@ -55,7 +54,6 @@ var Pay = React.createClass({
       default:
         this.refs.modal1.style.display = "none";
     }
-    e.preventDefault();
     e.stopPropagation();
   },
   backToOrder:function(){
@@ -73,7 +71,7 @@ var Pay = React.createClass({
             </div>
             <div className="main_wrap clearfix">
               <div className="main">
-                <h4>请选择付款方式:</h4>
+                <h4>请点击选择付款方式:</h4>
                 <ul className="pay_list clearfix">
                   <li>
                     <input type="radio" value="1" name="pay" onChange={this.changeTab}/>
@@ -92,10 +90,13 @@ var Pay = React.createClass({
                 <p>客服热线：<b>021-52277179</b></p>
               </div>
               <div className="modal" ref="modal1">
+                <em className="i-loading"></em>
                 <p>扫码支付:</p>
-                <svg width="150px" height="150px">
-                  <path d={this.state.path?svgpath(qr.svgObject(this.state.path).path).scale(5, 5).toString():null} />
-                </svg>
+                <div className="qrcode">
+                  <svg width="150px" height="150px">
+                    <path d={this.state.path?svgpath(qr.svgObject(this.state.path).path).scale(5, 5).toString():null} />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>

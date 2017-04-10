@@ -14,16 +14,6 @@ var Login = React.createClass({
     }
   },
   componentDidMount:function(){
-    if(location.search.indexOf("?code=") != -1){
-      var code = location.search.substring(6,location.search.indexOf("&"));
-      Helper.send("loginController/pcLogin",{code:code},"GET")
-      .success(function(res){
-        console.log(res);
-      })
-      .error(function(req){
-        console.log(req)
-      })
-    }
   },
   toLogin:function(){
     var self = this,
@@ -57,7 +47,7 @@ var Login = React.createClass({
 			});
   },
   weixinlogin:function(){
-    Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent(location.href)+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
+    Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent(location.origin)+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
   },
   render:function(){
     return(

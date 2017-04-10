@@ -137,7 +137,53 @@
   display: none;
   text-align: left;
 }
+#pay .main_wrap .modal em.i-loading{
+  background: url(../../imgs/loading.png);
+  background-size: 100% 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -35px;
+  z-index: 9;
+  animation:mymove 5s infinite;
+  -webkit-animation:mymove 5s infinite;
+/*  -moz-animation:mymove 5s linear infinite;
+  -o-animation:mymove 5s linear infinite;*/
+}
+@keyframes mymove
+{
+　　0%{transform:rotate(0deg);}
+　　50%{transform:rotate(180deg);}
+　　100%{transform:rotate(360deg);}
+}
+@-webkit-keyframes mymove
+{
+　　0%{-webkit-transform:rotate(0deg);}
+　　50%{-webkit-transform:rotate(180deg);}
+　　100%{-webkit-transform:rotate(360deg);}
+}
+/*@-moz-keyframes mymove
+{
+　　0%{-moz-transform:rotate(0deg);}
+　　50%{-moz-transform:rotate(180deg);}
+　　100%{-moz-transform:rotate(360deg);}
+}
+@-o-keyframes mymove
+{
+　　0%{-o-transform:rotate(0deg);}
+　　50%{-o-transform:rotate(180deg);}
+　　100%{-o-transform:rotate(360deg);}
+}*/
 #pay .main_wrap .modal p{
   font-size: 16px;
   margin: 0 0 10px 10px;
+}
+#pay .main_wrap .modal .qrcode{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 999;
+  background: #fff;
 }
