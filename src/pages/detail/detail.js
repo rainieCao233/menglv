@@ -4,6 +4,7 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./detail.css")
 
+var Page = require("../page/page")
 //components
 var Helper = require("../../components/helper/helper")
 var Recommendation = require("../../components/recommendation/recommendation")
@@ -14,7 +15,6 @@ var Topbar = require("../../components/topbar/topbar")
 var Slider = require("../../components/slider/slider")
 
 var Detail = React.createClass({
-  isLogin:false,
   getInitialState:function(){
     return {
       activity:{},
@@ -22,11 +22,36 @@ var Detail = React.createClass({
       types:[{}],
       meetingPlaces:[{}],
       participtors:[],
-      pnum:0
+      pnum:0,
+      isLogin:false,
+      wxNickname:"",
+      overage:"",
+      score:"",
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+    this.toLogin();
   },
   componentDidMount:function(){
     this.postRequest({});
+  },
+  toLogin:function(){
+      var _self = this;
+      Helper.send("logincontroller/getLoginUserInfo","GET")
+        .success(function(res){
+          _self.state.isLogin = true;
+          _self.state.wxNickname = res.wxNickname;
+          _self.state.overage = res.overage;
+          _self.state.score = res.score;
+          _self.forceUpdate();
+          console.log(res);
+        })
+        .error(function(req){
+          alert("登录失败：" + req)
+          _self.setState({isLogin:false})
+          console.log(req)
+        })
   },
   postRequest:function(obj){
     var _self = this;
@@ -97,8 +122,9 @@ var Detail = React.createClass({
   },
   render:function(){
     return(
+      <Page isLogin={this.state.isLogin}>
       <div id="detail">
-        <Topbar isLogin={this.isLogin}/>
+        <Topbar isLogin={this.state.isLogin}/>
         <div className="slider_wrap">
           <div className="slider">
             <div className="category">
@@ -160,15 +186,15 @@ var Detail = React.createClass({
             </div>
             <Slider />
             <div className="selfinfo">
-              <div  style={{display:this.isLogin?"block":"none"}}>
+              <div  style={{display:this.state.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
                 <ul className="info">
-                  <li>网名：123</li>
-                  <li>余额：123</li>
-                  <li>积分：123</li>
+                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
+                  <li>余额：{this.state.overage?this.state.overage:""}</li>
+                  <li>积分：{this.state.score?this.state.score:""}</li>
                 </ul>
               </div>
-              <div  style={{display:!this.isLogin?"block":"none"}}>
+              <div  style={{display:!this.state.isLogin?"block":"none"}}>
                 <ul>
                   <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
                   <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
@@ -300,6 +326,7 @@ var Detail = React.createClass({
           </div>
         </div>
       </div>
+      </Page>
     )
   }
 })

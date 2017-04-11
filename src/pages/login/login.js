@@ -4,6 +4,7 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./login.css")
 
+var Page = require("../page/page")
 //components
 var Helper = require("../../components/helper/helper")
 var Cookie = require("../../components/helper/cookie")
@@ -12,6 +13,9 @@ var Login = React.createClass({
   getInitialState:function(){
     return {
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
   },
   componentDidMount:function(){
   },
@@ -47,10 +51,11 @@ var Login = React.createClass({
 			});
   },
   weixinlogin:function(){
-    Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent(location.origin)+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
+    Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent(location.origin+"/#/")+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
   },
   render:function(){
     return(
+      <Page>
       <div id="login">
       	<div className="wrap">
       		<div className="title">
@@ -77,6 +82,7 @@ var Login = React.createClass({
           </a>
       	</div>
       </div>
+      </Page>
     )
   }
 })

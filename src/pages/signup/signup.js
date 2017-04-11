@@ -4,6 +4,7 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./signup.css")
 
+var Page = require("../page/page")
 //components
 var Helper = require("../../components/helper/helper")
 var LinkageMenu = require("../../components/linkageMenu/linkageMenu")
@@ -14,7 +15,6 @@ var Slider = require("../../components/slider/slider")
 
 var Signup = React.createClass({
   hasExpress:"none",
-  isLogin:false,
   getInitialState:function(){
     return {
       res:[{}],
@@ -23,8 +23,16 @@ var Signup = React.createClass({
       detail:"",
       rewards:[{}],
       price:0,
-      sum:0
+      sum:0,
+      isLogin:false,
+      wxNickname:"",
+      overage:"",
+      score:""
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+    this.toLogin();
   },
   componentDidMount:function(){
     this.postRequest({});
@@ -39,6 +47,23 @@ var Signup = React.createClass({
       .error(function(req){
         console.log("error : " + req)
       });
+  },
+  toLogin:function(){
+      var _self = this;
+      Helper.send("logincontroller/getLoginUserInfo","GET")
+        .success(function(res){
+          _self.state.isLogin = true;
+          _self.state.wxNickname = res.wxNickname;
+            _self.state.overage = res.overage;
+            _self.state.score = res.score;
+          _self.forceUpdate();
+          console.log(res);
+        })
+        .error(function(req){
+          alert("登录失败：" + req)
+          _self.setState({isLogin:false})
+          console.log(req)
+        })
   },
   getDiscount:function(){
     var _self = this;
@@ -215,8 +240,9 @@ var Signup = React.createClass({
   render:function(){
     var _self = this;
     return(
+      <Page isLogin={this.state.isLogin}>
       <div id="signup">
-      <Topbar isLogin={this.isLogin}/>
+      <Topbar isLogin={this.state.isLogin}/>
       <div className="slider_wrap">
           <div className="slider">
             <div className="category">
@@ -278,15 +304,15 @@ var Signup = React.createClass({
             </div>
             <Slider />
             <div className="selfinfo">
-              <div  style={{display:this.isLogin?"block":"none"}}>
+              <div  style={{display:this.state.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
                 <ul className="info">
-                  <li>网名：123</li>
-                  <li>余额：123</li>
-                  <li>积分：123</li>
+                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
+                  <li>余额：{this.state.overage?this.state.overage:""}</li>
+                  <li>积分：{this.state.score?this.state.score:""}</li>
                 </ul>
               </div>
-              <div  style={{display:!this.isLogin?"block":"none"}}>
+              <div  style={{display:!this.state.isLogin?"block":"none"}}>
                 <ul>
                   <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
                   <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
@@ -411,6 +437,7 @@ var Signup = React.createClass({
         </div>
       </div>
     </div>
+    </Page>
     )
   }
 })

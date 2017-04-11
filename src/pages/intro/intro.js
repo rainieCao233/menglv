@@ -4,20 +4,41 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./intro.css")
 
+var Page = require("../page/page")
 var Topbar = require("../../components/topbar/topbar")
+var Helper = require("../../components/helper/helper")
 
 var Intro = React.createClass({
-  isLogin:false,
   getInitialState:function(){
     return {
+      isLogin:false,
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+    this.toLogin();
   },
   componentDidMount:function(){
   },
+  toLogin:function(){
+      var _self = this;
+      Helper.send("logincontroller/getLoginUserInfo","GET")
+        .success(function(res){
+          _self.state.isLogin = true;
+          _self.forceUpdate();
+          console.log(res);
+        })
+        .error(function(req){
+          alert("登录失败：" + req)
+          _self.setState({isLogin:false})
+          console.log(req)
+        })
+  },
   render:function(){
     return(
+      <Page isLogin={this.state.isLogin}>
       <div id="intro">
-        <Topbar isLogin={this.isLogin}/>
+        <Topbar isLogin={this.state.isLogin}/>
         <div className="intro_wrap">
         	<div className="wrap">
         		<h4>萌驴简介</h4>
@@ -28,6 +49,7 @@ var Intro = React.createClass({
         	</div>
         </div>
       </div>
+      </Page>
     )
   }
 })

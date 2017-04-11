@@ -5,19 +5,40 @@ var ReactDOM = require("react-dom")
 require("./about.css")
 
 var Topbar = require("../../components/topbar/topbar")
+var Helper = require("../../components/helper/helper")
+var Page = require("../page/page")
 
 var About = React.createClass({
-  isLogin:false,
   getInitialState:function(){
     return {
+      isLogin:false
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+    this.toLogin();
   },
   componentDidMount:function(){
   },
+  toLogin:function(){
+      var _self = this;
+      Helper.send("logincontroller/getLoginUserInfo","GET")
+        .success(function(res){
+          _self.state.isLogin = true;
+          _self.forceUpdate();
+          console.log(res);
+        })
+        .error(function(req){
+          alert("登录失败：" + req)
+          _self.setState({isLogin:false})
+          console.log(req)
+        })
+  },
   render:function(){
     return(
+      <Page isLogin={this.state.isLogin}>
       <div id="about">
-        <Topbar isLogin={this.isLogin}/>
+        <Topbar isLogin={this.state.isLogin}/>
         <div className="about_wrap">
         	<div className="wrap">
         		<h4>联系我们</h4>
@@ -29,6 +50,7 @@ var About = React.createClass({
         	</div>
         </div>
       </div>
+      </Page>
     )
   }
 })

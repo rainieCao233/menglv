@@ -6,20 +6,39 @@ var svgpath = require("svgpath")
 //CSS
 require("./pay.css")
 
+var Page = require("../page/page")
 //components
 var Helper = require("../../components/helper/helper")
 var Topbar = require("../../components/topbar/topbar")
 var Slider = require("../../components/slider/slider")
 
 var Pay = React.createClass({
-  isLogin:false,
   getInitialState:function(){
     return {
-      path:""
+      isLogin:false,
+      path:"",
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+    this.toLogin();
   },
   componentDidMount:function(){
     
+  },
+  toLogin:function(){
+      var _self = this;
+      Helper.send("logincontroller/getLoginUserInfo","GET")
+        .success(function(res){
+          _self.state.isLogin = true;
+          _self.forceUpdate();
+          console.log(res);
+        })
+        .error(function(req){
+          alert("登录失败：" + req)
+          _self.setState({isLogin:false})
+          console.log(req)
+        })
   },
   postRequest:function(){
     var _self = this;
@@ -61,8 +80,9 @@ var Pay = React.createClass({
   },
   render:function(){
     return(
+      <Page isLogin={this.state.isLogin}>
       <div id="pay">
-      	<Topbar isLogin={this.isLogin}/>
+      	<Topbar isLogin={this.state.isLogin}/>
         <div className="content">
           <div className="wrap">
             <div className="title">
@@ -102,6 +122,7 @@ var Pay = React.createClass({
           </div>
         </div>
       </div>
+      </Page>
     )
   }
 })

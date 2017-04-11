@@ -9,6 +9,7 @@ var Helper = require("../../components/helper/helper")
 var Topbar = require("../../components/topbar/topbar")
 var Slider = require("../../components/slider/slider")
 var Cookie = require("../../components/helper/cookie")
+var Page = require("../page/page")
 
 var Homepage = React.createClass({
   getInitialState:function(){
@@ -16,26 +17,17 @@ var Homepage = React.createClass({
       list1:[{}],
       list2:[{}],
       isLogin:false,
+      wxNickname:"",
+      overage:"",
+      score:""
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+    this.toLogin();
   },
   componentDidMount:function(){
     this.getActivities({is_long_journey:"0"});
-    var _self = this;
-    if(location.hash.indexOf("code=") != -1){
-      var search = location.hash.substring(location.hash.indexOf("code="));
-      var code = search.substring(5,search.indexOf("&"));
-      Helper.send("loginController/pcLogin",{code:code},"GET")
-      .success(function(res){
-        _self.setState({isLogin:true})
-        // Cookie.set();
-        console.log(res);
-      })
-      .error(function(req){
-        alert("登录失败：" + req)
-        _self.setState({isLogin:false})
-        console.log(req)
-      })
-    }
   },
   getActivities:function(json){
     var obj = {
@@ -70,6 +62,44 @@ var Homepage = React.createClass({
         console.log("error : " + req)
       });
   },
+  toLogin:function(){
+      var _self = this;
+      if(location.hash.indexOf("code=") == -1){
+        Helper.send("logincontroller/getLoginUserInfo","GET")
+          .success(function(res){
+            _self.state.isLogin = true;
+            _self.state.wxNickname = res.wxNickname;
+            _self.state.overage = res.overage;
+            _self.state.score = res.score;
+            _self.forceUpdate();
+            console.log(res);
+          })
+          .error(function(req){
+            alert("登录失败：" + req)
+            _self.setState({isLogin:false})
+            console.log(req)
+          })
+      }else{
+          if(location.hash.indexOf("code=") != -1){
+            var search = location.hash.substring(location.hash.indexOf("code="));
+            var code = search.substring(5,search.indexOf("&"));
+            Helper.send("logincontroller/pcLogin",{code:code},"GET")
+            .success(function(res){
+              _self.state.isLogin = true;
+              _self.state.wxNickname = res.wxNickname;
+              _self.state.overage = res.overage;
+              _self.state.score = res.score;
+              _self.forceUpdate();
+              console.log(res);
+            })
+            .error(function(req){
+              alert("登录失败：" + req)
+              _self.setState({isLogin:false})
+              console.log(req)
+            })
+          }
+      }
+  },  
   switchTab:function(e){
     if(e.target.value == "case3"){
       Helper.forwardTo('/customize')
@@ -96,7 +126,8 @@ var Homepage = React.createClass({
   },
   render:function(){
     return(
-      <div id="homepage">
+      <Page isLogin={this.state.isLogin}>
+        <div id="homepage">
         <Topbar isLogin={this.state.isLogin}/>
         <div className="slider_wrap">
           <div className="slider">
@@ -162,9 +193,9 @@ var Homepage = React.createClass({
               <div  style={{display:this.state.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
                 <ul className="info">
-                  <li>网名：123</li>
-                  <li>余额：123</li>
-                  <li>积分：123</li>
+                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
+                  <li>余额：{this.state.overage?this.state.overage:""}</li>
+                  <li>积分：{this.state.score?this.state.score:""}</li>
                 </ul>
               </div>
               <div  style={{display:!this.state.isLogin?"block":"none"}}>
@@ -298,7 +329,8 @@ var Homepage = React.createClass({
           <li><span><b>28+</b>天</span><br />徒步穿越记录</li>
           <li><span><b>2000+</b>次</span><br />承接团队策划</li>
         </ul>
-      </div>
+        </div>
+      </Page>
     )
   }
 })

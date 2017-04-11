@@ -84,6 +84,10 @@
 	color: #fff;
 	line-height: 24px;
 }
+#homepage .selfinfo ul.info li{
+	text-align: left;
+	padding-left: 60px;
+}
 #homepage .selfinfo .i-nav-right{
 	zoom: 1.17;
 	position: absolute;

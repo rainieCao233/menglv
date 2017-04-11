@@ -122,9 +122,9 @@ var Header = React.createClass({
           <div className="login_wrap clearfix">
             <div className="left">
               <span className="welcome_txt">您好，欢迎来到萌驴户外旅行，来一场说走就做的旅行吧!</span>
-              <span className="sign">[<ALink href="/login">登录</ALink>]</span>
-              <span className="line">|</span>
-              <span className="sign">[<ALink href="/register">注册</ALink>]</span>
+              <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/login">登录</ALink>]</span>
+              <span className="line" style={{display:!this.props.isLogin?"inline-block":"none"}}>|</span>
+              <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/register">注册</ALink>]</span>
             </div>
             <div className="right">
               <em className="icon i-qq"></em>官方微信公众号

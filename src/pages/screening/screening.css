@@ -86,6 +86,10 @@
   color: #fff;
   line-height: 24px;
 }
+#screening .selfinfo ul.info li{
+	text-align: left;
+	padding-left: 60px;
+}
 #screening .selfinfo .i-nav-right{
   zoom: 1.17;
   position: absolute;

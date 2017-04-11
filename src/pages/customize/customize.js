@@ -19,6 +19,9 @@ var Customize = React.createClass({
       budgetInput:[true,false,false,false,false,false]
     }
   },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
+  },
   componentDidMount:function(){
   },
   themeInput:function(e){

@@ -4,6 +4,7 @@ var ReactDOM = require("react-dom")
 //CSS
 require("./register.css")
 
+var Page = require("../page/page")
 //components
 var Helper = require("../../components/helper/helper")
 var validator = require("../../components/helper/validator")
@@ -12,6 +13,9 @@ var Register = React.createClass({
   getInitialState:function(){
     return {
     }
+  },
+  componentWillMount:function(){
+    window.scrollTo(0,0);
   },
   componentDidMount:function(){
   },
@@ -57,6 +61,7 @@ var Register = React.createClass({
   },
   render:function(){
     return(
+      <Page>
       <div id="register">
       	<div className="wrap">
       		<div className="title">
@@ -81,6 +86,7 @@ var Register = React.createClass({
       		<a href="javascript:void(0);" className="register_btn" onClick={this.toRegister}>注册</a>
       	</div>
       </div>
+      </Page>
     )
   }
 })
