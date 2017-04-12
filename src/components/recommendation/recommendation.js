@@ -31,8 +31,8 @@ var Recommendation = React.createClass({
       });
   },
   jump:function(id){
+  	window.scrollTo(0,0);
   	Helper.forwardTo("/detail/"+id);
-  	location.reload();
   },
 	render:function(){
 		var _self = this;
