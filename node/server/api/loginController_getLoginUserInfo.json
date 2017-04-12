@@ -1,0 +1,9 @@
+{
+	"retcode":"0000",
+	"errorMsg":null,
+	"obj":{
+		"wxNickname":"wxNickname",
+		"overage":"overage",
+		"score":"score"
+	}
+}

@@ -20,7 +20,8 @@
 	top: 30px;
 	left: 0;
 	width: 370px;
-	height: 130px;
+	min-height: 41px;
+	padding-bottom: 5px;
 	line-height: 40px;
 	background: #fff;
 	border: 1px solid #d4d4d4;

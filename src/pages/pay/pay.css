@@ -1,3 +1,6 @@
+#pay{
+  position: relative;
+}
 #pay .content{
   background: url(../../imgs/bg-pay.png);
   padding: 80px 0;
@@ -186,4 +189,49 @@
   left: 0;
   z-index: 999;
   background: #fff;
+}
+#pay .alertModal{
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99999;
+}
+#pay .alertModal>div{
+  width: 450px;
+  height: 215px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -225px;
+  margin-top: -110px;
+  background: #fff;
+  padding: 30px 0 25px 0;
+  box-sizing:border-box;
+  text-align: center;
+}
+#pay .alertModal>div .title{
+  line-height: 70px;
+  font-size: 22px;
+}
+#pay .alertModal>div .title .i-succ{
+  zoom:.5;
+  margin-right: 20px;
+}
+#pay .alertModal>div .content{
+  background: #fff;
+  padding: 10px 0 40px 0;
+}
+#pay .alertModal>div a{
+  display: block;
+  width: 160px;
+  line-height: 30px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 5px;
+  background: #ff5500;
+  margin-left: 145px;
 }

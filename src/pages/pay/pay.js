@@ -22,9 +22,11 @@ var Pay = React.createClass({
   componentWillMount:function(){
     window.scrollTo(0,0);
     this.toLogin();
+    this.timer && window.clearInterval(this.timer);
   },
   componentDidMount:function(){
-    
+    var _self = this;
+    this.timer=window.setInterval(_self.postRequest,1000);
   },
   toLogin:function(){
       var _self = this;
@@ -42,13 +44,16 @@ var Pay = React.createClass({
   },
   postRequest:function(){
     var _self = this;
-    Helper.send("paymentController/getOrderForSuccess", {order_id:this.props.params.id})
-      .success(function(res){
-        console.log(res);
-      })
-      .error(function(req){
-        console.log("error : " + req);
-      });
+    Helper.send("paymentController/searchOrderStatus", {order_id:_self.props.params.id})
+    .success(function(res){
+      if(res == 1){
+        window.clearInterval(_self.timer);
+        _self.refs.modal2.style.display = "block";
+      }
+    })
+    .error(function(req){
+      console.log("error : " + req);
+    });
   },
   changeTab:function(e){
     switch(e.target.value){
@@ -77,6 +82,10 @@ var Pay = React.createClass({
   },
   backToOrder:function(){
     Helper.goBack();
+  },
+  closeModal:function(){
+    this.refs.modal2.style.display = "none";
+    Helper.forwardTo("/");
   },
   render:function(){
     return(
@@ -119,6 +128,13 @@ var Pay = React.createClass({
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="alertModal" ref="modal2">
+          <div>
+            <p className="title"><em className="icon i-succ"></em>您已成功付款</p>
+            <p className="content">我们已经受到您的订单，祝您旅途愉快</p>
+            <a href="javascript:void(0);" onClick={this.closeModal}>确     认</a>
           </div>
         </div>
       </div>
