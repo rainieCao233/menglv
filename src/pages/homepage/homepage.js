@@ -65,7 +65,7 @@ var Homepage = React.createClass({
   toLogin:function(){
       var _self = this;
       if(location.hash.indexOf("code=") == -1){
-        Helper.send("logincontroller/getLoginUserInfo","GET")
+        Helper.send("loginController/getLoginUserInfo","GET")
           .success(function(res){
             _self.state.isLogin = true;
             _self.state.wxNickname = res.wxNickname;
@@ -83,7 +83,7 @@ var Homepage = React.createClass({
           if(location.hash.indexOf("code=") != -1){
             var search = location.hash.substring(location.hash.indexOf("code="));
             var code = search.substring(5,search.indexOf("&"));
-            Helper.send("logincontroller/pcLogin",{code:code},"GET")
+            Helper.send("loginController/pcLogin",{code:code},"GET")
             .success(function(res){
               _self.state.isLogin = true;
               _self.state.wxNickname = res.wxNickname;
