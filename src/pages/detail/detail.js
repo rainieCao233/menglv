@@ -29,6 +29,10 @@ var Detail = React.createClass({
       score:"",
     }
   },
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    this.postRequest({id:nextProps.params.id});
+  },
   componentWillMount:function(){
     window.scrollTo(0,0);
     this.toLogin();
@@ -54,8 +58,11 @@ var Detail = React.createClass({
         })
   },
   postRequest:function(obj){
-    var _self = this;
-    Helper.send("activityDetailController/getActivityDetail",{id:_self.props.params.id})
+    var _self = this, id=0;
+    if(obj.id){
+      id=obj.id;
+    }
+    Helper.send("activityDetailController/getActivityDetail",{id:id?id:_self.props.params.id})
       .success(function(res){
         _self.setState({activity:res.activity});
         _self.setState({leaders:res.leaders});

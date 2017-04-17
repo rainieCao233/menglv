@@ -23,7 +23,11 @@ var Pagination = React.createClass({
 			isShow = "none";
 		}
 		for (var i = 1; i <= length; i++) {
-	    	items.push(<a href='javascript:void(0);' className='page_btn' key={i} onClick={this.jumpPage}>{i}</a>);
+			if(index+1 == this.props.pagenum){
+	    		items.push(<a href='javascript:void(0);' className='page_btn checked' key={i} onClick={this.jumpPage}>{i}</a>);
+			}else{
+	    		items.push(<a href='javascript:void(0);' className='page_btn' key={i} onClick={this.jumpPage}>{i}</a>);
+			}
 		}
 		return (
 			<div id="pagination">

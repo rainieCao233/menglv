@@ -482,7 +482,7 @@ var Screening = React.createClass({
 		      			</div>
 	      			</div>
 	      		</div>
-	      		<div className="operate_wrap"></div>
+	      		<a className="operate_wrap" href="#product_more"></a>
 	      		<ul className="triplist">
 	      		{
               this.state.res.map(function(item, index){
@@ -490,7 +490,7 @@ var Screening = React.createClass({
               })
 	      		}
 	      		</ul>
-	      		<Pagination num={this.state.totalCount} click={this.changePage}/>
+	      		<Pagination num={this.state.totalCount} pagenum={this.state.pagenum} click={this.changePage}/>
 	      	</div>
 	      	<div className="right">
 	      		<div className="ad-wrap"></div>

@@ -188,7 +188,6 @@
   top: 40px;
   left: 0;
   z-index: 999;
-  background: #fff;
 }
 #pay .alertModal{
   position: fixed;

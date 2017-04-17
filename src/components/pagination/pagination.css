@@ -20,3 +20,7 @@
 #pagination .page_btn.go{
 	padding: 7px 10px;
 }
+#pagination .page_btn.checked{
+	background: #000;
+	color: #fff;
+}

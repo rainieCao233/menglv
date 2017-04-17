@@ -193,7 +193,7 @@ var Homepage = React.createClass({
               <div  style={{display:this.state.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
                 <ul className="info">
-                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
+                  <li>网名：{this.state.wxNickname?decodeURIComponent(this.state.wxNickname):""}</li>
                   <li>余额：{this.state.overage?this.state.overage:""}</li>
                   <li>积分：{this.state.score?this.state.score:""}</li>
                 </ul>
