@@ -41,15 +41,15 @@ var Screening = React.createClass({
   	switch(this.props.params.type){
   		case "duration":
 			obj.duration = this.props.params.value;
-			this.refs.time.childNodes[obj.duration].childNodes[0].checked = true;
+			this.refs.time.childNodes[obj.duration==-1?0:obj.duration].childNodes[0].checked = true;
   			break;
   		case "level":
   			obj.level = this.props.params.value;
-  			this.refs.level.childNodes[obj.level].childNodes[0].checked = true;
+  			this.refs.level.childNodes[obj.level+1].childNodes[0].checked = true;
   			break;
   		case "type":
   			obj.type = this.props.params.value;
-  			this.refs.type.childNodes[obj.type].childNodes[0].checked = true;
+  			this.refs.type.childNodes[obj.type+1].childNodes[0].checked = true;
   			break;
   		case "price":
   			if(this.props.params.value==1){
@@ -64,7 +64,7 @@ var Screening = React.createClass({
   			break;
   		case "month":
   			obj.month = this.props.params.value;
-  			this.refs.month.childNodes[obj.month].childNodes[0].checked = true;
+  			this.refs.month.childNodes[obj.month==-1?0:obj.month].childNodes[0].checked = true;
   			break;
   		default:
   	}
@@ -96,7 +96,7 @@ var Screening = React.createClass({
   	this.forceUpdate();
   	console.log(this.state.object)
     var _self = this;
-    Helper.send("getActivitiesController/getActivities",_self.state.object)
+    Helper.send("getActivitiesController_getActivities",_self.state.object)
       .success(function(res){
         _self.state.res = res.activities;
         if(!this.isChangePage){
@@ -177,8 +177,11 @@ var Screening = React.createClass({
     this.forceUpdate();
   },
   changePage:function(start_index, page_size){
-    this.setState({pnum : start_index/6});
-    this.setState({isSearch:!this.state.isSearch});
+    this.state.res = [];
+    this.state.isSearch = !this.state.isSearch;
+    this.state.pagenum = start_index/6+1;
+    this.forceUpdate();
+    window.scrollTo(0,document.querySelectorAll(".maodian")[0].offsetTop);
     this.searchActivities({"start_index":start_index,"page_size":page_size})
   },
   durationJump:function(e){
@@ -482,7 +485,7 @@ var Screening = React.createClass({
 		      			</div>
 	      			</div>
 	      		</div>
-	      		<a className="operate_wrap" href="#product_more"></a>
+	      		<div className="maodian"></div>
 	      		<ul className="triplist">
 	      		{
               this.state.res.map(function(item, index){

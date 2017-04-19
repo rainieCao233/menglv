@@ -6,11 +6,29 @@ var helper = require('../helper/helper')
 require("./pagination.css")
 
 var Pagination = React.createClass({
-	getInitialState:function(){
+  getInitialState:function(){
     return {
+    	pnum_total:0
     }
   },
+  componentWillMount:function(){
+  	this.setState({pnum_total:Math.ceil(this.props.num/6)})
+  },
   componentDidMount:function(){
+  },
+  lastPage:function(){
+  	if(this.props.pagenum == 1){
+  		console.log("No1 不能往前")
+  		return;
+  	}
+  	this.props.click((this.props.pagenum-2)*6,6);
+  },
+  nextPage:function(){
+  	if(this.props.pagenum == this.state.pnum_total){
+  		console.log("No最后 不能往后")
+  		return;
+  	}
+	this.props.click((this.props.pagenum)*6,6);
   },
   jumpPage:function(e){
   	this.props.click((e.target.innerText-1)*6,6);
@@ -18,12 +36,9 @@ var Pagination = React.createClass({
 	render:function(){
 		var items = [];
 		var isShow = "inline-block";
-		var length = Math.ceil(this.props.num/6)>10?10:Math.ceil(this.props.num/6);
-		if(Math.ceil(this.props.num/6)<=10){
-			isShow = "none";
-		}
-		for (var i = 1; i <= length; i++) {
-			if(index+1 == this.props.pagenum){
+		var long = this.props.pagenum-5>0?this.props.pagenum-5:1;
+		for (var i = long; i <= long+10>this.state.pnum_total?this.props.pnum_total-long:long+10; i++) {
+			if(i == this.props.pagenum){
 	    		items.push(<a href='javascript:void(0);' className='page_btn checked' key={i} onClick={this.jumpPage}>{i}</a>);
 			}else{
 	    		items.push(<a href='javascript:void(0);' className='page_btn' key={i} onClick={this.jumpPage}>{i}</a>);
@@ -33,7 +48,6 @@ var Pagination = React.createClass({
 			<div id="pagination">
 				<a href="javascript:void(0);" className="page_btn last" onClick={this.lastPage}>上一页</a>
 				{items}
-				<span className="page_btn" ref="page_btn" style={{display:isShow}}>...</span>
 				<a href="javascript:void(0);" className="page_btn next" onClick={this.nextPage}>下一页</a>
 				<input type="text" />
 				<a href="javascript:void(0);" className="page_btn go">go</a>
