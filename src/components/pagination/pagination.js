@@ -12,9 +12,10 @@ var Pagination = React.createClass({
     }
   },
   componentWillMount:function(){
-  	this.setState({pnum_total:Math.ceil(this.props.num/6)})
+  	
   },
   componentDidMount:function(){
+    this.setState({pnum_total:Math.ceil(this.props.num/6)})
   },
   lastPage:function(){
   	if(this.props.pagenum == 1){
@@ -37,8 +38,10 @@ var Pagination = React.createClass({
 		var items = [];
 		var isShow = "inline-block";
 		var long = this.props.pagenum-5>0?this.props.pagenum-5:1;
-		for (var i = long; i <= long+10>this.state.pnum_total?this.props.pnum_total-long:long+10; i++) {
-			if(i == this.props.pagenum){
+    console.log(this.state.pnum_total)
+    console.log(long+9>Math.ceil(this.props.num/6)?Math.ceil(this.props.num/6)-long:long+9)
+		for (var i = long; i <= long+9>Math.ceil(this.props.num/6)?Math.ceil(this.props.num/6)-long:long+9; i++) {
+      if(i == this.props.pagenum){
 	    		items.push(<a href='javascript:void(0);' className='page_btn checked' key={i} onClick={this.jumpPage}>{i}</a>);
 			}else{
 	    		items.push(<a href='javascript:void(0);' className='page_btn' key={i} onClick={this.jumpPage}>{i}</a>);

@@ -94,15 +94,14 @@ var Screening = React.createClass({
       this.state.object.start_index = 0;
     }
   	this.forceUpdate();
-  	console.log(this.state.object)
     var _self = this;
     Helper.send("getActivitiesController_getActivities",_self.state.object)
       .success(function(res){
         _self.state.res = res.activities;
-        if(!this.isChangePage){
+        if(!_self.isChangePage){
           _self.state.totalCount = res.totalCount;
         }else{
-          this.isChangePage = false;
+          _self.isChangePage = false;
         }
         _self.forceUpdate();
       })
