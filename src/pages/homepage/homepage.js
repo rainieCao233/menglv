@@ -229,7 +229,7 @@ var Homepage = React.createClass({
           <div className="case_wrap clearfix" id="case1" ref="case1">
             <div className="left">
               <em className="case"></em>
-              <em className="case"></em>
+              <em className="case two"></em>
             </div>
             <ul className="right">
             {
@@ -251,7 +251,7 @@ var Homepage = React.createClass({
           <div className="case_wrap clearfix" id="case2" ref="case2">
             <div className="left">
               <em className="case"></em>
-              <em className="case"></em>
+              <em className="case two"></em>
             </div>
             <ul className="right">
               {

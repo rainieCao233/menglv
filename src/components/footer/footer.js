@@ -48,7 +48,7 @@ var Footer = React.createClass({
               <em className="icon i-f_3"></em>
               <span className="title">付款指南</span>
               <ul className="list">
-                <li><a href="#">支付宝/网银</a></li>
+                <li><a href="#">支付宝/微信</a></li>
                 <li><a href="#">活动发票</a></li>
               </ul>
             </div>

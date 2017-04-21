@@ -17,7 +17,7 @@ var Topbar = React.createClass({
 				<ul className="clearfix">
 					<li className="lg">全部活动分类</li>
 					<li><a href="/#/">首页</a></li>
-					<li><a href="#">周边短途游</a></li>
+					<li><a href="/#/">周边短途游</a></li>
 					<li><a href="#">长途深度游</a></li>
 					<li onClick={this.toCustomize}><a href="javascript:void(0);">团队定制/扩展</a></li>
 					<li><a href="#">装备商城</a></li>

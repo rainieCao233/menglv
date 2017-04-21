@@ -127,8 +127,16 @@ var Header = React.createClass({
               <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/register">注册</ALink>]</span>
             </div>
             <div className="right">
-              <em className="icon i-qq"></em>官方微信公众号
-              <em className="icon i-kefu"></em>客服QQ
+              <span className="qrcode">
+                <em className="icon i-qq"></em>
+                官方微信公众号
+                <em className="weixin_icon"></em>
+              </span>
+              <span className="qrcode">
+                <em className="icon i-kefu"></em>
+                客服QQ
+                <em className="kefu_icon"></em>
+              </span>
             </div>
           </div>
         </div>
@@ -147,12 +155,6 @@ var Header = React.createClass({
               </div>
               <input type="text" className="s_input" ref="s_input" placeholder="" />
               <a href="javascript:void(0);" className="s_btn" onClick={this.search}>搜&nbsp;索</a>
-              <ul className="hot">
-                <li>喀纳斯</li>
-                <li>武功山</li>
-                <li>西藏</li>
-                <li>普吉岛</li>
-              </ul>
             </div>
             <em className="icon i-tel"></em>
           </div>

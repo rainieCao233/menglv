@@ -21,6 +21,6 @@
 	padding: 7px 10px;
 }
 #pagination .page_btn.checked{
-	background: #000;
+	background: rgb(255, 157, 0);
 	color: #fff;
 }

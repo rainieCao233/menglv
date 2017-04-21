@@ -41,15 +41,15 @@ var Screening = React.createClass({
   	switch(this.props.params.type){
   		case "duration":
 			obj.duration = this.props.params.value;
-			this.refs.time.childNodes[obj.duration==-1?0:obj.duration].childNodes[0].checked = true;
+			this.refs.time.childNodes[obj.duration==-1?0:obj.duration*1].childNodes[0].checked = true;
   			break;
   		case "level":
   			obj.level = this.props.params.value;
-  			this.refs.level.childNodes[obj.level+1].childNodes[0].checked = true;
+  			this.refs.level.childNodes[obj.level*1+1].childNodes[0].checked = true;
   			break;
   		case "type":
   			obj.type = this.props.params.value;
-  			this.refs.type.childNodes[obj.type+1].childNodes[0].checked = true;
+  			this.refs.type.childNodes[obj.type*1+1].childNodes[0].checked = true;
   			break;
   		case "price":
   			if(this.props.params.value==1){
@@ -95,7 +95,7 @@ var Screening = React.createClass({
     }
   	this.forceUpdate();
     var _self = this;
-    Helper.send("getActivitiesController_getActivities",_self.state.object)
+    Helper.send("getActivitiesController/getActivities",_self.state.object)
       .success(function(res){
         _self.state.res = res.activities;
         if(!_self.isChangePage){
