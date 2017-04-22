@@ -69,6 +69,7 @@ var Pay = React.createClass({
         Helper.send("paymentController/getCodeUrl", {order_id:this.props.params.id,body:title})
         .success(function(res){
           _self.state.path = res;
+          _self.refs.modal2.style.display = "block";
           _self.forceUpdate();
         })
         .error(function(req){
