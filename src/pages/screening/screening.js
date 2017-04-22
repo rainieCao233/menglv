@@ -495,20 +495,17 @@ var Screening = React.createClass({
 	      		<Pagination num={this.state.totalCount} pagenum={this.state.pagenum} click={this.changePage}/>
 	      	</div>
 	      	<div className="right">
-	      		<div className="ad-wrap"></div>
+            <div className="ad-wrap-top"></div>
 	      		<ul className="hotlist">
 	      			<h4>热门活动</h4>
 	      			<li><div className="ad-wrap"></div></li>
 	      			<li><div className="ad-wrap"></div></li>
 	      			<li><div className="ad-wrap"></div></li>
 	      		</ul>
-						<Ad imgName="detail_footer.png"/>
-						<Ad imgName="detail_footer.png"/>
-						<Ad imgName="detail_footer.png"/>
-						<Ad imgName="detail_footer.png"/>
-						<Ad imgName="detail_footer.png"/>
+						<Ad className="four" />
+						<Ad className="five" />
+						<Ad className="six"/>
 						<a href="javascript:void(0);" className="tip_btn" onClick={this.showModal}>报名须知</a>
-						<a href="javascript:void(0);" className="tip_btn">支付方式</a>
 	      	</div>
       	</div>
         <div className="modal_wrap" ref="modal2">

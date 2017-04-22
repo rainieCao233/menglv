@@ -1,6 +1,7 @@
 #register{
-	padding: 170px 0;
-	background: url(../../imgs/bg.jpg);
+	padding: 250px 0;
+	background: url(../../imgs/bg-2.png);
+	background-size: 100% 100%;
 }
 #register .wrap{
 	width: 600px;

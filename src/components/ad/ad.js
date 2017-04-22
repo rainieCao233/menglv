@@ -15,8 +15,8 @@ var Ad = React.createClass({
 
 	render:function(){
 		return (
-			<div id="ad">
-				<img src={"./imgs/" + this.props.imgName} alt="" onClick={this.jumpToAd}/>
+			<div id="ad" className={this.props.className}>
+				<div onClick={this.jumpToAd} className="img"></div>
 			</div>
 		)
 	}

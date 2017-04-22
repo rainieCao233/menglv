@@ -6,6 +6,7 @@ require("./register.css")
 
 var Page = require("../page/page")
 //components
+var Topbar = require("../../components/topbar/topbar")
 var Helper = require("../../components/helper/helper")
 var validator = require("../../components/helper/validator")
 
@@ -62,6 +63,7 @@ var Register = React.createClass({
   render:function(){
     return(
       <Page>
+      <Topbar isLogin="false" />
       <div id="register">
       	<div className="wrap">
       		<div className="title">

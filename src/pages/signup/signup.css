@@ -1,11 +1,13 @@
 #signup .content{
-  padding: 80px 0 20px 0;
-  background: url(../../imgs/bg.jpg);
+  padding: 80px 0 80px 0;
+  background: url(../../imgs/bg-3.png);
+  background-size: 100% 100%;
 }
 #signup .slider_wrap{
   width:100%;
   height: 455px;
   background: url(../../imgs/bg-big.png);
+  background-size: 100% 150%;
 }
 #signup .slider{
   width: 1200px;

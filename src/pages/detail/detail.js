@@ -217,7 +217,9 @@ var Detail = React.createClass({
       		<div className="breadcrumb">您当前的位置：首页 / 短途旅行</div>
           <div className="intro_wrap clearfix">
             <div className="pic_wrap">
-              <a href="javascript:void(0);" className="pic"></a>
+              <a href="javascript:void(0);" className="pic">
+                <img src={this.state.mainPicRoute} alt="" />
+              </a>
               <div className="share_wrap">
                 <em className="icon i-add"></em>
                 分享到 :
@@ -287,9 +289,9 @@ var Detail = React.createClass({
             </div>
             <EnrollmentSituation title={this.state.activity.title} id={this.props.params.id}/>
             <div className="ad-wrap"></div>
-            <Ad href="http://www.baidu.com" imgName="detail_footer.png"/>
-            <Ad href="http://www.baidu.com" imgName="detail_footer.png"/>
-            <Ad href="http://www.baidu.com" imgName="detail_footer.png"/>
+            <Ad href="http://www.baidu.com" imgName="detail_footer.png" className="one"/>
+            <Ad href="http://www.baidu.com" imgName="detail_footer.png" className="two"/>
+            <Ad href="http://www.baidu.com" imgName="detail_footer.png" className="three"/>
           </div>
       	</div>
         <div className="footer_wrap">

@@ -5,6 +5,7 @@ var ReactDOM = require("react-dom")
 require("./login.css")
 
 var Page = require("../page/page")
+var Topbar = require("../../components/topbar/topbar")
 //components
 var Helper = require("../../components/helper/helper")
 var Cookie = require("../../components/helper/cookie")
@@ -12,13 +13,29 @@ var Cookie = require("../../components/helper/cookie")
 var Login = React.createClass({
   getInitialState:function(){
     return {
+      isLogin:false,
     }
   },
   componentWillMount:function(){
     window.scrollTo(0,0);
   },
   componentDidMount:function(){
+    this.checkLogin();
   },
+  checkLogin:function(){
+      var _self = this;
+      Helper.send("loginController/getLoginUserInfo","GET")
+        .success(function(res){
+          _self.state.isLogin = true;
+          _self.forceUpdate();
+          console.log(res);
+        })
+        .error(function(req){
+          alert("登录失败：" + req)
+          _self.setState({isLogin:false})
+          console.log(req)
+        })
+  }, 
   toLogin:function(){
     var self = this,
         data = [{
@@ -56,6 +73,7 @@ var Login = React.createClass({
   render:function(){
     return(
       <Page>
+      <Topbar isLogin={this.state.isLogin}/>
       <div id="login">
       	<div className="wrap">
       		<div className="title">
