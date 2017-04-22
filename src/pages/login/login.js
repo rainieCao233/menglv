@@ -7,6 +7,7 @@ require("./login.css")
 var Page = require("../page/page")
 var Topbar = require("../../components/topbar/topbar")
 //components
+var validator = require("../../components/helper/validator")
 var Helper = require("../../components/helper/helper")
 var Cookie = require("../../components/helper/cookie")
 
@@ -38,33 +39,30 @@ var Login = React.createClass({
   }, 
   toLogin:function(){
     var self = this,
-        data = [{
-                "name":"name",
-                "value":self.refs.name.value == ""?false:true
-              },
-              {
-                "name":"password",
-                "value":self.refs.password.value == ""?false:true
-              }];
-      for (var i = 0; i < data.length; i++) {
-        if(!data[i].value){
-          alert(data[i].name + " empty");
-          self.refs[data[i].name].focus();
+        data = {
+          "username":self.refs.name.value,
+          "password":Helper.md5.useMd5(self.refs.password.value),
+        };
+      if(data.username == ""){
+          alert("账号为空");
+          self.refs.name.focus();
           return false;
-        }
-        if(i == 1){
-          self.postRequest(data,this.refs.autoLogin.checked);
-        }
       }
+      if(data.password == ""){
+          alert("账号为空");
+          self.refs.password.focus();
+          return false;
+      }
+      self.postRequest(data,this.refs.autoLogin.checked);
   },
   postRequest:function(data,checked){
     var _self = this;
-		Helper.send("",{})
+		Helper.send("/loginController/normalLogin",data)
 			.success(function(res){
-				console.log(res);
+				
 			})
 			.error(function(req){
-				console.log(req)
+				alert(req)
 			});
   },
   weixinlogin:function(){
@@ -81,8 +79,8 @@ var Login = React.createClass({
       			<a>没有帐号立即去注册</a>
       		</div>
           <div className="input_wrap">
-            <span>* 用户名：</span>
-            <input type="text" ref="name"/>
+            <span>* 账号：</span>
+            <input type="text" ref="name" placeholder="用户名/邮箱/手机号"/>
           </div>
           <div className="input_wrap">
             <span>* 密码：</span>

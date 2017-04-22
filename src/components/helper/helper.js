@@ -62,7 +62,7 @@ var helper = {
 		})
 		simplePromise.request = tmpPromise.request;
 		return simplePromise;
-	}
+	},
 }
 
 function getHost(){
@@ -94,6 +94,7 @@ helper.validator = require("./validator");
 helper.cookie = require('./cookie');
 // helper.bridge = require("./bridge");
 helper.errorCode = require("./errorCode");
+helper.md5 = require("./md5");
 
 window.helper = helper
 

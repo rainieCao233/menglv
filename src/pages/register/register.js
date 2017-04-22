@@ -22,42 +22,43 @@ var Register = React.createClass({
   },
   toRegister:function(){
     var self = this,
-        data = [{
-                "name":"name",
-                "value":self.refs.name.value == ""?false:true
-              },
-              {
-                "name":"email",
-                "value":validator.isEmail(self.refs.email.value)
-              },
-              {
-                "name":"password",
-                "value":self.refs.password.value == ""?false:true
-              },
-              {
-                "name":"phone",
-                "value":validator.isPhone(self.refs.phone.value)
-              }];
-      for (var i = 0; i < data.length; i++) {
-        if(!data[i].value){
-          alert(data[i].name + " error");
-          self.refs[data[i].name].value = "";
-          self.refs[data[i].name].focus();
-          return false;
-        }
-        if(i == 3){
-          self.postRequest(data,this.refs.vip.checked);
-        }
-      }
+        data = {
+          "username":self.refs.name.value,
+          "password":Helper.md5.useMd5(self.refs.password.value),
+          "mailAddress":self.refs.email.value,
+          "phoneNumber":self.refs.phone.value,
+          "isWantToBeVip":this.refs.vip.checked
+        };
+    if(data.username==""){
+      self.refs.name.value = "";
+      self.refs.name.focus();
+      return;
+    }
+    if(data.password==""){
+      self.refs.password.value = "";
+      self.refs.password.focus();
+      return;
+    }
+    if(!validator.isEmail(data.mailAddress)){
+      self.refs.email.value = "";
+      self.refs.email.focus();
+      return;
+    }
+    if(!validator.isPhone(data.phoneNumber)){
+      self.refs.phone.value = "";
+      self.refs.phone.focus();
+      return;
+    }
+    self.postRequest(data);
   },
-  postRequest:function(data,checked){
+  postRequest:function(data){
     var _self = this;
-		Helper.send("",{})
+		Helper.send("/registerController/register",data)
 			.success(function(res){
-				console.log(res);
+				Helper.forwardTo("/homepage");
 			})
 			.error(function(req){
-				console.log(req)
+				alert(req)
 			});
   },
   render:function(){
