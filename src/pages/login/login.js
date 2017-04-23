@@ -61,7 +61,8 @@ var Login = React.createClass({
     var _self = this;
 		Helper.send("loginController/normalLogin",data)
 			.success(function(res){
-				
+				console.log(res)
+        Helper.forwardTo("/homepage");
 			})
 			.error(function(req){
 				alert(req)
