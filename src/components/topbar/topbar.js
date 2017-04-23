@@ -24,7 +24,7 @@ var Topbar = React.createClass({
 			<div id="topbar">
 				<ul className="clearfix">
 					<li className="lg">全部活动分类</li>
-					<li><a href="/#/">首页</a></li>
+					<li onClick={this.toHomePage}><a href="javascript:void(0);">首页</a></li>
 					<li onClick={this.toHomePage.bind(null,1)} className={this.props.id==1?"on":""}><a href="javascript:void(0);">周边短途游</a></li>
 					<li onClick={this.toHomePage.bind(null,2)} className={this.props.id==2?"on":""}><a href="javascript:void(0);">长途深度游</a></li>
 					<li onClick={this.toCustomize}><a href="javascript:void(0);">团队定制/扩展</a></li>
