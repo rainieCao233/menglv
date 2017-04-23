@@ -117,7 +117,7 @@ var Header = React.createClass({
   },
   logout:function(){
     var _self = this;
-    Helper.send("loginController/logout","GET")
+    Helper.send("loginController/logout",{},"GET")
       .success(function(res){
         console.log(res);
         location.reload();
