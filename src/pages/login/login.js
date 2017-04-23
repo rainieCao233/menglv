@@ -26,7 +26,7 @@ var Login = React.createClass({
   },
   checkLogin:function(){
       var _self = this;
-      Helper.send("loginController/getLoginUserInfo",{},"GET")
+      Helper.send("loginController/getLoginUserInfo","GET")
         .success(function(res){
           _self.state.isLogin = true;
           _self.forceUpdate();

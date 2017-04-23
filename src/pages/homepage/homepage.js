@@ -79,7 +79,7 @@ var Homepage = React.createClass({
   toLogin:function(){
       var _self = this;
       if(location.hash.indexOf("code=") == -1){
-        Helper.send("loginController/getLoginUserInfo",{},"GET")
+        Helper.send("loginController/getLoginUserInfo","GET")
           .success(function(res){
             _self.state.isLogin = true;
             _self.state.name = res.wxNickname?res.wxNickname:res.name;

@@ -23,7 +23,7 @@ var Intro = React.createClass({
   },
   toLogin:function(){
       var _self = this;
-      Helper.send("loginController/getLoginUserInfo",{},"GET")
+      Helper.send("loginController/getLoginUserInfo","GET")
         .success(function(res){
           _self.state.isLogin = true;
           _self.forceUpdate();
