@@ -12,6 +12,8 @@ var Helper = require("../../components/helper/helper")
 var Topbar = require("../../components/topbar/topbar")
 var Slider = require("../../components/slider/slider")
 
+// var timer = window.setInterval(Pay.postRequest,1000);
+
 var Pay = React.createClass({
   getInitialState:function(){
     return {
@@ -22,11 +24,11 @@ var Pay = React.createClass({
   componentWillMount:function(){
     window.scrollTo(0,0);
     this.toLogin();
-    this.timer && window.clearInterval(this.timer);
+    Helper.clearTimer();
   },
   componentDidMount:function(){
     var _self = this;
-    this.timer=window.setInterval(_self.postRequest,1000);
+    Helper.setTimer(_self.postRequest);
   },
   toLogin:function(){
       var _self = this;
@@ -69,7 +71,6 @@ var Pay = React.createClass({
         Helper.send("paymentController/getCodeUrl", {order_id:this.props.params.id,body:title})
         .success(function(res){
           _self.state.path = res;
-          _self.refs.modal2.style.display = "block";
           _self.forceUpdate();
         })
         .error(function(req){
@@ -86,7 +87,7 @@ var Pay = React.createClass({
   },
   closeModal:function(){
     this.refs.modal2.style.display = "none";
-    Helper.forwardTo("/");
+    Helper.forwardTo("/homepage");
   },
   render:function(){
     return(

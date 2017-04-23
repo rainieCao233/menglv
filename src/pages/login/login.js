@@ -19,6 +19,7 @@ var Login = React.createClass({
   },
   componentWillMount:function(){
     window.scrollTo(0,0);
+    Helper.clearTimer();
   },
   componentDidMount:function(){
     this.checkLogin();
@@ -53,11 +54,12 @@ var Login = React.createClass({
           self.refs.password.focus();
           return false;
       }
-      self.postRequest(data,this.refs.autoLogin.checked);
+      // self.postRequest(data,this.refs.autoLogin.checked?true:false);
+      self.postRequest(data);
   },
-  postRequest:function(data,checked){
+  postRequest:function(data){
     var _self = this;
-		Helper.send("/loginController/normalLogin",data)
+		Helper.send("loginController/normalLogin",data)
 			.success(function(res){
 				
 			})

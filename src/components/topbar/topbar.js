@@ -11,14 +11,22 @@ var Topbar = React.createClass({
 	toCustomize:function(){
 		Helper.jumpTo("http://www.mikecrm.com/faNs8M");
 	},
+	toHomePage:function(id){
+		if(location.href.indexOf("homepage")!=-1){
+			Helper.forwardTo("/homepage/"+id);
+			location.reload();
+		}else{
+			Helper.forwardTo("/homepage/"+id);
+		}
+	},
 	render:function(){
 		return (
 			<div id="topbar">
 				<ul className="clearfix">
 					<li className="lg">全部活动分类</li>
 					<li><a href="/#/">首页</a></li>
-					<li><a href="/#/">周边短途游</a></li>
-					<li><a href="#">长途深度游</a></li>
+					<li onClick={this.toHomePage.bind(null,1)} className={this.props.id==1?"on":""}><a href="javascript:void(0);">周边短途游</a></li>
+					<li onClick={this.toHomePage.bind(null,2)} className={this.props.id==2?"on":""}><a href="javascript:void(0);">长途深度游</a></li>
 					<li onClick={this.toCustomize}><a href="javascript:void(0);">团队定制/扩展</a></li>
 					<li><a href="#">装备商城</a></li>
 					<li><a href="#">积分兑换</a></li>
@@ -31,3 +39,5 @@ var Topbar = React.createClass({
 });
 
 module.exports = Topbar;
+// onClick={this.props.switchTab.bind(null,"1")}
+// onClick={this.props.switchTab.bind(null,"2")}

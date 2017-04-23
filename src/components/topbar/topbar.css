@@ -18,6 +18,9 @@
 #topbar ul li:hover{
 	background:#ff9d00;
 }
+#topbar ul li.on{
+	background:#ff9d00;
+}
 #topbar ul li.lg{
 	background:#92b525;
 	width: 250px;
@@ -25,4 +28,7 @@
 }
 #topbar ul li a{
 	color: #fff;
+	display: inline-block;
+	width: 100%;
+	line-height: 50px;
 }

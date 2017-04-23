@@ -17,6 +17,7 @@ var Register = React.createClass({
   },
   componentWillMount:function(){
     window.scrollTo(0,0);
+    Helper.clearTimer();
   },
   componentDidMount:function(){
   },
@@ -53,8 +54,9 @@ var Register = React.createClass({
   },
   postRequest:function(data){
     var _self = this;
-		Helper.send("/registerController/register",data)
+		Helper.send("registerController/register",data)
 			.success(function(res){
+        console.log(res)
 				Helper.forwardTo("/homepage");
 			})
 			.error(function(req){

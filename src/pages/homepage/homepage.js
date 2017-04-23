@@ -23,11 +23,25 @@ var Homepage = React.createClass({
     }
   },
   componentWillMount:function(){
-    window.scrollTo(0,0);
+    if(this.props.params.id=="1" || this.props.params.id=="2"){
+      window.scrollTo(0,800);
+    }else{
+      window.scrollTo(0,0);
+    }
     this.toLogin();
+    Helper.clearTimer();
   },
   componentDidMount:function(){
-    this.getActivities({is_long_journey:"0"});
+    var _self = this;
+    if(this.props.params.id=="1" || this.props.params.id=="2"){
+      this.refs["case1"].style.display = "none";
+      this.refs["case2"].style.display = "none";
+      this.refs["case"+_self.props.params.id].style.display = "block";
+      this.refs["radio_"+_self.props.params.id].checked = true;
+      this.getActivities({is_long_journey:(_self.props.params.id-1)});
+    }else{
+      this.getActivities({is_long_journey:"0"});
+    }
   },
   getActivities:function(json){
     var obj = {
@@ -101,16 +115,15 @@ var Homepage = React.createClass({
       }
   },  
   switchTab:function(e){
-    if(e.target.value == "case3"){
-      Helper.forwardTo('/customize')
-      return;
-    }
-    this.refs["case1"].style.display = "none";
-    this.refs["case2"].style.display = "none";
-    this.refs["case3"].style.display = "none";
-    this.refs[e.target.value].style.display = "block";
-    // console.log(e.target.value.substring(4,5)-1);
-    this.getActivities({is_long_journey:(e.target.value.substring(4,5)-1)});
+      if(e.target.value == "case3"){
+        Helper.jumpTo("http://www.mikecrm.com/faNs8M");
+        return;
+      }
+      this.refs["case1"].style.display = "none";
+      this.refs["case2"].style.display = "none";
+      this.refs[e.target.value].style.display = "block";
+      // console.log(e.target.value.substring(4,5)-1);
+      this.getActivities({is_long_journey:(e.target.value.substring(4,5)-1)});
   },
   durationJump:function(e){
     Helper.forwardTo("/screening/duration/" + e.target.id);
@@ -128,7 +141,7 @@ var Homepage = React.createClass({
     return(
       <Page isLogin={this.state.isLogin}>
         <div id="homepage">
-        <Topbar isLogin={this.state.isLogin}/>
+        <Topbar isLogin={this.state.isLogin} switchTab={this.switchTab} id={this.props.params.id} />
         <div className="slider_wrap">
           <div className="slider">
             <div className="category">
@@ -214,15 +227,15 @@ var Homepage = React.createClass({
         <div className="wrap">
           <div className="tab_wrap">
             <div className="tab">
-              <input type="radio" name="case" value="case1" onChange={this.switchTab} defaultChecked="checked"/>
+              <input type="radio" ref="radio_1" name="case" value="case1" onChange={this.switchTab} defaultChecked="checked"/>
               <span>周边短途游</span>
             </div>
             <div className="tab">
-              <input type="radio" name="case" value="case2" onChange={this.switchTab} />
+              <input type="radio" ref="radio_2" name="case" value="case2" onChange={this.switchTab} />
               <span>长途深度游</span>
             </div>
             <div className="tab">
-              <input type="radio" name="case" value="case3" onChange={this.switchTab} />
+              <input type="radio" ref="radio_3" name="case" value="case3" onChange={this.switchTab} />
               <span>团队主题定制</span>
             </div>
           </div>

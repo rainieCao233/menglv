@@ -2,6 +2,8 @@ var ReactRouter = require('react-router')
 var hashHistory = ReactRouter.hashHistory
 var net = require('./net')
 
+var timer="";
+
 //实用工具类
 var helper = {
 	//跳转路由
@@ -63,6 +65,14 @@ var helper = {
 		simplePromise.request = tmpPromise.request;
 		return simplePromise;
 	},
+	setTimer:function(func){
+		timer=window.setInterval(func,1000);
+	},
+	clearTimer:function(){
+		if(timer!=""){
+			window.clearInterval(timer);
+		}
+	}
 }
 
 function getHost(){

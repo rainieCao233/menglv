@@ -33,6 +33,7 @@ var Signup = React.createClass({
   componentWillMount:function(){
     window.scrollTo(0,0);
     this.toLogin();
+    Helper.clearTimer();
   },
   componentDidMount:function(){
     this.postRequest({});

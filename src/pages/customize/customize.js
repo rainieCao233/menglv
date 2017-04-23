@@ -21,6 +21,7 @@ var Customize = React.createClass({
   },
   componentWillMount:function(){
     window.scrollTo(0,0);
+    Helper.clearTimer();
   },
   componentDidMount:function(){
   },

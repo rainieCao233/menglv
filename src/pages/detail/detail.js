@@ -32,6 +32,7 @@ var Detail = React.createClass({
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
     this.postRequest({id:nextProps.params.id});
+    Helper.clearTimer();
   },
   componentWillMount:function(){
     window.scrollTo(0,0);
