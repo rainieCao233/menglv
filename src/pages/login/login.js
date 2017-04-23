@@ -61,7 +61,7 @@ var Login = React.createClass({
     var _self = this;
 		Helper.send("loginController/normalLogin",data)
 			.success(function(res){
-				console.log("res : ",res)
+				alert("登陆成功")
         Helper.forwardTo("/homepage");
         location.relaod();
 			})

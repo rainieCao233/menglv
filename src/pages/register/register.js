@@ -56,7 +56,7 @@ var Register = React.createClass({
     var _self = this;
 		Helper.send("registerController/register",data)
 			.success(function(res){
-        console.log(res)
+        alert("注册成功")
 				Helper.forwardTo("/homepage");
 			})
 			.error(function(req){
