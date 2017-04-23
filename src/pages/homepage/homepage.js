@@ -17,7 +17,7 @@ var Homepage = React.createClass({
       list1:[{}],
       list2:[{}],
       isLogin:false,
-      wxNickname:"",
+      name:"",
       overage:"",
       score:""
     }
@@ -82,7 +82,7 @@ var Homepage = React.createClass({
         Helper.send("loginController/getLoginUserInfo","GET")
           .success(function(res){
             _self.state.isLogin = true;
-            _self.state.wxNickname = res.wxNickname;
+            _self.state.name = res.wxNickname?res.wxNickname:res.name;
             _self.state.overage = res.overage;
             _self.state.score = res.score;
             _self.forceUpdate();
@@ -100,7 +100,7 @@ var Homepage = React.createClass({
             Helper.send("loginController/pcLogin",{code:code},"GET")
             .success(function(res){
               _self.state.isLogin = true;
-              _self.state.wxNickname = res.wxNickname;
+               _self.state.name = res.wxNickname?res.wxNickname:res.name;
               _self.state.overage = res.overage;
               _self.state.score = res.score;
               _self.forceUpdate();
@@ -206,7 +206,7 @@ var Homepage = React.createClass({
               <div  style={{display:this.state.isLogin?"block":"none"}}>
                 <em className="icon i-avator"></em>
                 <ul className="info">
-                  <li>网名：{this.state.wxNickname?decodeURIComponent(this.state.wxNickname):""}</li>
+                  <li>网名：{this.state.name?decodeURIComponent(this.state.name):""}</li>
                   <li>余额：{this.state.overage?this.state.overage:""}</li>
                   <li>积分：{this.state.score?this.state.score:""}</li>
                 </ul>

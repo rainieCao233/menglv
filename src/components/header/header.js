@@ -115,6 +115,17 @@ var Header = React.createClass({
     Helper.forwardTo("/screening/" + url + "/" + param);
     location.reload();
   },
+  logout:function(){
+    var _self = this;
+    Helper.send("loginController/logout","GET")
+      .success(function(res){
+        console.log(res);
+        location.reload();
+      })
+      .error(function(req){
+        console.log("error : " + req);
+      });
+  },
   render:function(){
     return(
       <div id="header">
@@ -125,6 +136,7 @@ var Header = React.createClass({
               <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/login">登录</ALink>]</span>
               <span className="line" style={{display:!this.props.isLogin?"inline-block":"none"}}>|</span>
               <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/register">注册</ALink>]</span>
+              <span className="sign" style={{display:this.props.isLogin?"inline-block":"none"}}>[<a onClick={this.logout}>退出登录</a>]</span>
             </div>
             <div className="right">
               <span className="qrcode">

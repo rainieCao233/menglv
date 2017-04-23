@@ -16,7 +16,7 @@ var url = require("url")
 // })
 
 app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://192.168.2.108:9090");
+    res.header("Access-Control-Allow-Origin", "http://192.168.0.107:9090");
     res.header("Access-Control-Allow-Credentials","true");
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");

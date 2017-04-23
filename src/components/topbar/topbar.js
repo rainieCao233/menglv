@@ -16,7 +16,11 @@ var Topbar = React.createClass({
 			Helper.forwardTo("/homepage/"+id);
 			location.reload();
 		}else{
-			Helper.forwardTo("/homepage/"+id);
+			if(id=="1"||id=="2"){
+				Helper.forwardTo("/homepage/"+id);
+			}else{
+				Helper.forwardTo("/homepage");
+			}
 		}
 	},
 	render:function(){

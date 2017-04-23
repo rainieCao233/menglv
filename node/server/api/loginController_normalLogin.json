@@ -1,5 +1,19 @@
 {
 	"retcode":"0000",
-	"errorMsg":"",
-	"obj":{}
+	"errorMsg":null,
+	"obj":
+	{
+		"id":2519,
+		"shareId":"71149",
+		"name":"666666",
+		"nickname":null,
+		"idNum":null,
+		"phoneNum":18019067890,
+		"email":"pulinc6@126.com",
+		"score":0,
+		"overage":0.0,
+		"vipStatus":0,
+		"vipName":"666666",
+		"vipTime":"2017-04-23 13:41:59"
+	}
 }

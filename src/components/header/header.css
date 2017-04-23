@@ -53,6 +53,11 @@
 #header .sign{
   color: #797979;
 }
+#header .sign a{
+  color: #797979;
+  display: inline-block;
+  cursor: pointer;
+}
 #header .line{
   margin: 0 5px;
 }

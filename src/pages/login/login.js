@@ -63,7 +63,6 @@ var Login = React.createClass({
 			.success(function(res){
 				alert("登陆成功")
         Helper.forwardTo("/homepage");
-        location.relaod();
 			})
 			.error(function(req){
 				alert(req)
