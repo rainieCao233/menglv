@@ -137,7 +137,7 @@
 	margin: 0 auto;
 }
 #homepage .wrap.leader{
-	overflow: hidden;    
+	overflow: hidden;
 	height: 300px;
 	position: relative;
 }
@@ -204,6 +204,10 @@
 	width: 33%;
 	margin-bottom: 10px;
 }
+#homepage .case_wrap ul.right li img{
+	width: 260px;
+	height: 160px;
+}
 #homepage .case_wrap ul.right h4{
 	font-size: 14px;
 	line-height: 24px;
@@ -234,7 +238,7 @@
 	position: absolute;
 	left: 0;
 	animation:slide 30s infinite;
-	-webkit-animation:slide 30s infinite; 
+	-webkit-animation:slide 30s infinite;
 }
 @keyframes slide
 {
@@ -242,8 +246,8 @@
     50% {left: -600px;}
     100% {left: 0px;}
 }
- 
-@-webkit-keyframes slide 
+
+@-webkit-keyframes slide
 {
     0% {left: 0;}
     50% {left: -600px;}
