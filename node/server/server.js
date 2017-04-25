@@ -53,15 +53,15 @@ function handleReq(req,res){
 			}else{
 				data = fs.readFileSync(__dirname+"/api/"+route+".json","utf-8");
 			}
-			
-			res.send(data);			
+
+			res.send(data);
 		}catch(e){
 			res.send("not found "+route+"<br/>path:"+e.path)
 		}
 
 	}else{
-		res.send("not found "+route);	
-	}	
+		res.send("not found "+route);
+	}
 }
 
 module.exports = app
