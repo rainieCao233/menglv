@@ -219,7 +219,7 @@ var Detail = React.createClass({
           <div className="intro_wrap clearfix">
             <div className="pic_wrap">
               <a href="javascript:void(0);" className="pic">
-                <img src={this.state.mainPicRoute} alt="" />
+                <img src={this.state.activity.mainPicRoute} alt="" />
               </a>
               <div className="share_wrap">
                 <em className="icon i-add"></em>

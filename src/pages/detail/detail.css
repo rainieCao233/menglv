@@ -131,6 +131,8 @@
 	height: 320px;
 }
 #detail a.pic img{
+	width: 480px;
+	height: 320px;
 	background-size: 100% 100%;
 }
 #detail .share_wrap{
