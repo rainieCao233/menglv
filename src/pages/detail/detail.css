@@ -259,6 +259,16 @@
 #detail .main_wrap .main{
 	display: none;
 }
+#detail .main_wrap .main span{
+	font-size: 18px !important;
+    line-height: 30px !important;
+    display: inline-block;
+}
+#detail .main_wrap .main font{
+	font-size: 18px !important;
+    line-height: 30px !important;
+    display: inline-block;
+}
 #detail .main_wrap .main:first-child{
 	display: block;
 }

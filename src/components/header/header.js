@@ -142,12 +142,12 @@ var Header = React.createClass({
               <span className="qrcode">
                 <em className="icon i-qq"></em>
                 官方微信公众号
-                <em className="weixin_icon"></em>
+                <em className="icon i-wechat"></em>
               </span>
               <span className="qrcode">
                 <em className="icon i-kefu"></em>
                 客服QQ
-                <em className="kefu_icon"></em>
+                <span className="i-qqgroup-wrap"><em className="icon i-qqgroup"></em></span>
               </span>
             </div>
           </div>

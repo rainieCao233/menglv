@@ -23,30 +23,24 @@
   position: relative;
   display: inline-block;
 }
-#header .qrcode .weixin_icon{
+#header .qrcode .i-wechat{
   display: none;
   position: absolute;
   top: 30px;
   left: 0;
-  background-image: url(/imgs/sprite20170423_01_05_09.png);
-  background-position: 0 -185px;
-  width: 145px;
-  height: 145px;
 }
-#header .qrcode:first-child:hover .weixin_icon{
+#header .qrcode:first-child:hover .i-wechat{
   display: inline-block;
 }
-#header .qrcode .kefu_icon{
+#header .qrcode .i-qqgroup-wrap{
   display: none;
   position: absolute;
   top: 30px;
   left: -30px;
-  background-image: url(/imgs/sprite20170423_01_05_09.png);
-  background-position: -150px -185px;
-  width: 126px;
-  height: 128px;
+  padding: 8px;
+  background: #fff;
 }
-#header .qrcode:last-child:hover .kefu_icon{
+#header .qrcode:last-child:hover .i-qqgroup-wrap{
   display: inline-block;
 }
 #header .line,

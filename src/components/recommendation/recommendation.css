@@ -26,7 +26,7 @@
 	text-align: center;
 	float: left;
 }
-#recommendation ul.item_wrap li a .img{
+#recommendation ul.item_wrap li a img{
 	display: inline-block;
 	width: 195px;
 	height: 130px;

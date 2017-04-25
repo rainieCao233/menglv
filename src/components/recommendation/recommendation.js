@@ -42,7 +42,7 @@ var Recommendation = React.createClass({
 				<ul className="item_wrap clearfix">
 				{
 					this.state.activityList.map(function(item, index){
-						return <li key={"recommendation"+index}><a href="javascript:void(0);" onClick={_self.jump.bind(null,item.id)}><div className='img'></div><div className='name'>{item.title}</div><div className='time'>时间: {item.startTime}</div></a></li>
+						return <li key={"recommendation"+index}><a href="javascript:void(0);" onClick={_self.jump.bind(null,item.id)}><img src={item.mainPicRoute} /><div className='name'>{item.title}</div><div className='time'>时间: {item.startTime}</div></a></li>
 					})
 				}
 				</ul>
