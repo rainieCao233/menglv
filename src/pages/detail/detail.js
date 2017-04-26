@@ -39,7 +39,7 @@ var Detail = React.createClass({
     this.toLogin();
   },
   componentDidMount:function(){
-    this.postRequest({});
+    this.postRequest({id:this.props.params.id});
   },
   toLogin:function(){
       var _self = this;
@@ -65,12 +65,11 @@ var Detail = React.createClass({
     }
     Helper.send("activityDetailController/getActivityDetail",{id:id?id:_self.props.params.id})
       .success(function(res){
-        _self.setState({activity:res.activity});
-        _self.setState({leaders:res.leaders});
-        _self.setState({types:res.types});
-        _self.setState({meetingPlaces:res.meetingPlaces});
-        _self.setState({participtors:res.participtors});
-        // _self.setState({pnum:participtors})
+        _self.state.activity = res.activity;
+        _self.state.leaders = res.leaders;
+        _self.state.types = res.types;
+        _self.state.meetingPlaces = res.meetingPlaces;
+        _self.state.participtors = res.participtors;
         for (var i = 0; i < res.participtors.length; i++) {
           _self.state.pnum += res.participtors[i][1];
         };

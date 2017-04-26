@@ -100,7 +100,7 @@ var Homepage = React.createClass({
             Helper.send("loginController/pcLogin",{code:code},"GET")
             .success(function(res){
               _self.state.isLogin = true;
-               _self.state.name = res.wxNickname?res.wxNickname:res.name;
+              _self.state.name = res.wxNickname?res.wxNickname:res.name;
               _self.state.overage = res.overage;
               _self.state.score = res.score;
               _self.forceUpdate();
