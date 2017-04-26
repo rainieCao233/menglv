@@ -43,20 +43,20 @@ var helper = {
 		var tmpPromise = net.ajax(json).success(function(res){
 			if(res){
 				var json = JSON.parse(res);
-				if(json.errorMsg){
-					console.log(json.errorMsg);
-				}else{
+				// if(json.errorMsg){
+				// 	console.log(json.errorMsg);
+				// }else{
 					if(json.retcode=="0000"){
 						if(simplePromise.successCall){//业务逻辑成功
 							simplePromise.successCall(json.obj);
 						}
 					}else{
-						// window.helper.observer.trigger("alert",window.helper.errorCode.getError(json.errorCode));
-						// if(simplePromise.errorCall){	//业务逻辑错误
-						// 	simplePromise.errorCall(json.retcode,json);
-						// }
+						window.helper.observer.trigger("alert",window.helper.errorCode.getError(json.errorCode));
+						if(simplePromise.errorCall){	//业务逻辑错误
+							simplePromise.errorCall(json.retcode,json);
+						}
 					}
-				}
+				// }
 			}
 
 		}).error(function(req){	//net错误
