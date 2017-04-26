@@ -51,7 +51,7 @@ var helper = {
 							simplePromise.successCall(json.obj);
 						}
 					}else{
-						window.helper.observer.trigger("alert",window.helper.errorCode.getError(json.errorCode));
+						// window.helper.observer.trigger("alert",window.helper.errorCode.getError(json.errorCode));
 						if(simplePromise.errorCall){	//业务逻辑错误
 							simplePromise.errorCall(json.retcode,json);
 						}
