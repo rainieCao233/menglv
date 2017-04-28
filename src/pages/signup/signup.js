@@ -61,7 +61,7 @@ var Signup = React.createClass({
           console.log(res);
         })
         .error(function(req){
-          alert("登录失败：" + req)
+          // alert("登录失败：" + req)
           _self.setState({isLogin:false})
           console.log(req)
         })
@@ -191,7 +191,7 @@ var Signup = React.createClass({
     }
 
     console.log(object)
-    
+
     var _self = this;
     Helper.send("orderSubmitController/submitOrder", object)
       .success(function(res){
@@ -404,7 +404,7 @@ var Signup = React.createClass({
                               <b>【{item.name}】</b>{item.content}
                             </div>
                   }
-                  
+
                 })
               }
               <div className="tip">备注：身份信息仅用来购买户外专业保险，萌旅户外旅行承诺不会泄露玩家身份信息或用户其他用途</div>

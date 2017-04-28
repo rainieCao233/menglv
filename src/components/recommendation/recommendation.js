@@ -36,18 +36,24 @@ var Recommendation = React.createClass({
   },
 	render:function(){
 		var _self = this;
-		return (
-			<div id="recommendation">
-				<h4>近期活动推荐</h4>
-				<ul className="item_wrap clearfix">
-				{
-					this.state.activityList.map(function(item, index){
-						return <li key={"recommendation"+index}><a href="javascript:void(0);" onClick={_self.jump.bind(null,item.id)}><img src={item.mainPicRoute} /><div className='name'>{item.title}</div><div className='time'>时间: {item.startTime}</div></a></li>
-					})
-				}
-				</ul>
-			</div>
-		)
+		if(this.state.activityList && this.state.activityList.length>0){
+			return (
+				<div id="recommendation">
+					<h4>近期活动推荐</h4>
+					<ul className="item_wrap clearfix">
+					{
+						this.state.activityList.map(function(item, index){
+							return <li key={"recommendation"+index}><a href="javascript:void(0);" onClick={_self.jump.bind(null,item.id)}><img src={item.mainPicRoute} /><div className='name'>{item.title}</div><div className='time'>时间: {item.startTime}</div></a></li>
+						})
+					}
+					</ul>
+				</div>
+			)
+		}else{
+			return (
+				<div id="recommendation"></div>
+			)
+		}
 	}
 });
 
