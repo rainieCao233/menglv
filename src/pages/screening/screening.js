@@ -122,7 +122,7 @@ var Screening = React.createClass({
           console.log(res);
         })
         .error(function(req){
-          alert("登录失败：" + req)
+          // alert("登录失败：" + req)
           _self.setState({isLogin:false})
           console.log(req)
         })

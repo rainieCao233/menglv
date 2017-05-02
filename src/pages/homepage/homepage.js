@@ -89,7 +89,7 @@ var Homepage = React.createClass({
             console.log(res);
           })
           .error(function(req){
-            alert("登录失败：" + req)
+            // alert("登录失败：" + req)
             _self.setState({isLogin:false})
             console.log(req)
           })
@@ -107,13 +107,13 @@ var Homepage = React.createClass({
               console.log(res);
             })
             .error(function(req){
-              alert("登录失败：" + req)
+              // alert("登录失败：" + req)
               _self.setState({isLogin:false})
               console.log(req)
             })
           }
       }
-  },  
+  },
   switchTab:function(e){
       if(e.target.value == "case3"){
         Helper.jumpTo("http://www.mikecrm.com/faNs8M");
@@ -289,7 +289,7 @@ var Homepage = React.createClass({
               <em className="case"></em>
             </div>
             <ul className="right">
-              
+
             </ul>
           </div>
         </div>

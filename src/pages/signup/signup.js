@@ -61,7 +61,7 @@ var Signup = React.createClass({
           console.log(res);
         })
         .error(function(req){
-          alert("登录失败：" + req)
+          // alert("登录失败：" + req)
           _self.setState({isLogin:false})
           console.log(req)
         })
@@ -191,7 +191,7 @@ var Signup = React.createClass({
     }
 
     console.log(object)
-    
+
     var _self = this;
     Helper.send("orderSubmitController/submitOrder", object)
       .success(function(res){
@@ -325,7 +325,7 @@ var Signup = React.createClass({
                               <b>【{item.name}】</b>{item.content}
                             </div>
                   }
-                  
+
                 })
               }
             </div>
