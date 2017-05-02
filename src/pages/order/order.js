@@ -97,87 +97,6 @@ var Order = React.createClass({
       <Page isLogin={this.state.isLogin}>
       <div id="order">
       	<Topbar isLogin={this.state.isLogin}/>
-        <div className="slider_wrap">
-          <div className="slider">
-            <div className="category">
-              <ul className="alist ">
-                <div className="title">
-                  <em className="icon i-hp-1"></em>
-                  <span>时间</span>
-                </div>
-                <div className="items clearfix" onClick={this.durationJump}>
-                  <li id="1">1天 <em className="icon i-hot"></em></li>
-                  <li id="2">2天 <em className="icon i-hot"></em></li>
-                  <li id="3">3天 </li>
-                  <li id="4">4天 </li>
-                  <li id="5">5天 </li>
-                  <li id="6">6天 </li>
-                  <li id="7">7天 </li>
-                  <li id="8">8天 </li>
-                  <li id="9">9天 </li>
-                </div>
-              </ul>
-              <ul className="blist ">
-                <div className="title">
-                  <em className="icon i-hp-2"></em>
-                  <span>活动类型</span>
-                </div>
-                <div  className="items clearfix" onClick={this.typeJump}>
-                  <li id="1">轻装(农家) </li>
-                  <li id="2">重装(露营) </li>
-                  <li id="3">水线 </li>
-                  <li id="4">长线 </li>
-                  <li id="5">技术路线 </li>
-                  <li id="6">单日 </li>
-                  <li id="7">室内 </li>
-                  <li id="8">初体验 </li>
-                  <li id="9">海岛 </li>
-                  <li id="10">特价 </li>
-                </div>
-              </ul>
-              <ul className="clist ">
-                <div className="title">
-                  <em className="icon i-hp-3"></em>
-                  <span>月份分类</span>
-                </div>
-                <div  className="items clearfix" onClick={this.monthJump}>
-                  <li id="1">一月 <em className="icon i-hot"></em></li>
-                  <li id="2">二月 <em className="icon i-hot"></em></li>
-                  <li id="3">三月 </li>
-                  <li id="4">四月 </li>
-                  <li id="5">五月 </li>
-                  <li id="6">六月 </li>
-                  <li id="7">七月 </li>
-                  <li id="8">八月 </li>
-                  <li id="9">九月 </li>
-                  <li id="10">十月 </li>
-                  <li id="11">十一月 </li>
-                  <li id="12">十二月 </li>
-                </div>
-              </ul>
-            </div>
-            <Slider />
-            <div className="selfinfo">
-              <div  style={{display:this.state.isLogin?"block":"none"}}>
-                <em className="icon i-avator"></em>
-                <ul className="info">
-                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
-                  <li>余额：{this.state.overage?this.state.overage:""}</li>
-                  <li>积分：{this.state.score?this.state.score:""}</li>
-                </ul>
-              </div>
-              <div  style={{display:!this.state.isLogin?"block":"none"}}>
-                <ul>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                </ul>
-              </div>
-              <em className="icon i-nav-right"></em>
-              <em className="icon i-wechat hp"></em>
-            </div>
-          </div>
-        </div>
         <div className="content">
           <div className="wrap">
             <div className="title">报名信息</div>
@@ -185,14 +104,25 @@ var Order = React.createClass({
               <ul>
                 <li className="title"><h4 className="strong">订单信息: </h4> 订单号:{this.state.order.id}</li>
                 <li><h4>产品名称 : </h4> {this.state.activity.title}</li>
-                <li><h4>联系人 : </h4> {this.state.user.name} ( tel:{this.state.user.phoneNum})</li>
+                <li><h4>联系人 : </h4> {this.state.user.name} </li>
+                <li><h4>联系方式 : </h4> {this.state.user.phoneNum} </li>
                 <li><h4>出发时间 : </h4> {this.state.activity.startTime}</li>
               </ul>
-              <p className="tip">付款完成后，您的邮箱将会收到加盖公章的合同，您也可以在个人中心查看和下载您的合同</p>
+              
+              <div className="tip_wrap">
+                <h4 className="strong">
+                  保险条款
+                  <span style={{display:this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>收起明细 <em className="triangle down"></em></span>
+                  <span style={{display:!this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>展开明细 <em className="triangle top"></em></span>
+                </h4>
+                <p style={{display:this.state.aqtoggle?"block":"none"}}>1.为普及旅游安全知识以及旅游文明公约，使您的旅程顺利圆满完成，特拟定安全须知与文明公约:
+                <a href="javascript:void(0);" onClick={this.aqxz}>《安全须知》</a>、<a href="javascript:void(0);" onClick={this.wmgy}>《文明公约》</a></p>
+              </div>
             </div>
-            <div className="order_wrap">
-              <span>订单金额：<b>{this.state.order.price}</b></span>
-              <a href="javascript:void(0);" className="toPay" onClick={this.toPay}>去付款</a>
+            <div className="order_wrap_2">
+              <span>总价: &nbsp; <b>¥{this.state.order.price}</b></span>
+              <a href="javascript:history.go(-1);" className="back_a_btn">返回修改</a>
+              <a href="javascript:void(0)" className="topay_btn" onClick={this.toPay}>提交订单</a>
             </div>
           </div>
         </div>
@@ -203,16 +133,9 @@ var Order = React.createClass({
 })
 
 module.exports = Order;
+// <p className="tip">付款完成后，您的邮箱将会收到加盖公章的合同，您也可以在个人中心查看和下载您的合同</p>
+
 // <div className="tip_wrap">
-//                 <h4 className="strong">
-//                   安全提示
-//                   <span style={{display:this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>收起明细 <em className="triangle down"></em></span>
-//                   <span style={{display:!this.state.aqtoggle?"block":"none"}} onClick={this.switch.bind(null,"aqtoggle")}>展开明细 <em className="triangle top"></em></span>
-//                 </h4>
-//                 <p style={{display:this.state.aqtoggle?"block":"none"}}>1.为普及旅游安全知识以及旅游文明公约，使您的旅程顺利圆满完成，特拟定安全须知与文明公约:
-//                 <a href="javascript:void(0);" onClick={this.aqxz}>《安全须知》</a>、<a href="javascript:void(0);" onClick={this.wmgy}>《文明公约》</a></p>
-//               </div>
-//               <div className="tip_wrap">
 //                 <h4 className="strong">
 //                   保险条款
 //                   <span style={{display:this.state.bxtoggle?"block":"none"}} onClick={this.switch.bind(null,"bxtoggle")}>收起明细 <em className="triangle down"></em></span>
@@ -220,3 +143,8 @@ module.exports = Order;
 //                 </h4>
 //                 <p style={{display:this.state.bxtoggle?"block":"none"}}>123123</p>
 //               </div>
+
+// <div className="order_wrap">
+//               <span>订单金额：<b>{this.state.order.price}</b></span>
+//               <a href="javascript:void(0);" className="toPay" onClick={this.toPay}>去付款</a>
+//             </div>

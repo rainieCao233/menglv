@@ -21,7 +21,7 @@ var Signup = React.createClass({
       meetingPlaces:[{}],
       info:[1],
       detail:"",
-      rewards:[{}],
+      rewards:[],
       price:0,
       sum:0,
       isLogin:false,
@@ -244,87 +244,6 @@ var Signup = React.createClass({
       <Page isLogin={this.state.isLogin}>
       <div id="signup">
       <Topbar isLogin={this.state.isLogin}/>
-      <div className="slider_wrap">
-          <div className="slider">
-            <div className="category">
-              <ul className="alist ">
-                <div className="title">
-                  <em className="icon i-hp-1"></em>
-                  <span>时间</span>
-                </div>
-                <div className="items clearfix" onClick={this.durationJump}>
-                  <li id="1">1天 <em className="icon i-hot"></em></li>
-                  <li id="2">2天 <em className="icon i-hot"></em></li>
-                  <li id="3">3天 </li>
-                  <li id="4">4天 </li>
-                  <li id="5">5天 </li>
-                  <li id="6">6天 </li>
-                  <li id="7">7天 </li>
-                  <li id="8">8天 </li>
-                  <li id="9">9天 </li>
-                </div>
-              </ul>
-              <ul className="blist ">
-                <div className="title">
-                  <em className="icon i-hp-2"></em>
-                  <span>活动类型</span>
-                </div>
-                <div  className="items clearfix" onClick={this.typeJump}>
-                  <li id="1">轻装(农家) </li>
-                  <li id="2">重装(露营) </li>
-                  <li id="3">水线 </li>
-                  <li id="4">长线 </li>
-                  <li id="5">技术路线 </li>
-                  <li id="6">单日 </li>
-                  <li id="7">室内 </li>
-                  <li id="8">初体验 </li>
-                  <li id="9">海岛 </li>
-                  <li id="10">特价 </li>
-                </div>
-              </ul>
-              <ul className="clist ">
-                <div className="title">
-                  <em className="icon i-hp-3"></em>
-                  <span>月份分类</span>
-                </div>
-                <div  className="items clearfix" onClick={this.monthJump}>
-                  <li id="1">一月 <em className="icon i-hot"></em></li>
-                  <li id="2">二月 <em className="icon i-hot"></em></li>
-                  <li id="3">三月 </li>
-                  <li id="4">四月 </li>
-                  <li id="5">五月 </li>
-                  <li id="6">六月 </li>
-                  <li id="7">七月 </li>
-                  <li id="8">八月 </li>
-                  <li id="9">九月 </li>
-                  <li id="10">十月 </li>
-                  <li id="11">十一月 </li>
-                  <li id="12">十二月 </li>
-                </div>
-              </ul>
-            </div>
-            <Slider />
-            <div className="selfinfo">
-              <div  style={{display:this.state.isLogin?"block":"none"}}>
-                <em className="icon i-avator"></em>
-                <ul className="info">
-                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
-                  <li>余额：{this.state.overage?this.state.overage:""}</li>
-                  <li>积分：{this.state.score?this.state.score:""}</li>
-                </ul>
-              </div>
-              <div  style={{display:!this.state.isLogin?"block":"none"}}>
-                <ul>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                </ul>
-              </div>
-              <em className="icon i-nav-right"></em>
-              <em className="icon i-wechat hp"></em>
-            </div>
-          </div>
-        </div>
       <div className="content">
         <div className="wrap">
           <div className="title">报名信息</div>
@@ -334,25 +253,27 @@ var Signup = React.createClass({
               this.state.info.map(function(item, index){
                 if(index == 0){
                   return  <div className="info" ref="info" key={"info"+index}>
-                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /></div>
-                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/></div>
+                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                          <div className="input_wrap">&nbsp;昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /><span>(必填项)</span></div>
+                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/><span>(必填项)</span></div>
                         </div>
                 }else{
                   return  <div className="info" ref="info" key={"info"+index}>
                           <em className="icon i-close" onClick={_self.removePerson.bind(null,index)}></em>
-                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /></div>
-                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/></div>
+                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                          <div className="input_wrap">&nbsp;昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
+                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /><span>(必填项)</span></div>
+                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/><span>(必填项)</span></div>
                         </div>
                 }
               })
             }
             </div>
+            <div className="tip">备注：身份信息仅用来购买户外专业保险，萌旅户外旅行承诺不会泄露玩家身份信息或用户其他用途</div>
+              <div className="must_wrap">继续预定代表您已经阅读并同意<a href="javascript:void(0);" className="must_know" onClick={this.showModal}>《预订须知》</a></div>
             <a href="javascript:void(0);" className="signup_btn" onClick={this.addPerson}>增加报名人员</a>
             <div ref="discount1">
             {
@@ -384,7 +305,7 @@ var Signup = React.createClass({
                 <div className="input_wrap">*地 &nbsp; &nbsp; &nbsp; 址: <input type="text" onBlur={_self.testInfo} ref="infoaddress"/></div>
               </div>
             </div>
-            <div className="discount">
+            <div className="discount" id={this.state.rewards.length} style={{display:this.state.rewards.length>=1?"block":"none"}}>
               <h4>已享受优惠 <span>优惠说明</span></h4>
               {
                 this.state.rewards.map(function(item, index){
@@ -407,8 +328,6 @@ var Signup = React.createClass({
                   
                 })
               }
-              <div className="tip">备注：身份信息仅用来购买户外专业保险，萌旅户外旅行承诺不会泄露玩家身份信息或用户其他用途</div>
-              <div className="must_wrap">继续预定代表您已经阅读并同意<a href="javascript:void(0);" className="must_know" onClick={this.showModal}>预订须知</a></div>
             </div>
             <div className="total">
               总价 : <b>¥{this.state.sum}</b>可获积分 : {this.state.sum}

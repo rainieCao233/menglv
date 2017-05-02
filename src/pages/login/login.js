@@ -90,6 +90,7 @@ var Login = React.createClass({
             <input type="password" ref="password"/>
           </div>
           <div className="checkbox clearfix">
+            <input type="checkbox" ref="autoLogin" />两周自动登录
             <a href="javascript:void(0);" className="forget_pw">忘记密码</a>
           </div>
       		<a href="javascript:void(0);" className="login_btn" onClick={this.toLogin}>登陆</a>
@@ -106,4 +107,3 @@ var Login = React.createClass({
 })
 
 module.exports = Login;
-// <input type="checkbox" ref="autoLogin" />两周内自动登录

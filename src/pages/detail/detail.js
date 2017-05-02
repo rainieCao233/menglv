@@ -132,87 +132,6 @@ var Detail = React.createClass({
       <Page isLogin={this.state.isLogin}>
       <div id="detail">
         <Topbar isLogin={this.state.isLogin}/>
-        <div className="slider_wrap">
-          <div className="slider">
-            <div className="category">
-              <ul className="alist ">
-                <div className="title">
-                  <em className="icon i-hp-1"></em>
-                  <span>时间</span>
-                </div>
-                <div className="items clearfix" onClick={this.durationJump}>
-                  <li id="1">1天 <em className="icon i-hot"></em></li>
-                  <li id="2">2天 <em className="icon i-hot"></em></li>
-                  <li id="3">3天 </li>
-                  <li id="4">4天 </li>
-                  <li id="5">5天 </li>
-                  <li id="6">6天 </li>
-                  <li id="7">7天 </li>
-                  <li id="8">8天 </li>
-                  <li id="9">9天 </li>
-                </div>
-              </ul>
-              <ul className="blist ">
-                <div className="title">
-                  <em className="icon i-hp-2"></em>
-                  <span>活动类型</span>
-                </div>
-                <div  className="items clearfix" onClick={this.typeJump}>
-                  <li id="1">轻装(农家) </li>
-                  <li id="2">重装(露营) </li>
-                  <li id="3">水线 </li>
-                  <li id="4">长线 </li>
-                  <li id="5">技术路线 </li>
-                  <li id="6">单日 </li>
-                  <li id="7">室内 </li>
-                  <li id="8">初体验 </li>
-                  <li id="9">海岛 </li>
-                  <li id="10">特价 </li>
-                </div>
-              </ul>
-              <ul className="clist ">
-                <div className="title">
-                  <em className="icon i-hp-3"></em>
-                  <span>月份分类</span>
-                </div>
-                <div  className="items clearfix" onClick={this.monthJump}>
-                  <li id="1">一月 <em className="icon i-hot"></em></li>
-                  <li id="2">二月 <em className="icon i-hot"></em></li>
-                  <li id="3">三月 </li>
-                  <li id="4">四月 </li>
-                  <li id="5">五月 </li>
-                  <li id="6">六月 </li>
-                  <li id="7">七月 </li>
-                  <li id="8">八月 </li>
-                  <li id="9">九月 </li>
-                  <li id="10">十月 </li>
-                  <li id="11">十一月 </li>
-                  <li id="12">十二月 </li>
-                </div>
-              </ul>
-            </div>
-            <Slider />
-            <div className="selfinfo">
-              <div  style={{display:this.state.isLogin?"block":"none"}}>
-                <em className="icon i-avator"></em>
-                <ul className="info">
-                  <li>网名：{this.state.wxNickname?this.state.wxNickname:""}</li>
-                  <li>余额：{this.state.overage?this.state.overage:""}</li>
-                  <li>积分：{this.state.score?this.state.score:""}</li>
-                </ul>
-              </div>
-              <div  style={{display:!this.state.isLogin?"block":"none"}}>
-                <ul>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                  <li><em className="icon i-dot"></em>【新安江】赏新安油菜花，这个 初春陪你一起过...</li>
-                </ul>
-              </div>
-              <em className="icon i-nav-right"></em>
-              <em className="icon i-wechat hp"></em>
-            </div>
-          </div>
-        </div>
       	<div className="wrap clearfix">
       		<div className="breadcrumb">您当前的位置：首页 / 短途旅行</div>
           <div className="intro_wrap clearfix">
@@ -240,10 +159,10 @@ var Detail = React.createClass({
                 <li>出发地 : {this.state.meetingPlaces[0].placeName}</li>
                 <li>报名截止时间 : {this.state.activity.signUpEndTime}</li>
                 <li>活动人数(限额) : {this.state.pnum}/{this.state.activity.maxPeople} (报名数 / 人数限制)</li>
-                <li>带队领队 : {this.state.leaders[0].name} <a href="javascript:void(0);" onClick={this.showLeader}>查看领队情况</a></li>
+                <li>带队领队 : {this.state.leaders[0].name} <a href="javascript:void(0);" onClick={this.showLeader}>查看领队介绍</a></li>
                 <li>领队手机号码 : {this.state.leaders[0].phoneNum}<a href="javascript:void(0);" onClick={this.showModal}>点击查看报名须知</a></li>
               </ul>
-              <a href={"/#/signup/"+this.props.params.id} className="intro_btn">活动进行中</a>
+              <a href={"/#/signup/"+this.props.params.id} className="intro_btn">点击立即报名</a>
               <span className="vip">成为<b>VIP</b>，有更多的福利和优惠哦！</span>
             </div>
           </div>
@@ -304,7 +223,7 @@ var Detail = React.createClass({
               <span><b>6178+</b>米</span><br />攀登记录
             </li>
             <li>
-              <span><b>16+</b>座</span><br />雪山攀登
+              <span><b>98%</b>满意</span><br />客户满意度
             </li>
             <li>
               <span><b>28+</b>天</span><br />徒步穿越记录

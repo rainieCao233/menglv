@@ -143,11 +143,18 @@
   line-height: 30px;
   margin-bottom: 10px;
   text-align: center;
+  position: relative;
 }
 #signup .main .input_wrap input{
   line-height: 40px;
   height: 40px;
   width: 365px;
+}
+#signup .main .input_wrap span{
+  color: red;
+  position: absolute;
+  right: 30px;
+  bottom: 0;
 }
 #signup .main a.signup_btn{
   display: inline-block;
@@ -217,15 +224,17 @@
 #signup .discount .detail b{
   color: #000;
 }
-#signup .discount .tip{
+#signup .tip{
   color: #6d6b67;
   margin-top: 20px;
   line-height: 25px;
+  margin-left: 80px;
 }
-#signup .discount .must_wrap{
+#signup .must_wrap{
   color: #000;
+  margin-left: 80px;
 }
-#signup .discount a.must_know{
+#signup a.must_know{
   display: inline-block;
   margin-left: 15px;
   color: #43b413;

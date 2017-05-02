@@ -150,9 +150,10 @@
   line-height: 30px;
   margin-bottom: 20px;
 }
-/*#order .tip_wrap{
+#order .tip_wrap{
   border: 1px solid #e9e9e9;
   padding-bottom: 10px;
+  margin-top: 50px;
 }
 #order .tip_wrap h4.strong{
   background: #e9e9e9;
@@ -189,8 +190,42 @@
 #order .tip_wrap em.triangle.down{
   border-color: #2e9900 transparent transparent transparent;
   margin-top: 7px;
-}*/
-#order .order_wrap{
+}
+#order .order_wrap_2{
+   margin: 25px 200px;
+   text-align: right;
+}
+#order .order_wrap_2 span{
+  font-size: 14px;
+  color: #808080;
+  vertical-align: bottom;
+}
+#order .order_wrap_2 span b{
+  font-size: 24px;
+  color: red;
+  vertical-align: bottom;
+}
+#order .order_wrap_2 a.back_a_btn{
+  line-height: 40px;
+  background: #43b413;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+#order .order_wrap_2 a.topay_btn{
+  line-height: 40px;
+  background: #e82222;
+  color: #fff;
+  text-align: center;
+  padding: 0 30px;
+  display: inline-block;
+  font-size: 16px;
+}
+/*#order .order_wrap{
   line-height: 70px;
   padding-left: 50px;
   background: #fffceb;
@@ -219,7 +254,7 @@
   float: right;
   margin-top: 10px;
   margin-right: 20px;
-}
+}*/
 #order .modal_wrap{
   position: fixed;
   background: rgba(0, 0, 0, 0.6);

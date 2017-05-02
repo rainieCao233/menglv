@@ -338,7 +338,7 @@ var Homepage = React.createClass({
         <ul className="record clearfix">
           <li><span><b>8000+</b>次</span><br />户外活动</li>
           <li><span><b>6178+</b>米</span><br />攀登记录</li>
-          <li><span><b>16+</b>座</span><br />雪山攀登</li>
+          <li><span><b>98%</b>满意</span><br />客户满意度</li>
           <li><span><b>28+</b>天</span><br />徒步穿越记录</li>
           <li><span><b>2000+</b>次</span><br />承接团队策划</li>
         </ul>
