@@ -50,7 +50,7 @@ var Slider = React.createClass({
 	},
 	render:function(){
 		return (
-			<div id="slider">
+			<div id="slider" className={this.props.className}>
 				<a href="javascript:void(0);" className="slider_btn last" onClick={this.lastPic}><em className="icon i-left"></em></a>
 				<a href="javascript:void(0);" className="slider_btn next" onClick={this.nextPic}><em className="icon i-right"></em></a>
 				<ul className="pic_list clearfix" ref="pic_list">
@@ -60,10 +60,10 @@ var Slider = React.createClass({
 					<li></li>
 				</ul>
 				<ul className="dot_list clearfix" onClick={this.getPicId} ref="dot_list">
-					<li className="on"><a href="#" id="1"></a></li>
-					<li><a href="#" id="2"></a></li>
-					<li><a href="#" id="3"></a></li>
-					<li><a href="#" id="4"></a></li>
+					<li className="on"><a href="javascript:void(0)" id="1"></a></li>
+					<li><a href="javascript:void(0)" id="2"></a></li>
+					<li><a href="javascript:void(0)" id="3"></a></li>
+					<li><a href="javascript:void(0)" id="4"></a></li>
 				</ul>
 			</div>
 		)

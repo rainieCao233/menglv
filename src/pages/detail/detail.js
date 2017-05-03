@@ -133,7 +133,7 @@ var Detail = React.createClass({
       <div id="detail">
         <Topbar isLogin={this.state.isLogin}/>
       	<div className="wrap clearfix">
-      		<div className="breadcrumb">您当前的位置：首页 / 短途旅行</div>
+      		<div className="breadcrumb">您当前的位置：首页 > 短途旅行</div>
           <div className="intro_wrap clearfix">
             <div className="pic_wrap">
               <a href="javascript:void(0);" className="pic">
