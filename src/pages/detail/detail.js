@@ -154,7 +154,7 @@ var Detail = React.createClass({
               <ul>
                 <li>活动费用 : ¥ {this.state.activity.originalPrice}.00</li>
                 <li>活动日期 : {this.state.activity.startTime} - {this.state.activity.endTime}</li>
-                <li>活动类型 : {this.state.types[0].type}</li>
+                <li>活动类型 : {this.state.types[0]?this.state.types[0].type:""}</li>
                 <li>活动地点 : {this.state.activity.destination}</li>
                 <li>出发地 : {this.state.meetingPlaces[0].placeName}</li>
                 <li>报名截止时间 : {this.state.activity.signUpEndTime}</li>

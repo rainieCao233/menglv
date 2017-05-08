@@ -15,6 +15,7 @@ var Tripitem = React.createClass({
 		this.state.time = this.props.v.startTime;
 		this.forceUpdate();
 		this.refs.em.style.background = "url('"+this.props.v.mainPicRoute+"')";
+		this.refs.em.style.backgroundSize = "100% 100%";
 	},
 	render:function(){
 		var class_1 = "none",class_2 = "none";

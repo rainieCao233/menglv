@@ -23,6 +23,7 @@
 	font-size: 13px;
 	display: inline-block;
 	float: right;
+	cursor: pointer;
 	color: #28739a;
 }
 #register .input_wrap {
@@ -38,6 +39,9 @@
 #register .checkbox{
 	line-height: 40px;
 	padding-left: 100px;
+}
+#register .checkbox span{
+	cursor: pointer;
 }
 #register .checkbox input{
 	margin-right: 5px;

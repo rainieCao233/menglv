@@ -63,6 +63,7 @@ a {
     vertical-align:baseline;
     background:transparent;
     text-decoration: none;
+    cursor: pointer;
 }
 
 ins {
@@ -127,4 +128,5 @@ ul li{
 em.icon{
   display: inline-block;
   vertical-align: middle;
+  _zoom:1;_display:inline;*display:inline;
 }

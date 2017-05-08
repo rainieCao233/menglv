@@ -53,6 +53,8 @@ var Register = React.createClass({
           return;
         }
         self.postRequest(data);
+    }else{
+      alert("请阅读用户须知后勾选,方可进行注册")
     }
   },
   postRequest:function(data){
@@ -72,6 +74,9 @@ var Register = React.createClass({
   closeModal:function(){
     this.refs.modal2.style.display="none";
   },
+  jumpToLogin:function(){
+    Helper.forwardTo("/login")
+  },
   render:function(){
     return(
       <Page>
@@ -80,7 +85,7 @@ var Register = React.createClass({
       	<div className="wrap">
       		<div className="title">
       			用户注册
-      			<span>已有帐号去登陆</span>
+      			<span onClick={this.jumpToLogin}>已有帐号去登陆</span>
       		</div>
           <div className="input_wrap">
             *用户姓名：<input type="text" ref="name"/>
@@ -95,7 +100,7 @@ var Register = React.createClass({
             *手机号码：<input type="text" ref="phone"/>
           </div>
           <div className="checkbox">
-            <input type="checkbox" ref="xuzhi" /><span onClick={this.showXuzhi}>用户须知</span>
+            <input type="checkbox" ref="xuzhi" defaultChecked="checked"/><span onClick={this.showXuzhi}>用户须知</span>
           </div>
       		<a href="javascript:void(0);" className="register_btn" onClick={this.toRegister}>注册</a>
       	</div>

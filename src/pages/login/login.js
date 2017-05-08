@@ -61,15 +61,22 @@ var Login = React.createClass({
     var _self = this;
 		Helper.send("loginController/normalLogin",data)
 			.success(function(res){
+        if(this.refs.autoLogin.checked){
+          Helper.cookie.set("username",data.username,"d14");
+          Helper.cookie.set("password",Helper.md5.useMd5(data.password),"d14");
+        }
 				alert("登陆成功")
         Helper.forwardTo("/homepage");
-			})
+			}.bind(this))
 			.error(function(req){
 				alert(req)
 			});
   },
   weixinlogin:function(){
     Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent(location.origin+"/#/")+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
+  },
+  jumpToR:function(){
+    Helper.forwardTo("/register")
   },
   render:function(){
     return(
@@ -79,7 +86,7 @@ var Login = React.createClass({
       	<div className="wrap">
       		<div className="title">
       			用户登陆
-      			<a>没有帐号立即去注册</a>
+      			<a onClick={this.jumpToR}>没有帐号立即去注册</a>
       		</div>
           <div className="input_wrap">
             <span>* 账号：</span>
@@ -90,7 +97,7 @@ var Login = React.createClass({
             <input type="password" ref="password"/>
           </div>
           <div className="checkbox clearfix">
-            <input type="checkbox" ref="autoLogin" />两周自动登录
+            <input type="checkbox" ref="autoLogin" />两周内自动登录
             <a href="javascript:void(0);" className="forget_pw">忘记密码</a>
           </div>
       		<a href="javascript:void(0);" className="login_btn" onClick={this.toLogin}>登陆</a>
