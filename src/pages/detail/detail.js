@@ -158,7 +158,7 @@ var Detail = React.createClass({
                 <li>活动日期 : {this.state.activity.startTime?this.state.activity.startTime:""} - {this.state.activity.endTime?this.state.activity.endTime:""}</li>
                 <li>活动类型 : {this.state.types[0]?this.state.types[0].type:""}</li>
                 <li>活动地点 : {this.state.activity.destination?this.state.activity.destination:""}</li>
-                <li>出发地 : {this.state.meetingPlaces[0]?this.state.meetingPlaces[0].placeName:""}</li>
+                <li>出发地 : {this.state.meetingPlaces[0].placeName?this.state.meetingPlaces[0].placeName:""}</li>
                 <li>报名截止时间 : {this.state.activity.signUpEndTime?this.state.activity.signUpEndTime:""}</li>
                 <li>活动人数(限额) : {this.state.pnum?this.state.pnum:0}/{this.state.activity.maxPeople?this.state.activity.maxPeople:""} (报名数 / 人数限制)</li>
                 <li>带队领队 : {this.state.leaders[0].name?this.state.leaders[0].name:""} <a href="javascript:void(0);" onClick={this.showLeader}>查看领队介绍</a></li>
