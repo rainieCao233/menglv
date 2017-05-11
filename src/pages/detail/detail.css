@@ -261,6 +261,13 @@
 #detail .main_wrap .main{
 	display: none;
 }
+#detail .main_wrap .main img{
+	text-align: center;
+}
+#detail .main_wrap .main p b,
+#detail .main_wrap .main font b{
+	font-size: 18px !important;
+}
 #detail .main_wrap .main span{
 	font-size: 18px !important;
     line-height: 30px !important;

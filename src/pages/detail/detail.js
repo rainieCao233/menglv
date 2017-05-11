@@ -154,13 +154,13 @@ var Detail = React.createClass({
               <ul>
                 <li>活动费用 : ¥ {this.state.activity.originalPrice?this.state.activity.originalPrice:0}.00</li>
                 <li>活动日期 : {this.state.activity.startTime?this.state.activity.startTime.substring(0,10)+" "+this.state.activity.startTime.substring(11,999):""} - {this.state.activity.endTime?this.state.activity.endTime.substring(0,10)+" "+this.state.activity.endTime.substring(11,999):""}</li>
-                <li style={{display:this.state.types.length>0?"block":"none"}}>活动类型 : {this.state.types.length>0?this.state.types[0].type:""}</li>
+                <li>活动类型 : {this.state.types.length>0?this.state.types[0].type:""}</li>
                 <li>活动地点 : {this.state.activity.destination?this.state.activity.destination:""}</li>
-                <li style={{display:this.state.meetingPlaces.length>0?"block":"none"}}>出发地 : {this.state.meetingPlaces.length>0?this.state.meetingPlaces[0].placeName:""}</li>
+                <li>出发地 : {this.state.meetingPlaces.length>0?this.state.meetingPlaces[0].placeName:""}</li>
                 <li>报名截止时间 : {this.state.activity.signUpEndTime?this.state.activity.signUpEndTime:""}</li>
                 <li>活动人数(限额) : {this.state.pnum?this.state.pnum:0}/{this.state.activity.maxPeople?this.state.activity.maxPeople:""} (报名数 / 人数限制)</li>
-                <li style={{display:this.state.leaders.length>0?"block":"none"}}>带队领队 : {this.state.leaders.length>0?this.state.leaders[0].name:""} <a href="javascript:void(0);" onClick={this.showLeader}>查看领队介绍</a></li>
-                <li style={{display:this.state.leaders.length>0?"block":"none"}}>领队手机号码 : {this.state.leaders.length>0?this.state.leaders[0].phoneNum:""}<a href="javascript:void(0);" onClick={this.showModal}>点击查看报名须知</a></li>
+                <li>带队领队 : {this.state.leaders.length>0?this.state.leaders[0].name:""} <a href="javascript:void(0);"  style={{display:this.state.leaders.length>0?"block":"none"}} onClick={this.showLeader}>查看领队介绍</a></li>
+                <li>领队手机号码 : {this.state.leaders.length>0?this.state.leaders[0].phoneNum:""}<a href="javascript:void(0);" onClick={this.showModal}>点击查看报名须知</a></li>
               </ul>
               <a href={"/#/signup/"+this.props.params.id} className="intro_btn">点击立即报名</a>
               <span className="vip">成为<b>VIP</b>，有更多的福利和优惠哦！</span>

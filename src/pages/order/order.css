@@ -166,6 +166,7 @@
 #order .tip_wrap h4.strong span{
   color: #2e9900;
   float: right;
+  cursor: pointer;
 }
 #order .tip_wrap p{
   font-size: 14px;
