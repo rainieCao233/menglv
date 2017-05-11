@@ -236,7 +236,7 @@ var Detail = React.createClass({
         <div className="modal_wrap" ref="modal1">
           <div className="modal">
             <em className="icon i-close" onClick={this.closeLeader}></em>
-            <div dangerouslySetInnerHTML={{__html: this.state.leaders[0].detailInfo}}></div>
+            <div dangerouslySetInnerHTML={{__html: this.state.leaders.length>0?this.state.leaders[0].detailInfo:""}}></div>
           </div>
         </div>
         <div className="modal_wrap" ref="modal2">
