@@ -153,7 +153,7 @@ var Detail = React.createClass({
               <div className="name">{this.state.activity.title}</div>
               <ul>
                 <li>活动费用 : ¥ {this.state.activity.originalPrice?this.state.activity.originalPrice:0}.00</li>
-                <li>活动日期 : {this.state.activity.startTime?this.state.activity.startTime:""} - {this.state.activity.endTime?this.state.activity.endTime:""}</li>
+                <li>活动日期 : {this.state.activity.startTime?this.state.activity.startTime.substring(0,10)+" "+this.state.activity.startTime.substring(11,999):""} - {this.state.activity.endTime?this.state.activity.endTime.substring(0,10)+" "+this.state.activity.endTime.substring(11,999):""}</li>
                 <li>活动类型 : {this.state.types[0]?this.state.types[0].type:""}</li>
                 <li>活动地点 : {this.state.activity.destination?this.state.activity.destination:""}</li>
                 <li>出发地 : {this.state.meetingPlaces.length>0?this.state.meetingPlaces[0].placeName:""}</li>
