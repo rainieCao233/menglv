@@ -105,7 +105,11 @@ var Signup = React.createClass({
   },
   removePerson:function(index,e){
     this.state.info.pop();
-    e.currentTarget.parentNode.remove();
+    if(navigator.userAgent.indexOf("MSIE")>0){
+        e.currentTarget.parentNode.removeNode(true);
+    }else{
+        e.currentTarget.parentNode.remove();
+    }
   },
   calculatePrice:function(p,num,index){
     console.log("calculatePrice",p,num,index);

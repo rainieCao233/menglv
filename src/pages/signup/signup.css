@@ -132,6 +132,8 @@
   display: none;
   zoom:.7;
   z-index: 99999;
+  -moz-transform:scale(0.7);
+  -moz-transform-origin:top right;
 }
 #signup .main .info:hover{
   background: #f4f4f4;
