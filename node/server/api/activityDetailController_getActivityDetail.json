@@ -309,23 +309,7 @@
         "type": "送"
       }
     ],
-    "meetingPlaces": [
-      {
-        "activityId": 155,
-        "id": 440,
-        "placeName": "上海体育场2号扶梯口"
-      },
-      {
-        "activityId": 155,
-        "id": 441,
-        "placeName": "南方商城"
-      },
-      {
-        "activityId": 155,
-        "id": 442,
-        "placeName": "松江老城高速进口9号线对面"
-      }
-    ],
+    "meetingPlaces": [],
     "types": [
       {
         "id": 1,
