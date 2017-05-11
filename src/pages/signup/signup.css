@@ -131,6 +131,7 @@
   top: 10px;
   display: none;
   zoom:.7;
+  z-index: 99999;
 }
 #signup .main .info:hover{
   background: #f4f4f4;

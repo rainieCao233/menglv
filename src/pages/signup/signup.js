@@ -203,7 +203,7 @@ var Signup = React.createClass({
       });
   },
   validator:function(arr){
-    if(!(arr[0].value=="") && !(arr[1].value=="") && validator.isCardID(arr[2].value) && validator.isPhone(arr[3].value) && !(arr[4].value=="")){
+    if(!(arr[0].value=="") && validator.isCardID(arr[2].value) && validator.isPhone(arr[3].value) && !(arr[4].value=="")){
       return true;
     }else{
       return false;
@@ -253,21 +253,21 @@ var Signup = React.createClass({
               this.state.info.map(function(item, index){
                 if(index == 0){
                   return  <div className="info" ref="info" key={"info"+index}>
-                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
-                          <div className="input_wrap">&nbsp;昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
-                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /><span>(必填项)</span></div>
-                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/><span>(必填项)</span></div>
-                        </div>
+                            <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                            <div className="input_wrap">&nbsp;昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
+                            <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                            <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /><span>(必填项)</span></div>
+                            <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/><span>(必填项)</span></div>
+                          </div>
                 }else{
                   return  <div className="info" ref="info" key={"info"+index}>
-                          <em className="icon i-close" onClick={_self.removePerson.bind(null,index)}></em>
-                          <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
-                          <div className="input_wrap">&nbsp;昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
-                          <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
-                          <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /><span>(必填项)</span></div>
-                          <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/><span>(必填项)</span></div>
-                        </div>
+                            <em className="icon i-close" onClick={_self.removePerson.bind(null,index)}></em>
+                            <div className="input_wrap">*姓 &nbsp; &nbsp; &nbsp; 名: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                            <div className="input_wrap">&nbsp;昵 &nbsp; &nbsp; &nbsp; 称: <input type="text" onBlur={_self.test}/></div>
+                            <div className="input_wrap">*身份证号: <input type="text" onBlur={_self.test}/><span>(必填项)</span></div>
+                            <div className="input_wrap">*手机号码: <input type="text" onBlur={_self.test} /><span>(必填项)</span></div>
+                            <div className="input_wrap">*集合地点: <LinkageMenu v={_self.state.meetingPlaces}/><span>(必填项)</span></div>
+                          </div>
                 }
               })
             }
