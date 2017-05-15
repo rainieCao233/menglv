@@ -23,7 +23,7 @@
 #homepage .category{
 	width: 250px;
 	height: 455px;
-	background: rgba(0, 0, 0, 0.35);
+	background: #525252;
 	padding: 20px 6px;
 	box-sizing:border-box;
 	position:absolute;
@@ -35,6 +35,9 @@
 	border-bottom: 1px solid #8e99a2;
 	width: 100%;
 }
+#homepage .category ul:last-child{
+	border:0;
+}
 #homepage .category ul li{
 	float: left;
 	width: 33%;
@@ -43,7 +46,7 @@
 }
 #homepage .category ul.blist,
 #homepage .category ul.clist{
-	margin-top: 20px;
+	margin-top: 25px;
 }
 #homepage .category ul .title span{
 	font-size: 14px;
@@ -60,6 +63,8 @@
 	line-height: 20px;
 	color: #fff;
 	cursor: pointer;
+	padding-left: 10px;
+	box-sizing:border-box;
 }
 #homepage .selfinfo{
 	position: absolute;
@@ -67,7 +72,7 @@
 	right: 0;
 	width: 250px;
 	height: 455px;
-	background: rgba(0, 0, 0, 0.35);
+	background: #525252;
 	padding: 0 10px 20px 10px;
 	box-sizing:border-box;
 }
@@ -95,9 +100,10 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	width: 215px;
 }
 #homepage .selfinfo em.i-wechat.hp{
-    display: none;
+    display: block;
     position: absolute;
     bottom: 172px;
     left: 120px;
@@ -220,13 +226,12 @@
 #homepage .case_wrap ul.right .price{
 	font-size: 14px;
 	color: #c7c7c7;
-	position: absolute;
-	bottom: 0;
-	right: 0;
+	float: right;
+	margin-right: 20px;
 }
 #homepage .case_wrap ul.right .price b{
 	color: #ff9d00;
-	font-size: 14px;
+	font-size: 16px;
 }
 #homepage .case_wrap ul.right .timestamp{
 	font-size: 16px;
@@ -259,6 +264,7 @@
 	float: left;
 	text-align: center;
 	position: relative;
+	cursor: pointer;
 }
 #homepage ul.leader_wrap li em.leader{
 	display: inline-block;

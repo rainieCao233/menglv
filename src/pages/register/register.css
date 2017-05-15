@@ -1,6 +1,6 @@
 #register{
 	padding: 250px 0;
-	background: url(../../imgs/bg-2.png);
+	/*background: url(../../imgs/bg-2.png);*/
 	background-size: 100% 100%;
 }
 #register .wrap{
@@ -10,6 +10,7 @@
 	margin: 0 auto;
 	box-sizing:border-box;
 	padding: 25px 80px 40px 80px;
+	border:1px solid #7d7d7d;
 }
 #register .wrap .title{
 	line-height: 35px;

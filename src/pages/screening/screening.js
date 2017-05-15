@@ -212,51 +212,6 @@ var Screening = React.createClass({
       		<div className="left">
 	      		<div className="screening_wrap">
 	      			<div className="row">
-	      				<span className="input_name">时 间</span>
-		      			<div className="input_wrap" ref="time">
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="-1" onChange={this.changeTab} defaultChecked="checked"/>
-			      				<span>全部</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="1" onChange={this.changeTab} />
-			      				<span>1天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="2" onChange={this.changeTab} />
-			      				<span>2天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="3" onChange={this.changeTab} />
-			      				<span>3天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="4" onChange={this.changeTab} />
-			      				<span>4天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="5" onChange={this.changeTab} />
-			      				<span>5天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="6" onChange={this.changeTab} />
-			      				<span>6天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="7" onChange={this.changeTab} />
-			      				<span>7天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="8" onChange={this.changeTab} />
-			      				<span>8天</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="time_tab" value="9" onChange={this.changeTab} />
-			      				<span>9天</span>
-		      				</span>
-		      			</div>
-	      			</div>
-	      			<div className="row">
 	      				<span className="input_name">等 级</span>
 		      			<div className="input_wrap" ref="level">
 		      				<span className="tab_wrap">
@@ -327,23 +282,6 @@ var Screening = React.createClass({
 		      				<span className="tab_wrap">
 			      				<input type="radio" name="type_tab" value="9" onChange={this.changeTab} />
 			      				<span>特价</span>
-		      				</span>
-		      			</div>
-	      			</div>
-	      			<div className="row">
-	      				<span className="input_name">价 格</span>
-		      			<div className="input_wrap" ref="price">
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="price_tab" value="-1" onChange={this.changeTab}  defaultChecked="checked"/>
-			      				<span>全部</span>
-		      				</span>
-		      				<span className="tab_wrap">
-			      				<input type="radio" name="price_tab" value="0" onChange={this.changeTab} />
-			      				<span>0-500</span>
-		      				</span>
-		      				<span className="tab_wrap lg">
-			      				<input type="radio" name="price_tab" value="1" onChange={this.changeTab}  />
-			      				<span>500-1000</span>
 		      				</span>
 		      			</div>
 	      			</div>

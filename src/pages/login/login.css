@@ -1,6 +1,6 @@
 #login{
 	padding: 250px 0;
-	background: url(../../imgs/bg-1.png);
+	/*background: url(../../imgs/bg-1.png);*/
 	background-size: 100% 100%;
 }
 #login .wrap{
@@ -11,6 +11,7 @@
 	box-sizing:border-box;
 	position: relative;
 	padding: 25px 80px 40px 80px;
+	border:1px solid #7d7d7d;
 }
 #login .wrap .title{
 	line-height: 35px;

@@ -62,8 +62,8 @@ var Homepage = React.createClass({
         res = res.activities;
         for(var i=0;i<res.length;i++){
           res[i].startTime = res[i].startTime.substring(0,10);
-          if(res[i].title.length >25){
-            res[i].title = res[i].title.substring(0,25) + "...";
+          if(res[i].title.length >34){
+            res[i].title = res[i].title.substring(0,34) + "...";
           }
         }
         if(obj.is_long_journey == "0"){
@@ -126,8 +126,9 @@ var Homepage = React.createClass({
       this.getActivities({is_long_journey:(e.target.value.substring(4,5)-1)});
   },
   durationJump:function(e){
-    Helper.forwardTo("/screening/duration/" + e.target.id);
-    location.reload();
+    // Helper.forwardTo("/screening/duration/" + e.target.id);
+    // location.reload();
+    Helper.jumpTo("http://www.mikecrm.com/faNs8M")
   },
   typeJump:function(e){
     Helper.forwardTo("/screening/type/" + e.target.id);
@@ -147,23 +148,6 @@ var Homepage = React.createClass({
             <div className="category">
               <ul className="alist ">
                 <div className="title">
-                  <em className="icon i-hp-1"></em>
-                  <span>时间</span>
-                </div>
-                <div className="items clearfix" onClick={this.durationJump}>
-                  <li id="1">1天 <em className="icon i-hot"></em></li>
-                  <li id="2">2天 <em className="icon i-hot"></em></li>
-                  <li id="3">3天 </li>
-                  <li id="4">4天 </li>
-                  <li id="5">5天 </li>
-                  <li id="6">6天 </li>
-                  <li id="7">7天 </li>
-                  <li id="8">8天 </li>
-                  <li id="9">9天 </li>
-                </div>
-              </ul>
-              <ul className="blist ">
-                <div className="title">
                   <em className="icon i-hp-2"></em>
                   <span>活动类型</span>
                 </div>
@@ -180,7 +164,7 @@ var Homepage = React.createClass({
                   <li id="10">特价 </li>
                 </div>
               </ul>
-              <ul className="clist ">
+              <ul className="blist ">
                 <div className="title">
                   <em className="icon i-hp-3"></em>
                   <span>月份分类</span>
@@ -198,6 +182,17 @@ var Homepage = React.createClass({
                   <li id="10">十月 </li>
                   <li id="11">十一月 </li>
                   <li id="12">十二月 </li>
+                </div>
+              </ul>
+              <ul className="clist ">
+                <div className="title">
+                  <em className="icon i-hp-1"></em>
+                  <span>团队专属定制</span>
+                </div>
+                <div className="items clearfix" onClick={this.durationJump}>
+                  <li id="1">拓展团建</li>
+                  <li id="2">企业年会</li>
+                  <li id="3">策划执行</li>
                 </div>
               </ul>
             </div>
@@ -250,11 +245,11 @@ var Homepage = React.createClass({
                 return <li key={"case1"+index}>
                          <a href={"/#/detail/"+item.id}>
                            <img src={item.mainPicRoute} alt="" className="item" />
-                           <h4>
-                             {item.title}
+                           <h4>{item.title}</h4>
+                           <div className="timestamp">
+                             {item.startTime}
                              <span className="price"><b>¥ {item.offPrice}</b> 元</span>
-                           </h4>
-                           <div className="timestamp">{item.startTime}-{item.endTime}</div>
+                           </div>
                          </a>
                        </li>
               })
@@ -272,11 +267,11 @@ var Homepage = React.createClass({
                 return <li key={"case2"+index}>
                          <a href={"/#/detail/"+item.id}>
                            <img src={item.mainPicRoute} alt="" className="item" />
-                           <h4>
-                             {item.title}
+                           <h4>{item.title}</h4>
+                           <div className="timestamp">
+                             {item.startTime}
                              <span className="price"><b>¥ {item.offPrice}</b> 元</span>
-                           </h4>
-                           <div className="timestamp">{item.startTime}</div>
+                           </div>
                          </a>
                        </li>
               })

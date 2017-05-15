@@ -127,7 +127,7 @@
 }
 #detail a.pic{
 	display: inline-block;
-	width: 480px;
+	width: 500px;
 	height: 320px;
 }
 #detail a.pic img{
@@ -178,6 +178,7 @@
 	color: #797979;
 	line-height: 24px;
 	font-size: 14px;
+	margin-left: 7px;
 }
 #detail .intro ul li a{
 	color: #3e609f;

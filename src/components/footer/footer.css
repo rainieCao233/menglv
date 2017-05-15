@@ -5,6 +5,7 @@
 	width: 100%;
 	overflow: hidden;
 	background: #ff9c00;
+	height: 118px;
 }
 #footer .i-footer{
 	background:url(../../imgs/footer.png);
@@ -42,7 +43,7 @@
 #footer .detail_wrap .QRCode_wrap p{
 	font-size: 18px;
 	color: #ff9d07;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	text-align: center;
 }
 #footer .wechat,
@@ -72,7 +73,7 @@
 }
 #footer .detail .title{
 	font-size: 16px;
-	margin: 0 0 30px 10px;
+	margin: 0 0 15px 10px;
 	display: inline-block;
 }
 #footer .detail ul.list{
