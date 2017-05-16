@@ -142,7 +142,7 @@ var Homepage = React.createClass({
     return(
       <Page isLogin={this.state.isLogin}>
         <div id="homepage">
-        <Topbar isLogin={this.state.isLogin} switchTab={this.switchTab} id={this.props.params.id} />
+        <Topbar name={this.state.name?decodeURIComponent(this.state.name):""} isLogin={this.state.isLogin} switchTab={this.switchTab} id={this.props.params.id} />
         <div className="slider_wrap">
           <div className="slider">
             <div className="category">

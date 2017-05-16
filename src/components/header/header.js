@@ -139,7 +139,7 @@ var Header = React.createClass({
               <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/login">登录</ALink>]</span>
               <span className="line" style={{display:!this.props.isLogin?"inline-block":"none"}}>|</span>
               <span className="sign" style={{display:!this.props.isLogin?"inline-block":"none"}}>[<ALink href="/register">注册</ALink>]</span>
-              <span className="sign" style={{display:this.props.isLogin?"inline-block":"none"}}>[<a onClick={this.logout}>退出登录</a>]</span>
+              <span className="sign" style={{display:this.props.isLogin?"inline-block":"none"}}>{this.props.name} [<a onClick={this.logout}>退出登录</a>]</span>
             </div>
             <div className="right">
               <span className="qrcode">

@@ -185,6 +185,9 @@
 	display: inline-block;
 	margin-left: 20px;
 }
+#detail .intro ul li a:last-child{
+	margin-left: 0;
+}
 #detail a.intro_btn{
 	display: inline-block;
 	width: 160px;
