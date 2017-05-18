@@ -84,7 +84,7 @@ function getHost(){
 			// return "http://192.168.0.107:"+port+"/api/";
 			// return "http://112.74.48.183:8080/huihuan/";
 			// return "http://www.shmlhw.com/menglv/";
-			return "http://139.196.209.218/"
+			return "http://139.196.209.218/menglv/"
 		break;
 	}
 }
