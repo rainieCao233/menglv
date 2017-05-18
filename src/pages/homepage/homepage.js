@@ -140,17 +140,18 @@ var Homepage = React.createClass({
     location.reload();
   },
   showLeaderInfo:function(e){
+    var that = this;
     if(!isNaN(e.target.parentNode.id)){
       Helper.send("activityDetailController/getLeaderById",{leaderId:e.target.parentNode.id})
         .success(function(res){
           // console.log(res);
-          this.setState({leaderInfo:res});
-          this.refs.modal1.style.className="block";
+          that.setState({leaderInfo:res.detailInfo});
+          that.refs.modal1.style.display="block";
         })
     }
   },
   closeLeader:function(){
-    this.refs.modal1.style.className="none";
+    this.refs.modal1.style.display="none";
   },
   render:function(){
     return(
