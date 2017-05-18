@@ -19,7 +19,8 @@ var Homepage = React.createClass({
       isLogin:false,
       name:"",
       overage:"",
-      score:""
+      score:"",
+      leaderInfo:"",
     }
   },
   componentWillMount:function(){
@@ -137,6 +138,19 @@ var Homepage = React.createClass({
   monthJump:function(e){
     Helper.forwardTo("/screening/month/" + e.target.id);
     location.reload();
+  },
+  showLeaderInfo:function(e){
+    if(!isNaN(e.target.parentNode.id)){
+      Helper.send("activityDetailController/getLeaderById",{leaderId:e.target.parentNode.id},"GET")
+        .success(function(res){
+          // console.log(res);
+          this.setState({leaderInfo:res});
+          this.refs.modal1.style.className="block";
+        })
+    }
+  },
+  closeLeader:function(){
+    this.refs.modal1.style.className="none";
   },
   render:function(){
     return(
@@ -290,40 +304,40 @@ var Homepage = React.createClass({
         </div>
         <div className="pic_wrap"><em className="hp-2"></em></div>
         <div className="wrap leader">
-          <ul className="leader_wrap clearfix">
-            <li>
+          <ul className="leader_wrap clearfix" onClick={this.showLeaderInfo}>
+            <li id="30">
               <em className="leader leader1"></em>
               <span>精英领队：Lost</span>
             </li>
-            <li>
+            <li id="7">
               <em className="leader leader2"></em>
               <span>精英领队：saturn</span>
             </li>
-            <li>
+            <li id="5">
               <em className="leader leader3"></em>
               <span>精英领队：猴子</span>
             </li>
-            <li>
+            <li id="38">
               <em className="leader leader4"></em>
               <span>精英领队：老怪</span>
             </li>
-            <li>
+            <li id="36">
               <em className="leader leader5"></em>
               <span>精英领队：顺子大叔</span>
             </li>
-            <li>
+            <li id="27">
               <em className="leader leader6"></em>
               <span>精英领队：太阳</span>
             </li>
-            <li>
+            <li id="22">
               <em className="leader leader7"></em>
               <span>精英领队：夏天</span>
             </li>
-            <li>
+            <li id="29">
               <em className="leader leader8"></em>
               <span>精英领队：萧萧</span>
             </li>
-            <li>
+            <li id="11">
               <em className="leader leader9"></em>
               <span>精英领队：亚亚</span>
             </li>
@@ -337,6 +351,12 @@ var Homepage = React.createClass({
           <li><span><b>28+</b>天</span><br />徒步穿越记录</li>
           <li><span><b>2000+</b>次</span><br />承接团队策划</li>
         </ul>
+        </div>
+        <div className="modal_wrap" ref="modal1">
+          <div className="modal">
+            <em className="icon i-close" onClick={this.closeLeader}></em>
+            <div dangerouslySetInnerHTML={{__html: this.state.leaderInfo}}></div>
+          </div>
         </div>
       </Page>
     )
