@@ -141,7 +141,7 @@ var Homepage = React.createClass({
   },
   showLeaderInfo:function(e){
     if(!isNaN(e.target.parentNode.id)){
-      Helper.send("activityDetailController/getLeaderById",{leaderId:e.target.parentNode.id},"GET")
+      Helper.send("activityDetailController/getLeaderById",{leaderId:e.target.parentNode.id})
         .success(function(res){
           // console.log(res);
           this.setState({leaderInfo:res});
