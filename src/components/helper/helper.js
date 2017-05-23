@@ -85,7 +85,7 @@ function getHost(){
 			// return "http://112.74.48.183:8080/huihuan/";
 			// return "http://www.shmlhw.com/menglv/";
 			// return "http://139.196.209.218/menglv/"
-			return "http://www.030ml.com/huihuan/"
+			return "http://www.030ml.com/menglv/"
 		break;
 	}
 }
