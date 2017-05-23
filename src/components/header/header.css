@@ -52,6 +52,9 @@
   display: inline-block;
   cursor: pointer;
 }
+#header .sign span{
+  color: #797979;
+}
 #header .line{
   margin: 0 5px;
 }
