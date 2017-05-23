@@ -73,7 +73,7 @@ var Login = React.createClass({
 			});
   },
   weixinlogin:function(){
-    Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent("http://www.030ml.com/huihuan/loginAction_getUserInfo")+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
+    Helper.jumpTo("https://open.weixin.qq.com/connect/qrconnect?appid=wx4e7bbe90a5bba881&redirect_uri="+encodeURIComponent(location.origin+"/#/")+"&response_type=code&scope=snsapi_login&state=mlpclogin#wechat_redirect");
   },
   jumpToR:function(){
     Helper.forwardTo("/register")
