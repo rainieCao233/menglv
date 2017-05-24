@@ -23,7 +23,13 @@ var Header = React.createClass({
   search:function(){
     console.log(this.refs.s_input.value);
     localStorage.setItem("text",this.refs.s_input.value);
-    Helper.forwardTo("/screening");
+    if(location.hash.indexOf("screening")>-1){
+      if(this.props.searchActivities){
+        this.props.searchActivities();
+      }
+    }else{
+      Helper.forwardTo("/screening");
+    }
   },
   logout:function(){
     var _self = this;

@@ -13,7 +13,7 @@ var Page = React.createClass({
 	render: function() {
 	  return (
 	  	<div id="page">
-			<Header isLogin={this.props.isLogin}/>
+			<Header isLogin={this.props.isLogin} searchActivities={this.props.searchActivities}/>
         		{this.props.children}
 			<Footer location={this.props.location} />
 	  	</div>

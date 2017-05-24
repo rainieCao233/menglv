@@ -94,7 +94,9 @@ var Screening = React.createClass({
       this.state.object.page_size = 6;
       this.state.object.start_index = 0;
     }
-    this.state.object.text = localStorage.getItem("text");
+    if(localStorage.getItem("text")){
+      this.state.object.text = localStorage.getItem("text");
+    }
   	this.forceUpdate();
     var _self = this;
     Helper.send("getActivitiesController/getActivities",_self.state.object)
@@ -205,7 +207,7 @@ var Screening = React.createClass({
   },
   render:function(){
     return(
-      <Page isLogin={this.state.isLogin}>
+      <Page isLogin={this.state.isLogin} searchActivities={this.searchActivities.bind(null,this.state.object,true)}>
       <div id="screening">
       	<Topbar isLogin={this.state.isLogin}/>
         <Slider className="normal" />
