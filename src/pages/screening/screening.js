@@ -29,7 +29,7 @@ var Screening = React.createClass({
     	type_tab:[true,false,false,false,false,false,false,false,false,false,false],
     	price_tab:[true,false,false],
     	month_tab:[true,false,false,false,false,false,false,false,false,false,false,false,false],
-    	object:{"start_index":0,"page_size":6,"holiday":-1,"month":-1,"type":-1,"level":-1,"duration":-1,"low_price":-1,"high_price":-1,"is_long_journey":-1}
+    	object:{"text":"","start_index":0,"page_size":6,"holiday":-1,"month":-1,"type":-1,"level":-1,"duration":-1,"low_price":-1,"high_price":-1,"is_long_journey":-1}
     }
   },
   componentWillMount:function(){
@@ -94,6 +94,7 @@ var Screening = React.createClass({
       this.state.object.page_size = 6;
       this.state.object.start_index = 0;
     }
+    this.state.object.text = localStorage.getItem("text");
   	this.forceUpdate();
     var _self = this;
     Helper.send("getActivitiesController/getActivities",_self.state.object)
