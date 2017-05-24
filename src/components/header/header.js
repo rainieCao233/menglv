@@ -45,6 +45,11 @@ var Header = React.createClass({
   toHome:function(){
     Helper.forwardTo("/homepage");
   },
+  getKey:function(event){
+    if(event.keyCode==13){  
+      this.search();
+    } 
+  },
   render:function(){
     return(
       <div id="header">
@@ -78,7 +83,7 @@ var Header = React.createClass({
               <div className="s_tab">
                 <span className="t_title">所有产品</span>
               </div>
-              <input type="text" className="s_input" ref="s_input" placeholder="" />
+              <input type="text" onKeyUp={this.getKey} className="s_input" ref="s_input" placeholder="" />
               <a href="javascript:void(0);" className="s_btn" onClick={this.search}>搜&nbsp;索</a>
             </div>
             <em className="icon i-tel"></em>
