@@ -71,6 +71,9 @@ var Screening = React.createClass({
   	}
   	this.searchActivities(obj);
   },
+  componentWillUnmount:function(){
+    window.localStorage.text = "";
+  },
   searchActivities:function(obj,isTab){
   	if(obj==null){
 
