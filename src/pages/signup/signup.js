@@ -202,8 +202,11 @@ var Signup = React.createClass({
         console.log(res);
         Helper.forwardTo("/order/" + res);
       })
-      .error(function(req){
-        console.log("error : " + req);
+      .error(function(msg,req){
+        console.log("error : " + msg);
+        if(req.retcode=="0005"){
+          Helper.forwardTo("/login");
+        }
       });
   },
   validator:function(arr){
